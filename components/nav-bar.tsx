@@ -8,7 +8,7 @@ const NAV_ITEMS = [
 
 export function NavBar() {
   return (
-    <header className="w-full border-t-2 border-t-[var(--color-brand-cyan)] bg-muted">
+    <header className="sticky top-0 z-50 w-full border-t-2 border-t-[var(--color-brand-cyan)] bg-background">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-content items-center gap-8 px-6 py-3"
