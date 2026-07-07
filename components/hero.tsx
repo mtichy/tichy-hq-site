@@ -9,13 +9,8 @@ export function Hero() {
             <br />
             tichý
           </h1>
-          <img
-            src="/figma/hr-under-name.svg"
-            alt=""
-            aria-hidden="true"
-            className="h-[6px] w-full"
-          />
-          <p className="text-medium leading-medium text-foreground text-pretty">
+          <hr className="h-[6px] w-full border-0 bg-[var(--color-brand-cyan)]" />
+          <p className="text-regular leading-regular text-foreground text-pretty">
             Design Technologist. Imagining and building digital products and the
             systems, workflows, and content models that power them.
           </p>
