@@ -1,0 +1,91 @@
+import { JourneyArrow } from '@/components/journey-arrow'
+import { MtvLogo } from '@/components/mtv-logo'
+
+export function JourneySection() {
+  return (
+    <section className="relative isolate w-full overflow-x-clip">
+      {/* Noise filter used to roughen the top & bottom edges of the dark background */}
+      <svg
+        aria-hidden
+        className="pointer-events-none absolute h-0 w-0"
+        focusable="false"
+      >
+        <defs>
+          <filter
+            id="journey-noise"
+            x="-2%"
+            y="-15%"
+            width="104%"
+            height="130%"
+            colorInterpolationFilters="sRGB"
+          >
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.999"
+              numOctaves="3"
+              seed="5253"
+              result="noise"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="noise"
+              scale="40"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+        </defs>
+      </svg>
+
+      {/* Textured dark background layer. Extends past the horizontal edges so the
+          rough left/right fringe is clipped off-screen, leaving only the top and
+          bottom edges visibly textured. */}
+      <div
+        aria-hidden
+        className="absolute inset-y-0 -left-10 -right-10 bg-[var(--color-surface-muted-dark)]"
+        style={{ filter: 'url(#journey-noise)' }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-28">
+        <h2 className="text-large font-bold leading-large text-[var(--color-surface-page)] text-balance md:text-mega md:leading-mega">
+          My journey...
+        </h2>
+
+        <div className="mt-6 max-w-[600px] space-y-6">
+          <p className="text-regular font-light leading-regular text-[var(--color-neutral-white)] text-pretty">
+            With roots in fine art, my curiosity has led me through design,
+            storytelling, and engineering, helping me learn new skills at each
+            stop. This is how a maker evolved into a design technologist.
+          </p>
+          <p className="text-regular font-light leading-regular text-[var(--color-neutral-white)]">
+            So, what&apos;s next?
+          </p>
+        </div>
+
+        {/* Logo row */}
+        <div className="mt-16 flex flex-wrap items-center gap-x-12 gap-y-8">
+          <img
+            src="/figma/saic.png"
+            alt="School of the Art Institute of Chicago"
+            className="h-12 w-auto object-contain"
+          />
+          <JourneyArrow className="h-6 w-[120px] text-[var(--color-surface-page)]" />
+          <img
+            src="/figma/parsons.png"
+            alt="Parsons School of Design"
+            className="h-12 w-auto object-contain"
+          />
+          <JourneyArrow className="h-6 w-[120px] text-[var(--color-surface-page)]" />
+          <MtvLogo />
+          <JourneyArrow className="h-6 w-[120px] text-[var(--color-surface-page)]" />
+          <img
+            src="/figma/mckinsey.png"
+            alt="McKinsey & Company"
+            className="h-12 w-auto object-contain"
+          />
+        </div>
+      </div>
+    </section>
+  )
+}
