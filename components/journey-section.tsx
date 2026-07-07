@@ -47,7 +47,7 @@ export function JourneySection() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-[118px] pb-[152px]">
-        <h2 className="text-large font-bold leading-large text-[var(--color-surface-page)] text-balance md:text-mega md:leading-mega">
+        <h2 className="text-mega font-bold leading-mega text-[var(--color-surface-page)] text-balance">
           My journey...
         </h2>
 
