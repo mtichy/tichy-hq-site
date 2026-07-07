@@ -9,11 +9,11 @@ export function Footer() {
         </h2>
         <hr className="h-[6px] w-full border-0 bg-[var(--color-brand-magenta)]" />
         <div className="flex flex-col items-start gap-4">
-          <Hyperlink href="mailto:hello@marktichy.com" className="text-medium leading-medium">
+          <Hyperlink href="mailto:mf.tichy@gmail.com" className="text-medium leading-medium">
             Email
           </Hyperlink>
           <Hyperlink
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/mark-tichy"
             target="_blank"
             rel="noopener noreferrer"
             className="text-medium leading-medium"
