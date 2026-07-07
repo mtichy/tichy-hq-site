@@ -1,3 +1,4 @@
+import { Footer } from '@/components/footer'
 import { Hero } from '@/components/hero'
 import { JourneySection } from '@/components/journey-section'
 import { NavBar } from '@/components/nav-bar'
@@ -8,6 +9,7 @@ export default function Home() {
       <NavBar />
       <Hero />
       <JourneySection />
+      <Footer />
     </div>
   )
 }
