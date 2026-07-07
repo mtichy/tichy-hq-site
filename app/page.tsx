@@ -1,8 +1,11 @@
 import { Hyperlink } from '@/components/hyperlink'
+import { NavBar } from '@/components/nav-bar'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center px-6 py-16">
+    <div className="min-h-screen">
+      <NavBar />
+      <div className="flex items-center justify-center px-6 py-16">
       <main className="flex max-w-xl flex-col gap-10">
         <div className="flex flex-wrap items-center gap-10 text-regular leading-regular">
           <Hyperlink href="#">Hyperlinked text</Hyperlink>
@@ -18,6 +21,7 @@ export default function Home() {
           than one line of body copy.
         </p>
       </main>
+      </div>
     </div>
   )
 }
