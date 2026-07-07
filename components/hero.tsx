@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-16">
+    <section className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-[69px] pb-[83px]">
       <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
         {/* Name + subtitle column */}
         <div className="flex w-full max-w-[288px] flex-col gap-6">

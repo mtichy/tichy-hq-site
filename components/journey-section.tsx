@@ -46,18 +46,18 @@ export function JourneySection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-28">
+      <div className="relative z-10 mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-[118px] pb-[152px]">
         <h2 className="text-large font-bold leading-large text-[var(--color-surface-page)] text-balance md:text-mega md:leading-mega">
           My journey...
         </h2>
 
         <div className="mt-6 max-w-[600px] space-y-6">
-          <p className="text-regular font-light leading-regular text-[var(--color-neutral-white)] text-pretty">
+          <p className="text-regular font-normal leading-regular text-[var(--color-neutral-white)] text-pretty">
             With roots in fine art, my curiosity has led me through design,
             storytelling, and engineering, helping me learn new skills at each
             stop. This is how a maker evolved into a design technologist.
           </p>
-          <p className="text-regular font-light leading-regular text-[var(--color-neutral-white)]">
+          <p className="text-regular font-normal leading-regular text-[var(--color-neutral-white)]">
             So, what&apos;s next?
           </p>
         </div>

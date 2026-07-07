@@ -2,7 +2,7 @@ import { Hyperlink } from '@/components/hyperlink'
 
 export function Footer() {
   return (
-    <footer className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-16">
+    <footer className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-[81px]">
       <div className="flex w-full max-w-[600px] flex-col gap-6">
         <h2 className="text-mega font-bold leading-mega text-foreground text-balance">
           Say Hi!
@@ -22,7 +22,7 @@ export function Footer() {
           </Hyperlink>
         </div>
       </div>
-      <p className="mt-40 text-regular leading-regular font-bold text-foreground">
+      <p className="mt-40 text-small leading-small font-bold text-foreground">
         {'© 2026 Mark Tichy | All Rights Reserved'}
       </p>
     </footer>
