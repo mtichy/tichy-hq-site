@@ -1,5 +1,4 @@
 import { JourneyArrow } from '@/components/journey-arrow'
-import { MtvLogo } from '@/components/mtv-logo'
 
 export function JourneySection() {
   return (
@@ -70,15 +69,19 @@ export function JourneySection() {
             alt="School of the Art Institute of Chicago"
             className="h-12 w-auto object-contain"
           />
-          <JourneyArrow className="h-6 w-[120px] text-[var(--color-surface-page)]" />
+          <JourneyArrow className="h-5 w-[100px] text-[var(--color-surface-page)]" />
           <img
             src="/figma/parsons.png"
             alt="Parsons School of Design"
             className="h-12 w-auto object-contain"
           />
-          <JourneyArrow className="h-6 w-[120px] text-[var(--color-surface-page)]" />
-          <MtvLogo />
-          <JourneyArrow className="h-6 w-[120px] text-[var(--color-surface-page)]" />
+          <JourneyArrow className="h-5 w-[100px] text-[var(--color-surface-page)]" />
+          <img
+            src="/figma/mtv-logo.png"
+            alt="MTV"
+            className="h-[45px] w-auto object-contain"
+          />
+          <JourneyArrow className="h-5 w-[100px] text-[var(--color-surface-page)]" />
           <img
             src="/figma/mckinsey.png"
             alt="McKinsey & Company"
