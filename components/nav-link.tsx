@@ -1,5 +1,3 @@
-'use client'
-
 import * as React from 'react'
 import { cn } from '@/lib/utils'
 
@@ -15,18 +13,18 @@ const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
         aria-current={selected ? 'page' : undefined}
         className={cn(
           // bold Quicksand nav type in dark ink
-          'font-sans font-bold text-regular text-foreground',
-          // underline is drawn thick and offset for all active states
-          'underline-offset-4 decoration-2 cursor-pointer transition-[filter]',
-          // default state: soft blur, no underline
-          'no-underline [filter:blur(1px)]',
-          // hover state: crisp, brand-cyan underline
-          'hover:[filter:none] hover:underline hover:decoration-[var(--color-brand-cyan)]',
-          'focus-visible:[filter:none] focus-visible:underline focus-visible:decoration-[var(--color-brand-cyan)]',
-          'focus-visible:outline-none',
-          // selected state: crisp, brand-magenta underline (wins over default)
+          'inline-block pb-1 font-sans font-bold text-regular text-foreground no-underline',
+          // reserve the 6px bar so state changes never shift layout
+          'border-b-[6px] border-transparent transition-[filter,border-color] duration-150',
+          // default state: soft blur, no underline bar
+          '[filter:blur(1px)]',
+          // hover state: crisp, brand-cyan underline bar
+          'hover:[filter:none] hover:border-[var(--color-brand-cyan)]',
+          'focus-visible:[filter:none] focus-visible:border-[var(--color-brand-cyan)] focus-visible:outline-none',
+          // selected state: crisp, brand-magenta bar (wins over hover/default)
           selected &&
-            '[filter:none] underline decoration-[var(--color-brand-magenta)] hover:decoration-[var(--color-brand-magenta)]',
+            '[filter:none] border-[var(--color-brand-magenta)] hover:border-[var(--color-brand-magenta)]',
+          'cursor-pointer',
           className,
         )}
         {...props}
