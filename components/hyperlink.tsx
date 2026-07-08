@@ -14,7 +14,7 @@ const Hyperlink = React.forwardRef<HTMLAnchorElement, HyperlinkProps>(
           // bold Quicksand type, inherits surrounding font size
           'font-sans font-bold',
           // underline only on hover/focus, drawn in the same dark ink
-          'no-underline underline-offset-2 decoration-2 decoration-accent-foreground',
+          'no-underline underline-offset-2 decoration-4 decoration-accent-foreground',
           'hover:underline focus-visible:underline',
           'rounded-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
           'cursor-pointer',
