@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import { NavLink } from '@/components/nav-link'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
@@ -27,6 +28,7 @@ export function NavBar() {
             {item.label}
           </NavLink>
         ))}
+        <ThemeToggle />
       </nav>
     </header>
   )
