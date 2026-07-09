@@ -19,7 +19,7 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      className="ml-auto flex h-8 w-8 items-center justify-center rounded-sm text-foreground transition-colors hover:text-[var(--color-brand-cyan)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-cyan)]"
+      className="ml-auto flex h-8 w-8 items-center justify-center rounded-sm border-b-[6px] border-transparent pb-1 text-foreground transition-colors hover:text-[var(--color-brand-cyan)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-cyan)]"
     >
       {isDark ? (
         // Sun icon
