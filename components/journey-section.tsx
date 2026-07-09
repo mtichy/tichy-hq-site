@@ -67,25 +67,25 @@ export function JourneySection() {
           <img
             src="/figma/saic.png"
             alt="School of the Art Institute of Chicago"
-            className="h-12 w-auto object-contain"
+            className="h-10 w-auto object-contain md:h-12"
           />
           <JourneyArrow className="hidden h-5 w-[100px] text-[var(--color-surface-page)] md:block" />
           <img
             src="/figma/parsons.png"
             alt="Parsons School of Design"
-            className="h-12 w-auto object-contain"
+            className="h-9 w-auto object-contain md:h-12"
           />
           <JourneyArrow className="hidden h-5 w-[100px] text-[var(--color-surface-page)] md:block" />
           <img
             src="/figma/mtv-logo.png"
             alt="MTV"
-            className="h-[45px] w-auto object-contain"
+            className="h-12 w-auto object-contain md:h-[45px]"
           />
           <JourneyArrow className="hidden h-5 w-[100px] text-[var(--color-surface-page)] md:block" />
           <img
             src="/figma/mckinsey.png"
             alt="McKinsey & Company"
-            className="h-12 w-auto object-contain"
+            className="h-11 w-auto object-contain md:h-12"
           />
         </div>
       </div>
