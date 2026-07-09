@@ -73,7 +73,7 @@ export function JourneySection() {
           <img
             src="/figma/parsons.png"
             alt="Parsons School of Design"
-            className="h-11 w-auto object-contain md:h-12"
+            className="h-[51px] w-auto object-contain md:h-12"
           />
           <JourneyArrow className="hidden h-5 w-[100px] text-[var(--color-surface-page)] md:block" />
           <img
