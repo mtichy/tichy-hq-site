@@ -63,7 +63,7 @@ export function JourneySection() {
         </div>
 
         {/* Logo row */}
-        <div className="mt-16 grid grid-cols-2 place-items-center gap-x-12 gap-y-10 md:flex md:flex-wrap md:items-center md:gap-x-12 md:gap-y-8">
+        <div className="mt-16 grid grid-cols-2 justify-items-start gap-x-12 gap-y-10 md:flex md:flex-wrap md:items-center md:justify-items-center md:gap-x-12 md:gap-y-8">
           <img
             src="/figma/saic.png"
             alt="School of the Art Institute of Chicago"
@@ -73,7 +73,7 @@ export function JourneySection() {
           <img
             src="/figma/parsons.png"
             alt="Parsons School of Design"
-            className="h-9 w-auto object-contain md:h-12"
+            className="h-11 w-auto object-contain md:h-12"
           />
           <JourneyArrow className="hidden h-5 w-[100px] text-[var(--color-surface-page)] md:block" />
           <img
