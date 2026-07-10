@@ -41,7 +41,7 @@ export function JourneySection() {
           bottom edges visibly textured. */}
       <div
         aria-hidden
-        className="absolute inset-y-0 -left-10 -right-10 bg-[var(--color-surface-muted-dark)]"
+        className="absolute inset-y-0 -left-10 -right-10 bg-[var(--color-surface-muted-dark)] dark:bg-background"
         style={{ filter: 'url(#journey-noise)' }}
       />
 
