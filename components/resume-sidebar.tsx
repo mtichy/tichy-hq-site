@@ -17,7 +17,7 @@ export function ResumeSidebar() {
         <Hyperlink
           href="/mark-tichy-resume.pdf"
           download
-          className="inline-flex items-center gap-2 text-regular leading-regular"
+          className="inline-flex items-center justify-center gap-2 text-regular leading-regular"
         >
           <img
             src="/figma/download-icon.svg"
