@@ -7,7 +7,7 @@ export function ResumeContent() {
           Summary
         </h2>
         <p className="mt-4 text-regular leading-regular text-foreground text-pretty">
-          Design Technologist with 15+ years across McKinsey &amp; Company, MTV
+          15+ years across McKinsey &amp; Company, MTV
           Networks, and Parsons School of Design, working at the intersection of
           UX, front-end engineering, design systems, and AI-powered workflows.
           Leads design and technical delivery for global platforms (benefits,
