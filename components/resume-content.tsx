@@ -53,10 +53,12 @@ export function ResumeContent() {
               Designed, built, and managed the Firm&apos;s employee recognition
               platform (Thank-a-thon) including UX, development coordination, QA,
               and round-the-clock support
-            </li>
-            <li>
-              <strong>Reliably generated 75K+ messages and 200K+ pageviews</strong> during its
-              annual two-week run.
+              <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
+                <li>
+                  <strong>Reliably generated 75K+ messages and 200K+ pageviews</strong> during its
+                  annual two-week run.
+                </li>
+              </ul>
             </li>
             <li>
               Served as tech scout, modernized the function&apos;s tech stack
