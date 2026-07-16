@@ -37,7 +37,7 @@ export function ResumeContent() {
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
               <strong>Designed, built, and managed a suite of 15+ digital products</strong>
-              across the Firm&apos;s Reach &amp; Engagement function.
+               across the Firm&apos;s Reach &amp; Engagement function.
             </li>
             <li>
               Advanced through the Firm&apos;s impact bands to Expert, one tier
