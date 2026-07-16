@@ -36,7 +36,7 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              Designed, built, and managed a suite of 15+ digital products
+              <strong>Designed, built, and managed a suite of 15+ digital products</strong>
               across the Firm&apos;s Reach &amp; Engagement function.
             </li>
             <li>
@@ -56,7 +56,7 @@ export function ResumeContent() {
               and round-the-clock support
             </li>
             <li>
-              Reliably generated 75K+ messages and 200K+ pageviews during its
+              <strong>Reliably generated 75K+ messages and 200K+ pageviews</strong> during its
               annual two-week run.
             </li>
             <li>
