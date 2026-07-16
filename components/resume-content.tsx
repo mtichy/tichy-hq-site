@@ -7,15 +7,14 @@ export function ResumeContent() {
           Summary
         </h2>
         <p className="mt-4 text-regular leading-regular text-foreground text-pretty">
-          15+ years across McKinsey &amp; Company, MTV
-          Networks, and Parsons School of Design, working at the intersection of
-          UX, front-end engineering, design systems, and AI-powered workflows.
-          Leads design and technical delivery for global platforms (benefits,
-          intranet, employee engagement, leadership communications, and
-          high-traffic events), turns ambiguous stakeholder needs into usable,
-          buildable, and scalable products. Pairs design craft with hands-on
-          engineering to modernize design-to-development workflows and ship
-          reliably at scale.
+          15+ years across McKinsey &amp; Company, MTV Networks, and Parsons
+          School of Design, working at the intersection of UX, front-end
+          engineering, design systems, and AI-powered workflows. Leads design
+          and technical delivery for global platforms (benefits, intranet,
+          employee engagement, leadership communications, and high-traffic
+          events), turns ambiguous stakeholder needs into usable, buildable, and
+          scalable products. Pairs design craft with hands-on engineering to
+          modernize design-to-development workflows and ship reliably at scale.
         </p>
       </section>
 
@@ -37,62 +36,75 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              <span className="font-bold">
-                Designed, built, and managed a suite of 15+ products
-              </span>{' '}
-              across the Firm&apos;s Reach &amp; Engagement function; advanced
-              through the Firm&apos;s impact bands to Expert, one tier below
-              Associate Partner.
+              Designed, built, and managed a suite of 15+ digital products
+              across the Firm&apos;s Reach &amp; Engagement function.
             </li>
             <li>
-              Partnered with senior stakeholders and teams across the Firm —
-              including client-service teams to problem-solve, ideate, and build
-              custom solutions
+              Advanced through the Firm&apos;s impact bands to Expert, one tier
+              below Associate Partner.
             </li>
             <li>
               Led design and relaunch of McKinsey&apos;s global benefits platform
-              (UX, information architecture, content model, rollout strategy),
-              serving 45,000 global employees on infrastructure built to scale
-              across languages and regional legal requirements.
+              (UX, user research, information architecture, content model,
+              production workflows, rollout strategy) serving 45,000 global
+              employees on infrastructure built to scale across languages and
+              regional legal requirements.
             </li>
             <li>
               Designed, built, and managed the Firm&apos;s employee recognition
-              platform (UX, development coordination, QA, round-the-clock
-              support), generating 75K+ messages and 200K+ pageviews during its
+              platform (Thank-a-thon) including UX, development coordination, QA,
+              and round-the-clock support
+            </li>
+            <li>
+              Reliably generated 75K+ messages and 200K+ pageviews during its
               annual two-week run.
             </li>
             <li>
-              Served as analytics point person across the product suite (Heap,
-              Dynatrace, SQL), advising data-informed design decisions; piloted
-              AI-native prototyping and design-to-code workflows (v0, Cursor,
-              Figma).
+              Served as tech scout, modernized the function&apos;s tech stack
+              ahead of the broader Firm by onboarding Figma, Heap, Brightcove,
+              Slack, and Notion, all of which became Firm-wide standards, and
+              drove team adoption each time.
             </li>
             <li>
-              Modernized the function&apos;s tech stack ahead of the broader Firm
-              — onboarding Sketch, then Figma, Heap, Brightcove, Slack, and
-              Notion, several of which became Firm-wide standards, and drove team
-              adoption each time.
+              Served as analytics point person across the product suite (Heap,
+              Dynatrace, SQL), advising data-informed design decisions.
+            </li>
+            <li>
+              Built a custom ChatGPT agent trained on ~3,000 articles spanning
+              decades of firm content and used it to evaluate the taxonomy and
+              propose a new structure.
             </li>
             <li>
               Led jQuery-to-React component modernization and built reusable
-              component libraries, establishing Figma and Storybook as the single
-              source of truth.
+              template and component libraries, establishing Figma and Storybook
+              as the single source of truth.
             </li>
             <li>
-              Migrated entire product suite from external vendors to the internal
-              engineering team with no loss of business continuity, importing
-              product-management and design-to-dev handoff practices.
+              Introduced and piloted AI-native prototyping and design-to-code
+              workflows (v0, Cursor, Figma Make).
             </li>
             <li>
               Partnered with engineers and product managers on QA, sprint
               execution, and risk mitigation for high-traffic launches including
               the firm&apos;s Partner Elections, annual benefits open enrollment,
-              and gloabl executive livestreams.
+              and global executive livestreams.
+            </li>
+            <li>
+              Migrated entire product suite from external vendors to the internal
+              engineering team with no loss of business continuity, importing
+              product-management and design-to-dev handoff practices and saving
+              hundreds of thousands of dollars in the process.
             </li>
             <li>
               Led Drupal-to-SharePoint migrations and Box-to-SharePoint
-              migrations for multiple functions, enabling non-technical teams to
-              self-manage content.
+              migrations for multiple functions which enabled non-technical teams
+              to self-manage content.
+            </li>
+            <li>
+              Served as design and technical advisor to teams across the firm,
+              including benefits, engineering, and multiple client service teams,
+              on AI search strategy, platform migration, analytics, user
+              experience, and component reuse.
             </li>
           </ul>
 
@@ -102,30 +114,36 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              Set and executed design and product strategy for McKinsey&apos;s
-              internal communications function in partnership with the Global
-              Director of MD and Internal Communications, supporting the
-              CEO&apos;s agenda to reshape and grow the Firm.
+              Led design and product strategy for McKinsey&apos;s internal
+              communications function in partnership with the Director of MD and
+              Internal Communications, supporting CEO change initiatives
             </li>
             <li>
               Redesigned and built the Firm&apos;s flagship internal
-              communications channel, laying the design-and-build foundation that
-              grew into the product suite I went on to lead.
-              <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
-                <li>
-                  Results: sustained 3x increase in readership; 95% of readers
-                  reported trusting the publication; 71% reported trying
-                  something new at work based on what they read.
-                </li>
-              </ul>
+              communications channel (McKinsey News), establishing the
+              design-to-dev workflow that grew into the larger product suite I
+              went on to lead.
+            </li>
+            <li>
+              Sustained 3x increase in readership; 95% of readers reported
+              trusting the publication; 71% reported trying something new at work
+              based on what they read.
+            </li>
+            <li>
+              Created interactive content, campaign branding, and editorial
+              content for dozens of global initiatives
+            </li>
+            <li>
+              Designed and produced hundreds of articles for the firm&apos;s main
+              communications channel (McKinsey News)
             </li>
             <li>
               Modernized the function&apos;s video and analytics infrastructure
-              and modernized the team&apos;s UX workflow moving to Sketch
+              and the team&apos;s UX workflow moving to Sketch from Photoshop
             </li>
             <li>
-              Hired a development team that we successfully collaborated with for
-              10-years
+              Hired and managed development team that led to 10 years of
+              successful collaboration
             </li>
           </ul>
         </div>
@@ -138,16 +156,16 @@ export function ResumeContent() {
 
           {/* Producer, Designer, Writer */}
           <h4 className="mt-2 text-regular font-bold leading-regular text-foreground">
-            Producer, Designer, Writer (2013–2014)
+            Producer, Designer, Writer (2013-2014)
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              Led tech road map to ensure ongoing evolution of production
+              Led technical road map to ensure ongoing evolution of production
               technologies and user experience.
             </li>
             <li>
-              Produced mtvU&apos;s online and social media presence on all
-              platforms
+              Produced all of mtvU&apos;s online and social media presence across
+              platforms (blog, TV, social)
             </li>
             <li>
               Created and implemented editorial strategy &amp; content in
@@ -160,13 +178,18 @@ export function ResumeContent() {
             <li>
               Contributed to broader MTV initiatives through production, design,
               and social media on projects like the MTV Movie Awards, Video Music
-              Awards, the OMA&apos;s and show premieres.
+              Awards, the OMA&apos;s, and show premieres.
+            </li>
+            <li>
+              Nominated for a 2013 Daytime Emmy for production work on
+              mtvU&apos;s pro-social &ldquo;Against our will&rdquo;
+              anti-trafficking campaign.
             </li>
           </ul>
 
           {/* Associate Producer */}
           <h4 className="mt-6 text-regular font-bold leading-regular text-foreground">
-            Associate Producer (2009–2013)
+            Associate Producer (2009-2013)
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
@@ -184,25 +207,26 @@ export function ResumeContent() {
             </li>
             <li>
               Wrote site content and promotional copy for priorities ranging from
-              Music and Pro-Social to Shows and Tent Pole Events.
+              Music and Pro-Social campaigns, to shows, and major tent pole
+              events.
             </li>
             <li>
-              Conceived and built Voting Widgets for social network syndication
-              that earned over 1.5 million votes.
+              Conceived, designed, and built Voting Widgets for social network
+              syndication that earned over 1.5 million votes.
             </li>
             <li>
               Nominated for a 2010 Daytime Emmy for production work on
-              mtvU&apos;s pro-social Indebted campaign.
+              mtvU&apos;s &ldquo;Indebted&rdquo; financial education campaign.
             </li>
             <li>
-              Assured timely delivery and publication of MTV Music Digital
+              Assured timely delivery and publication of all MTV Music Digital
               priorities.
             </li>
           </ul>
 
           {/* Production Associate */}
           <h4 className="mt-6 text-regular font-bold leading-regular text-foreground">
-            Production Associate (2007–2009)
+            Production Associate (2007-2009)
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>Managed digital presence of all mtvU franchises.</li>
@@ -314,7 +338,8 @@ export function ResumeContent() {
             2006 MFA from Parsons School of Design
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Studied fine art, design, and technology. Exhibited internationally.
+            Studied fine art, design, and technology. Exhibited drawing and
+            digital media internationally.
           </p>
         </div>
 
