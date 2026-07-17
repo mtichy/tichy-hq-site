@@ -84,8 +84,8 @@ export function BuildsContent() {
             next one
           </li>
           <li>
-            Refined interactions and states (hover, focus, transitions) in a
-            second pass, once the static layout was in place
+            Once the static layout was in place refined interactions and states
+            (hover, focus, transitions) in a second pass
           </li>
         </ul>
         <p className="mt-4 text-regular leading-regular text-foreground text-pretty">
