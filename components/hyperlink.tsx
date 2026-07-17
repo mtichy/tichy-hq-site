@@ -13,9 +13,9 @@ const Hyperlink = React.forwardRef<HTMLAnchorElement, HyperlinkProps>(
           'inline bg-accent text-accent-foreground [box-decoration-break:clone]',
           // bold Quicksand type, inherits surrounding font size
           'font-sans font-bold',
-          // underline only on hover/focus, drawn in the same dark ink
-          'no-underline underline-offset-2 decoration-4 decoration-accent-foreground',
-          'hover:underline focus-visible:underline',
+          // magenta bar flush to the bottom of the lime frame, only on hover/focus
+          'border-b-4 border-transparent no-underline',
+          'hover:border-[var(--color-brand-magenta)] focus-visible:border-[var(--color-brand-magenta)]',
           'rounded-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
           'cursor-pointer',
           className,
