@@ -36,12 +36,12 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              Advanced through the Firm&apos;s <strong>impact bands to Expert</strong>, one tier
-              below Associate Partner.
+              Advanced through the firm&apos;s <strong>impact bands to Expert</strong>, one tier
+              below Associate Partner
             </li>
             <li>
               <strong>Designed, built, and managed a suite of 15+ digital products </strong>
-              across the Firm&apos;s Reach &amp; Engagement function including:
+              across the firm&apos;s Reach &amp; Engagement function including:
               <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
                 <li>
                   McKinsey&apos;s <strong>global benefits platform</strong> (UX, user research,
@@ -65,7 +65,7 @@ export function ResumeContent() {
               </ul>
             </li>
             <li>
-              Served as tech scout and <strong>modernized our tech stack across
+              <strong>Modernized our tech stack across
               multiple dimensions, driving adoption each time:</strong>
               <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
                 <li>
@@ -114,7 +114,7 @@ export function ResumeContent() {
               </ul>
             </li>
             <li>
-              <strong>Partnered daily cross-functionally with engineers and product
+              <strong>Partnered cross-functionally with engineers and product
               managers </strong>on QA, sprint execution, and risk mitigation for
               high-traffic launches including the firm&apos;s Partner Elections,
               annual benefits open enrollment, global executive livestreams, and
@@ -135,7 +135,7 @@ export function ResumeContent() {
                 <li>
                   Led ux and content strategy for Drupal-to-SharePoint
                   migrations to both cut costs and <strong>empower non-technical teams
-                  to self-manage content.</strong>
+                  to self-manage content</strong>
                 </li>
                 <li>
                   Led Box-to-SharePoint migrations for multiple functions,
@@ -146,7 +146,7 @@ export function ResumeContent() {
             <li>
               <strong>Served as design and technical advisor to teams across the
               firm,</strong> including publishing, alumni, benefits, engineering, and
-              multiple client service teams. Helped them with AI search
+              multiple client service teams. Advised on AI capabilities, search
               strategy, platform migration, analytics, user experience, CMS
               solutions. component reuse, and more.
             </li>
@@ -162,13 +162,13 @@ export function ResumeContent() {
               communications function supporting CEO change initiatives
             </li>
             <li>
-              <strong>Redesigned and built the Firm&apos;s flagship internal
+              <strong>Redesigned and built the firm&apos;s flagship internal
               communications channel</strong> (McKinsey News), establishing the
               design-to-dev workflow that grew into the larger product suite I
               went on to lead.
               <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
                 <li>
-                  <strong>Sustained 3x increase in readership; 95% of readers
+                  <strong>Sustained 3x increase in readership;95% of readers
                   reported trusting the publication; 71% reported trying
                   something new at work based on what they read.</strong>
                 </li>
@@ -207,7 +207,7 @@ export function ResumeContent() {
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
               <strong>Led technical road map</strong> to ensure ongoing evolution of
-              production technologies and user experience.
+              production technologies and user experience
             </li>
             <li>
               Produced all of mtvU&apos;s online and social media presence across
@@ -221,7 +221,7 @@ export function ResumeContent() {
             </li>
             <li>
               <strong>Created and implemented editorial strategy &amp; content</strong> in
-              conjunction with on-air show and music priorities.
+              conjunction with on-air show and music priorities
             </li>
             <li>
               Coordinated with On-Air Production, Music &amp; Talent and
@@ -230,12 +230,12 @@ export function ResumeContent() {
             <li>
               Contributed to broader MTV initiatives through <strong>production, design,
               and social media</strong> on projects like the <strong>MTV Movie Awards, Video
-              Music Awards, the OMA&apos;s, and show premieres.</strong>
+              Music Awards, the OMA&apos;s, and show premieres</strong>
             </li>
             <li>
               <strong>Nominated for a 2013 Daytime Emmy </strong>for production work on
               mtvU&apos;s pro-social &ldquo;Against our will&rdquo;
-              anti-trafficking campaign.
+              anti-trafficking campaign
             </li>
           </ul>
 
@@ -246,33 +246,33 @@ export function ResumeContent() {
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
               <strong>Managed all aspects of mtvU&apos;s social media presence, </strong>
-              including conceiving/supporting company-wide promotional plans.
+              including conceiving/supporting company-wide promotional plans
             </li>
             <li>
               Contributed to broader MTVN initiatives through specialized{" "}
               <strong>production work on projects like the Movie Awards, Video Music
-              Awards, the OMA&apos;s and show premieres.</strong>
+              Awards, the OMA&apos;s and show premieres</strong>
             </li>
             <li>
               <strong>Managed mtvU-Fulbright blog</strong> in partnership with the the U.S.
-              Department of State and The Fulbright Foreign Scholarship Board.
+              Department of State and The Fulbright Foreign Scholarship Board
             </li>
             <li>
               <strong>Wrote site content and promotional copy</strong> for priorities ranging
               from Music and Pro-Social campaigns, to shows, and major tent pole
-              events.
+              events
             </li>
             <li>
               Conceived, designed, and built Voting Widgets for social network
-              syndication that earned <strong>over 1.5 million votes.</strong>
+              syndication that earned <strong>over 1.5 million votes</strong>
             </li>
             <li>
               <strong>Nominated for a 2010 Daytime Emmy </strong>for production work on
-              mtvU&apos;s &ldquo;Indebted&rdquo; financial education campaign.
+              mtvU&apos;s &ldquo;Indebted&rdquo; financial education campaign
             </li>
             <li>
               Assured timely delivery and publication of all MTV Music Digital
-              priorities.
+              priorities
             </li>
           </ul>
 
@@ -281,9 +281,9 @@ export function ResumeContent() {
             Production Associate (2007-2009)
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
-            <li>Managed digital presence of all mtvU franchises.</li>
-            <li>Produced and designed content for yearly tent-pole events.</li>
-            <li>Produced all mtvU show, music and pro-social content for online.</li>
+            <li>Managed digital presence of all mtvU franchises</li>
+            <li>Produced and designed content for yearly tent-pole events</li>
+            <li>Produced all mtvU show, music and pro-social content for online</li>
             <li>
               Designed and built embeddable flipbooks that were syndicated via
               Award Show Nominee and Fan social media sites <strong>garnering millions
