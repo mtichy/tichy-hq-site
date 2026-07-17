@@ -188,7 +188,8 @@ export function BuildsContent() {
           improved code quality. None of it ran unsupervised: every handoff
           between tools was a checkpoint where I reviewed the output before it
           moved forward. The result is a process that&apos;s fast where AI is
-          fast, and careful where judgment still matters.
+          fast, and careful where judgment still matters. Carbon and silicon
+          working together in harmony...
         </p>
       </section>
     </div>
