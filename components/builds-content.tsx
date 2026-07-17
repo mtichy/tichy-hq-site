@@ -3,11 +3,14 @@ export function BuildsContent() {
     <div className="w-full max-w-[600px]">
       {/* Overview */}
       <section>
-                <p>Text</p>
-                <p className="mt-4 text-regular leading-regular text-foreground text-pretty">
-          After building and managing confidential products at McKinsey & Company for 12 years I will be using this space to share new projects and experiments moving forward.</p>
-
-<p className="mt-4 text-regular leading-regular text-foreground text-pretty">For starters I will share a quick look at the design process and AI-powered tech stack that I used to build and deploy this site.</p>  
+        <p className="text-regular leading-regular text-foreground text-pretty">
+          After building and managing confidential products at McKinsey &amp;
+          Company for 12 years I will be using this space to share new projects
+          and experiments moving forward.
+        </p>
+        <p className="mt-4 text-regular leading-regular text-foreground text-pretty">
+          For starters I will share a quick look at the design process and
+          AI-powered tech stack that I used to build and deploy this site.
         </p>
       </section>
 
