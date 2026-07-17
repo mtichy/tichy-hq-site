@@ -115,7 +115,7 @@ export function ResumeContent() {
             </li>
             <li>
               <strong>Partnered daily cross-functionally with engineers and product
-              managers</strong> on QA, sprint execution, and risk mitigation for
+              managers </strong>on QA, sprint execution, and risk mitigation for
               high-traffic launches including the firm&apos;s Partner Elections,
               annual benefits open enrollment, global executive livestreams, and
               various technical projects including:
@@ -158,7 +158,7 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              <strong>Led design and product strategy</strong> for McKinsey&apos;s internal
+              <strong>Led design and product strategy </strong>for McKinsey&apos;s internal
               communications function supporting CEO change initiatives
             </li>
             <li>
@@ -179,11 +179,11 @@ export function ResumeContent() {
               content for dozens of global initiatives
             </li>
             <li>
-              <strong>Designed and produced hundreds of articles</strong> for the firm&apos;s
+              <strong>Designed and produced hundreds of articles </strong>for the firm&apos;s
               main communications channel (McKinsey News)
             </li>
             <li>
-              <strong>Modernized the function&apos;s video and analytics infrastructure</strong>
+              <strong>Modernized the function&apos;s video and analytics infrastructure </strong>
               and the team&apos;s UX workflow moving to Sketch from Photoshop and
               onboarding junior designers and engineers
             </li>
@@ -233,7 +233,7 @@ export function ResumeContent() {
               Music Awards, the OMA&apos;s, and show premieres.</strong>
             </li>
             <li>
-              <strong>Nominated for a 2013 Daytime Emmy</strong> for production work on
+              <strong>Nominated for a 2013 Daytime Emmy </strong>for production work on
               mtvU&apos;s pro-social &ldquo;Against our will&rdquo;
               anti-trafficking campaign.
             </li>
@@ -245,12 +245,12 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              <strong>Managed all aspects of mtvU&apos;s social media presence,</strong>
+              <strong>Managed all aspects of mtvU&apos;s social media presence, </strong>
               including conceiving/supporting company-wide promotional plans.
             </li>
             <li>
-              Contributed to broader MTVN initiatives through specialized
-              <strong> production work on projects like the Movie Awards, Video Music
+              Contributed to broader MTVN initiatives through specialized{" "}
+              <strong>production work on projects like the Movie Awards, Video Music
               Awards, the OMA&apos;s and show premieres.</strong>
             </li>
             <li>
@@ -267,7 +267,7 @@ export function ResumeContent() {
               syndication that earned <strong>over 1.5 million votes.</strong>
             </li>
             <li>
-              <strong>Nominated for a 2010 Daytime Emmy</strong> for production work on
+              <strong>Nominated for a 2010 Daytime Emmy </strong>for production work on
               mtvU&apos;s &ldquo;Indebted&rdquo; financial education campaign.
             </li>
             <li>
