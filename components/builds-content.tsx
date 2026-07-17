@@ -58,9 +58,16 @@ export function BuildsContent() {
           prototyping in v0
         </h2>
         <p className="mt-6 text-regular leading-regular text-foreground text-pretty">
-          With the design system exported, I moved into v0 and fed it the
-          globals.css and primitives.tokens.json files directly insuring that it
-          inherited the actual design language rather than inventing its own.
+          With the design system exported, I moved into v0 and fed it the{" "}
+          <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.9em] text-foreground">
+            globals.css
+          </code>{" "}
+          and{" "}
+          <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.9em] text-foreground">
+            primitives.tokens.json
+          </code>{" "}
+          files directly insuring that it inherited the actual design language
+          rather than inventing its own.
         </p>
         <p className="mt-4 text-regular leading-regular text-foreground text-pretty">
           From there:
