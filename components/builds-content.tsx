@@ -102,7 +102,7 @@ export function BuildsContent() {
           GitHub
         </h2>
         <p className="mt-6 text-regular leading-regular text-foreground text-pretty">
-          Before moving into Cursor the v0 project gets pushed to GitHub.Why:
+          Before moving into Cursor the v0 project gets pushed to GitHub.<br/>Why:
         </p>
         <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
           <li>
