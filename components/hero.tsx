@@ -30,11 +30,18 @@ export function Hero() {
         {/* Portrait column */}
         <div className="mx-auto w-full max-w-[288px] shrink-0 lg:mx-0">
           <img
-            src="/images/portrait.png"
+            src="/images/avatar-333333.png"
             alt="Pixel-art portrait of mark tichý"
             width={288}
             height={288}
-            className="aspect-square w-full [image-rendering:pixelated]"
+            className="aspect-square w-full [image-rendering:pixelated] dark:hidden"
+          />
+          <img
+            src="/images/avatar-f1f7ee.png"
+            alt="Pixel-art portrait of mark tichý"
+            width={288}
+            height={288}
+            className="hidden aspect-square w-full [image-rendering:pixelated] dark:block"
           />
         </div>
       </div>
