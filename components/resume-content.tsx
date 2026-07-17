@@ -36,7 +36,7 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              Advanced through the firm&apos;s <strong>impact bands to Expert</strong>, one tier
+              <strong>Advanced through the firm&apos;s impact bands to Expert</strong>, one tier
               below Associate Partner
             </li>
             <li>
