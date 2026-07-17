@@ -14,8 +14,8 @@ export function BuildsContent() {
         </p>
         <p className="text-regular leading-regular text-foreground text-pretty">
           The short version: a real design system as the foundation, AI tools
-          doing the heavy lifting on execution, and a human reviewing and
-          directing every step.
+          doing what they do well on execution, and a carbon-based life form
+          reviewing and directing every step.
         </p>
       </section>
 
