@@ -41,30 +41,47 @@ export function ResumeContent() {
             </li>
             <li>
               <strong>Designed, built, and managed a suite of 15+ digital products </strong>across the Firm&apos;s Reach &amp; Engagement function including:
-            </li>
-            <li>
-              Led design and relaunch of McKinsey&apos;s global benefits platform
-              (UX, user research, information architecture, content model,
-              production workflows, rollout strategy) serving 45,000 global
-              employees on infrastructure built to scale across languages and
-              regional legal requirements.
-            </li>
-            <li>
-              Designed, built, and managed the Firm&apos;s employee recognition
-              platform (Thank-a-thon) including UX, development coordination, QA,
-              and round-the-clock support
               <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
                 <li>
-                  <strong>Reliably generated 75K+ messages and 200K+ pageviews</strong> during its
-                  annual two-week run.
+                  McKinsey&apos;s global benefits platform (UX, user research,
+                  information architecture, content model, production workflows,
+                  rollout strategy) serving 45,000 global employees on
+                  infrastructure built to scale across languages and regional
+                  legal requirements.
+                </li>
+                <li>
+                  McKinsey&apos;s employee recognition platform (Thank-a-thon)
+                  including UX, development coordination, QA, and round-the-clock
+                  support. This platform generates at least 75K+ messages and
+                  200K+ pageviews during its annual two-week run.
+                </li>
+                <li>
+                  McKinsey&apos;s flagship editorial news channel (McKinsey News)
+                  which included a custom CMS that enabled editors and producers
+                  to create reusable templates, components, and styles on the
+                  fly.
                 </li>
               </ul>
             </li>
             <li>
-              Served as tech scout, modernized the function&apos;s tech stack
-              ahead of the broader Firm by onboarding Figma, Heap, Brightcove,
-              Slack, and Notion, all of which became Firm-wide standards, and
-              drove team adoption each time.
+              Served as tech scout and modernized our tech stack across multiple
+              dimensions, driving adoption each time:
+              <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
+                <li>
+                  Design: onboarded Figma for richer collaboration, prototyping,
+                  and robust design-to-dev handoff
+                </li>
+                <li>
+                  Analytics: onboarded Heap for more thorough and accessible
+                  answers to our data questions
+                </li>
+                <li>
+                  Infrastructure: moved from JW Player to Brightcove for video,
+                  and local servers to AWS for hosting
+                </li>
+                <li>Collaboration: pioneered Slack, Monday, and Notion</li>
+                <li>Most of the above ended up becoming firm-wide standards</li>
+              </ul>
             </li>
             <li>
               Served as analytics point person across the product suite (Heap,
