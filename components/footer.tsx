@@ -1,5 +1,6 @@
+import { Hyperlink } from '@/components/hyperlink'
 import { TrackedHyperlink } from '@/components/tracked-hyperlink'
-import { email, linkedInUrl } from '@/lib/site'
+import { email, linkedInUrl, siteName } from '@/lib/site'
 
 export function Footer() {
   return (
@@ -31,7 +32,15 @@ export function Footer() {
         </div>
       </div>
       <p className="mt-40 text-small leading-small font-bold text-foreground">
-        {'© 2026 Mark Tichy | All Rights Reserved'}
+        © 2026 {siteName} ·{' '}
+        <Hyperlink
+          href="https://github.com/mtichy/tichy-hq-site/blob/main/LICENSE"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-small leading-small"
+        >
+          MIT License
+        </Hyperlink>
       </p>
     </footer>
   )
