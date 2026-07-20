@@ -40,6 +40,14 @@ export function Hero() {
             unoptimized
             className="aspect-square h-auto w-full [image-rendering:pixelated] dark:hidden"
           />
+          <Image
+            src="/images/avatar-dark.png"
+            alt="Pixel-art portrait of mark tichý"
+            width={576}
+            height={576}
+            unoptimized
+            className="hidden aspect-square h-auto w-full [image-rendering:pixelated] dark:block"
+          />
         </div>
       </div>
     </section>
