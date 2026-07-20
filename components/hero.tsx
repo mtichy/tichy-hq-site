@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 export function Hero() {
   return (
-    <section className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-[69px] pb-[83px]">
-      <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+    <section className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 pt-[69px] pb-16 lg:pb-[83px]">
+      <div className="flex flex-col gap-16 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
         {/* Name + subtitle column */}
         <div className="flex w-full max-w-[288px] flex-col gap-6">
           <h1 className="text-mega font-bold leading-mega text-foreground text-balance">
