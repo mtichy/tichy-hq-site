@@ -1,4 +1,5 @@
 import { Hyperlink } from '@/components/hyperlink'
+import { email, linkedInUrl } from '@/lib/site'
 
 export function Footer() {
   return (
@@ -10,13 +11,13 @@ export function Footer() {
         <hr className="h-[6px] w-full border-0 bg-[var(--color-brand-cyan)]" />
         <div className="flex flex-col items-start gap-4">
           <Hyperlink
-            href="mailto:mf.tichy@gmail.com"
+            href={`mailto:${email}`}
             className="text-medium leading-medium"
           >
             Email
           </Hyperlink>
           <Hyperlink
-            href="https://www.linkedin.com/in/mark-tichy"
+            href={linkedInUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-medium leading-medium"

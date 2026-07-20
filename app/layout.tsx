@@ -1,11 +1,13 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Quicksand } from 'next/font/google'
+import { JsonLd } from '@/components/json-ld'
 import { ThemeProvider } from '@/components/theme-provider'
 import {
   defaultDescription,
   defaultTitle,
   ogImage,
+  personJsonLd,
   siteName,
   siteUrl,
 } from '@/lib/site'
@@ -74,6 +76,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="font-sans antialiased">
+        <JsonLd data={personJsonLd} />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
