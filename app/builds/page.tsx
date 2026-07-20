@@ -12,7 +12,7 @@ export const metadata = {
 export default function BuildsPage() {
   return (
     <div className="min-h-screen">
-      <NavBar />
+      <NavBar activePath="/builds" />
       <main className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-16">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
           <BuildsSidebar />
