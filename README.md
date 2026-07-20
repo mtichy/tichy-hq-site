@@ -1,5 +1,7 @@
 # Mark Tichý — Portfolio Site
 
+[![CI](https://github.com/mtichy/tichy-hq-site/actions/workflows/ci.yml/badge.svg)](https://github.com/mtichy/tichy-hq-site/actions/workflows/ci.yml)
+
 Personal portfolio and résumé site for [Mark Tichý](https://v0-tichy-hq.vercel.app), a Design Technologist. The live site is the primary deliverable; this repo is part of the application — intended to be read by hiring managers and engineers, not just browsed.
 
 **Live site:** [v0-tichy-hq.vercel.app](https://v0-tichy-hq.vercel.app)
