@@ -4,7 +4,7 @@ import { BuildsContent } from '@/components/builds-content'
 import { BuildsSidebar } from '@/components/builds-sidebar'
 
 export const metadata = {
-  title: 'Builds — Mark Tichý',
+  title: 'Builds',
   description:
     'A selection of projects, experiments, and things built by Mark Tichý.',
 }

@@ -2,6 +2,13 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Quicksand } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
+import {
+  defaultDescription,
+  defaultTitle,
+  ogImage,
+  siteName,
+  siteUrl,
+} from '@/lib/site'
 import './globals.css'
 
 const quicksand = Quicksand({
@@ -11,9 +18,27 @@ const quicksand = Quicksand({
 })
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: defaultTitle,
+    template: `%s — ${siteName}`,
+  },
+  description: defaultDescription,
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    siteName,
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary',
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [ogImage.url],
+  },
   icons: {
     icon: [
       {

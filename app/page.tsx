@@ -3,11 +3,7 @@ import { Hero } from '@/components/hero'
 import { JourneySection } from '@/components/journey-section'
 import { NavBar } from '@/components/nav-bar'
 
-export const metadata = {
-  title: 'Mark Tichý — Design Technologist',
-  description:
-    'Design Technologist with 15+ years across McKinsey & Company, MTV Networks, and Parsons School of Design. Product UX, design systems, and AI-native workflows.',
-}
+// Title and description inherit from app/layout.tsx defaults.
 
 export default function Home() {
   return (

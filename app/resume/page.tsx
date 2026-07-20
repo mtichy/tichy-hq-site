@@ -4,7 +4,7 @@ import { ResumeContent } from '@/components/resume-content'
 import { ResumeSidebar } from '@/components/resume-sidebar'
 
 export const metadata = {
-  title: 'Résumé — Mark Tichý',
+  title: 'Résumé',
   description:
     'Design Technologist with 15+ years across McKinsey & Company, MTV Networks, and Parsons School of Design.',
 }
