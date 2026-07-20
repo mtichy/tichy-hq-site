@@ -36,52 +36,66 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              <strong>Advanced through the firm&apos;s impact bands to Expert</strong>, one tier
-              below Associate Partner
+              <strong>
+                Advanced through the firm&apos;s impact bands to Expert
+              </strong>
+              , one tier below Associate Partner
             </li>
             <li>
-              <strong>Designed, built, and managed a suite of 15+ digital products </strong>
+              <strong>
+                Designed, built, and managed a suite of 15+ digital
+                products{' '}
+              </strong>
               across the firm&apos;s Reach &amp; Engagement function including:
               <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
                 <li>
-                  McKinsey&apos;s <strong>global benefits platform</strong> (UX, user research,
-                  information architecture, content model, production workflows,
-                  rollout strategy) serving 45,000 global employees on
-                  infrastructure built to scale across languages and regional
-                  legal requirements.
+                  McKinsey&apos;s <strong>global benefits platform</strong> (UX,
+                  user research, information architecture, content model,
+                  production workflows, rollout strategy) serving 45,000 global
+                  employees on infrastructure built to scale across languages
+                  and regional legal requirements.
                 </li>
                 <li>
-                  McKinsey&apos;s <strong>employee recognition platform</strong> (Thank-a-thon)
-                  including UX, development coordination, QA, and round-the-clock
-                  support. This platform generates at least <strong>75K+ messages and
-                  200K+ pageviews during its annual two-week run.</strong>
+                  McKinsey&apos;s <strong>employee recognition platform</strong>{' '}
+                  (Thank-a-thon) including UX, development coordination, QA, and
+                  round-the-clock support. This platform generates at least{' '}
+                  <strong>
+                    75K+ messages and 200K+ pageviews during its annual two-week
+                    run.
+                  </strong>
                 </li>
                 <li>
-                  McKinsey&apos;s <strong>flagship editorial news channel</strong> (McKinsey News)
-                  which included a custom CMS that <strong>enabled editors and
-                  producers to create reusable templates, components, and styles
-                  on the fly.</strong>
+                  McKinsey&apos;s{' '}
+                  <strong>flagship editorial news channel</strong> (McKinsey
+                  News) which included a custom CMS that{' '}
+                  <strong>
+                    enabled editors and producers to create reusable templates,
+                    components, and styles on the fly.
+                  </strong>
                 </li>
               </ul>
             </li>
             <li>
-              <strong>Modernized our tech stack across
-              multiple dimensions, driving adoption each time:</strong>
+              <strong>
+                Modernized our tech stack across multiple dimensions, driving
+                adoption each time:
+              </strong>
               <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
                 <li>
-                  <strong>Design:</strong> onboarded Figma for richer collaboration,
-                  prototyping, and robust design-to-dev handoff
+                  <strong>Design:</strong> onboarded Figma for richer
+                  collaboration, prototyping, and robust design-to-dev handoff
                 </li>
                 <li>
-                  <strong>Analytics:</strong> onboarded Heap for more thorough and accessible
-                  answers to our data questions
+                  <strong>Analytics:</strong> onboarded Heap for more thorough
+                  and accessible answers to our data questions
                 </li>
                 <li>
-                  <strong>Infrastructure:</strong> moved from JW Player to Brightcove for
-                  video, and local servers to AWS for hosting
+                  <strong>Infrastructure:</strong> moved from JW Player to
+                  Brightcove for video, and local servers to AWS for hosting
                 </li>
                 <li>
-                  <strong>Collaboration:</strong> pioneered Slack, Monday, and Notion
+                  <strong>Collaboration:</strong> pioneered Slack, Monday, and
+                  Notion
                 </li>
                 <li>Most of the above ended up becoming firm-wide standards</li>
               </ul>
@@ -93,49 +107,60 @@ export function ResumeContent() {
               including the CEO
             </li>
             <li>
-              Introduced and piloted <strong>AI-native prototyping</strong> and design-to-code
-              workflows (v0, Cursor, Figma Make) and built microtools including:
+              Introduced and piloted <strong>AI-native prototyping</strong> and
+              design-to-code workflows (v0, Cursor, Figma Make) and built
+              microtools including:
               <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
                 <li>
-                  A custom <strong>ChatGPT agent</strong> trained on ~3,000 articles spanning
-                  decades of firm content and used it to evaluate the taxonomy
-                  and design a smarter structure.
+                  A custom <strong>ChatGPT agent</strong> trained on ~3,000
+                  articles spanning decades of firm content and used it to
+                  evaluate the taxonomy and design a smarter structure.
                 </li>
                 <li>
-                  A POC of an <strong>editorial intelligence</strong> dashboard that placed site
-                  content (not charts) at the center and included an AI chat
-                  interface to answer analytics inquiries using common language,
-                  empowering any teammate to quickly get data-informed answers
+                  A POC of an <strong>editorial intelligence</strong> dashboard
+                  that placed site content (not charts) at the center and
+                  included an AI chat interface to answer analytics inquiries
+                  using common language, empowering any teammate to quickly get
+                  data-informed answers
                 </li>
                 <li>
-                  A <strong>Jira ticket creator</strong> that enabled non-technical teammates to
-                  create consistent, accurate Jira tickets
+                  A <strong>Jira ticket creator</strong> that enabled
+                  non-technical teammates to create consistent, accurate Jira
+                  tickets
                 </li>
               </ul>
             </li>
             <li>
-              <strong>Partnered cross-functionally with engineers and product
-              managers </strong>on QA, sprint execution, and risk mitigation for
-              high-traffic launches including the firm&apos;s Partner Elections,
-              annual benefits open enrollment, global executive livestreams, and
+              <strong>
+                Partnered cross-functionally with engineers and product
+                managers{' '}
+              </strong>
+              on QA, sprint execution, and risk mitigation for high-traffic
+              launches including the firm&apos;s Partner Elections, annual
+              benefits open enrollment, global executive livestreams, and
               various technical projects including:
               <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
                 <li>
-                  <strong>Led jQuery-to-React component modernization</strong> and built
-                  reusable template and component libraries, establishing Figma
-                  and Storybook as the single source of truth.
+                  <strong>Led jQuery-to-React component modernization</strong>{' '}
+                  and built reusable template and component libraries,
+                  establishing Figma and Storybook as the single source of
+                  truth.
                 </li>
                 <li>
-                  <strong>Migrated entire product suite</strong> from external vendors to the
-                  internal engineering team with no loss of business continuity,
-                  importing product-management and design-to-dev handoff
-                  practices and <strong>saving hundreds of thousands of dollars in the
-                  process.</strong>
+                  <strong>Migrated entire product suite</strong> from external
+                  vendors to the internal engineering team with no loss of
+                  business continuity, importing product-management and
+                  design-to-dev handoff practices and{' '}
+                  <strong>
+                    saving hundreds of thousands of dollars in the process.
+                  </strong>
                 </li>
                 <li>
                   Led ux and content strategy for Drupal-to-SharePoint
-                  migrations to both cut costs and <strong>empower non-technical teams
-                  to self-manage content</strong>
+                  migrations to both cut costs and{' '}
+                  <strong>
+                    empower non-technical teams to self-manage content
+                  </strong>
                 </li>
                 <li>
                   Led Box-to-SharePoint migrations for multiple functions,
@@ -144,11 +169,13 @@ export function ResumeContent() {
               </ul>
             </li>
             <li>
-              <strong>Served as design and technical advisor to teams across the
-              firm,</strong> including publishing, alumni, benefits, engineering, and
-              multiple client service teams. Advised on AI capabilities, search
-              strategy, platform migration, analytics, user experience, CMS
-              solutions. component reuse, and more.
+              <strong>
+                Served as design and technical advisor to teams across the firm,
+              </strong>{' '}
+              including publishing, alumni, benefits, engineering, and multiple
+              client service teams. Advised on AI capabilities, search strategy,
+              platform migration, analytics, user experience, CMS solutions.
+              component reuse, and more.
             </li>
           </ul>
 
@@ -158,19 +185,24 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              <strong>Led design and product strategy </strong>for McKinsey&apos;s internal
-              communications function supporting CEO change initiatives
+              <strong>Led design and product strategy </strong>for
+              McKinsey&apos;s internal communications function supporting CEO
+              change initiatives
             </li>
             <li>
-              <strong>Redesigned and built the firm&apos;s flagship internal
-              communications channel</strong> (McKinsey News), establishing the
-              design-to-dev workflow that grew into the larger product suite I
-              went on to lead.
+              <strong>
+                Redesigned and built the firm&apos;s flagship internal
+                communications channel
+              </strong>{' '}
+              (McKinsey News), establishing the design-to-dev workflow that grew
+              into the larger product suite I went on to lead.
               <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
                 <li>
-                  <strong>Sustained 3x increase in readership;95% of readers
-                  reported trusting the publication; 71% reported trying
-                  something new at work based on what they read.</strong>
+                  <strong>
+                    Sustained 3x increase in readership;95% of readers reported
+                    trusting the publication; 71% reported trying something new
+                    at work based on what they read.
+                  </strong>
                 </li>
               </ul>
             </li>
@@ -179,17 +211,20 @@ export function ResumeContent() {
               content for dozens of global initiatives
             </li>
             <li>
-              <strong>Designed and produced hundreds of articles </strong>for the firm&apos;s
-              main communications channel (McKinsey News)
+              <strong>Designed and produced hundreds of articles </strong>for
+              the firm&apos;s main communications channel (McKinsey News)
             </li>
             <li>
-              <strong>Modernized the function&apos;s video and analytics infrastructure </strong>
-              and the team&apos;s UX workflow moving to Sketch from Photoshop and
-              onboarding junior designers and engineers
+              <strong>
+                Modernized the function&apos;s video and analytics
+                infrastructure{' '}
+              </strong>
+              and the team&apos;s UX workflow moving to Sketch from Photoshop
+              and onboarding junior designers and engineers
             </li>
             <li>
-              Hired and managed development team that led to <strong>10 years of
-              successful collaboration</strong>
+              Hired and managed development team that led to{' '}
+              <strong>10 years of successful collaboration</strong>
             </li>
           </ul>
         </div>
@@ -206,35 +241,41 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              <strong>Led technical road map</strong> to ensure ongoing evolution of
-              production technologies and user experience
+              <strong>Led technical road map</strong> to ensure ongoing
+              evolution of production technologies and user experience
             </li>
             <li>
-              Produced all of mtvU&apos;s online and social media presence across
-              platforms (blog, TV, social)
+              Produced all of mtvU&apos;s online and social media presence
+              across platforms (blog, TV, social)
               <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
                 <li>
-                  Organically grew mtvU Twitter account to <strong>over 30,000
-                  followers</strong>
+                  Organically grew mtvU Twitter account to{' '}
+                  <strong>over 30,000 followers</strong>
                 </li>
               </ul>
             </li>
             <li>
-              <strong>Created and implemented editorial strategy &amp; content</strong> in
-              conjunction with on-air show and music priorities
+              <strong>
+                Created and implemented editorial strategy &amp; content
+              </strong>{' '}
+              in conjunction with on-air show and music priorities
             </li>
             <li>
               Coordinated with On-Air Production, Music &amp; Talent and
               Marketing to maximize digital effectiveness
             </li>
             <li>
-              Contributed to broader MTV initiatives through <strong>production, design,
-              and social media</strong> on projects like the <strong>MTV Movie Awards, Video
-              Music Awards, the OMA&apos;s, and show premieres</strong>
+              Contributed to broader MTV initiatives through{' '}
+              <strong>production, design, and social media</strong> on projects
+              like the{' '}
+              <strong>
+                MTV Movie Awards, Video Music Awards, the OMA&apos;s, and show
+                premieres
+              </strong>
             </li>
             <li>
-              <strong>Nominated for a 2013 Daytime Emmy </strong>for production work on
-              mtvU&apos;s pro-social &ldquo;Against our will&rdquo;
+              <strong>Nominated for a 2013 Daytime Emmy </strong>for production
+              work on mtvU&apos;s pro-social &ldquo;Against our will&rdquo;
               anti-trafficking campaign
             </li>
           </ul>
@@ -245,30 +286,36 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              <strong>Managed all aspects of mtvU&apos;s social media presence, </strong>
+              <strong>
+                Managed all aspects of mtvU&apos;s social media presence,{' '}
+              </strong>
               including conceiving/supporting company-wide promotional plans
             </li>
             <li>
-              Contributed to broader MTVN initiatives through specialized{" "}
-              <strong>production work on projects like the Movie Awards, Video Music
-              Awards, the OMA&apos;s and show premieres</strong>
+              Contributed to broader MTVN initiatives through specialized{' '}
+              <strong>
+                production work on projects like the Movie Awards, Video Music
+                Awards, the OMA&apos;s and show premieres
+              </strong>
             </li>
             <li>
-              <strong>Managed mtvU-Fulbright blog</strong> in partnership with the the U.S.
-              Department of State and The Fulbright Foreign Scholarship Board
+              <strong>Managed mtvU-Fulbright blog</strong> in partnership with
+              the the U.S. Department of State and The Fulbright Foreign
+              Scholarship Board
             </li>
             <li>
-              <strong>Wrote site content and promotional copy</strong> for priorities ranging
-              from Music and Pro-Social campaigns, to shows, and major tent pole
-              events
+              <strong>Wrote site content and promotional copy</strong> for
+              priorities ranging from Music and Pro-Social campaigns, to shows,
+              and major tent pole events
             </li>
             <li>
               Conceived, designed, and built Voting Widgets for social network
               syndication that earned <strong>over 1.5 million votes</strong>
             </li>
             <li>
-              <strong>Nominated for a 2010 Daytime Emmy </strong>for production work on
-              mtvU&apos;s &ldquo;Indebted&rdquo; financial education campaign
+              <strong>Nominated for a 2010 Daytime Emmy </strong>for production
+              work on mtvU&apos;s &ldquo;Indebted&rdquo; financial education
+              campaign
             </li>
             <li>
               Assured timely delivery and publication of all MTV Music Digital
@@ -283,11 +330,13 @@ export function ResumeContent() {
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>Managed digital presence of all mtvU franchises</li>
             <li>Produced and designed content for yearly tent-pole events</li>
-            <li>Produced all mtvU show, music and pro-social content for online</li>
+            <li>
+              Produced all mtvU show, music and pro-social content for online
+            </li>
             <li>
               Designed and built embeddable flipbooks that were syndicated via
-              Award Show Nominee and Fan social media sites <strong>garnering millions
-              of impressions</strong>
+              Award Show Nominee and Fan social media sites{' '}
+              <strong>garnering millions of impressions</strong>
             </li>
           </ul>
         </div>
@@ -304,9 +353,10 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              Taught a prerequisite course in <strong>Design &amp; Visuality,</strong> mentoring
-              undergraduate students in visual communication, digital practice,
-              and critique, connecting design theory to technology.
+              Taught a prerequisite course in{' '}
+              <strong>Design &amp; Visuality,</strong> mentoring undergraduate
+              students in visual communication, digital practice, and critique,
+              connecting design theory to technology.
             </li>
             <li>
               Helped students translate conceptual work into visual and digital
@@ -328,13 +378,13 @@ export function ResumeContent() {
             Core Strengths
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Product Experience Strategy &amp; UX Leadership | Design Systems &amp;
-            Component Libraries | AI-Native Prototyping &amp; Design-to-Code |
-            Front-End Engineering &amp; Design-to-Dev Workflows |
-            Analytics-Informed Design | Cross-Functional Stakeholder Partnership |
-            High-Traffic Launch Management | Vendor-to-In-House Transition
-            Leadership | Editorial / CMS Platforms | Intranets &amp; Employee
-            Experience | Stakeholder Governance
+            Product Experience Strategy &amp; UX Leadership | Design Systems
+            &amp; Component Libraries | AI-Native Prototyping &amp;
+            Design-to-Code | Front-End Engineering &amp; Design-to-Dev Workflows
+            | Analytics-Informed Design | Cross-Functional Stakeholder
+            Partnership | High-Traffic Launch Management | Vendor-to-In-House
+            Transition Leadership | Editorial / CMS Platforms | Intranets &amp;
+            Employee Experience | Stakeholder Governance
           </p>
         </div>
 
@@ -343,8 +393,8 @@ export function ResumeContent() {
             Design / Prototyping
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Figma, Sketch, v0, Cursor, Lovable, Photoshop, Illustrator, Premiere,
-            After Effects
+            Figma, Sketch, v0, Cursor, Lovable, Photoshop, Illustrator,
+            Premiere, After Effects
           </p>
         </div>
 
@@ -373,8 +423,8 @@ export function ResumeContent() {
             Data / Product Ops
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Heap, Dynatrace, Snowflake / SQL, Jira, Notion, Miro, Monday.com, Box,
-            Microsoft Teams, Slack, Brightcove
+            Heap, Dynatrace, Snowflake / SQL, Jira, Notion, Miro, Monday.com,
+            Box, Microsoft Teams, Slack, Brightcove
           </p>
         </div>
       </section>
@@ -435,13 +485,13 @@ export function ResumeContent() {
             2005 Fellowship at Skowhegan School of Painting &amp; Sculpture
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Selected based off of my work in drawing and digtial media. Skowhegan
-            is a highly competitive, nine-week summer residency program and art
-            school located on a 350-acre historic campus in Madison, Maine.
-            Founded in 1946 by artists for artists, it brings together a diverse
-            group of 65 emerging artists each year to participate in an immersive,
-            rigorous, and community-driven environment led by some of the
-            world&apos;s leading artists.
+            Selected based off of my work in drawing and digtial media.
+            Skowhegan is a highly competitive, nine-week summer residency
+            program and art school located on a 350-acre historic campus in
+            Madison, Maine. Founded in 1946 by artists for artists, it brings
+            together a diverse group of 65 emerging artists each year to
+            participate in an immersive, rigorous, and community-driven
+            environment led by some of the world&apos;s leading artists.
           </p>
         </div>
       </section>

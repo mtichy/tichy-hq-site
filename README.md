@@ -8,10 +8,10 @@ Personal portfolio and résumé site for [Mark Tichý](https://v0-tichy-hq.verce
 
 ## What's here
 
-| Route | Purpose |
-|---|---|
-| `/` | Home — intro, bio, career journey |
-| `/resume` | Full résumé with downloadable PDF |
+| Route     | Purpose                                                   |
+| --------- | --------------------------------------------------------- |
+| `/`       | Home — intro, bio, career journey                         |
+| `/resume` | Full résumé with downloadable PDF                         |
 | `/builds` | Process write-up for how this site was designed and built |
 
 ## Stack
@@ -43,7 +43,9 @@ Open [http://localhost:3000](http://localhost:3000).
 ```bash
 pnpm build   # production build
 pnpm start   # serve production build locally
-pnpm lint    # ESLint (config pending)
+pnpm lint          # ESLint (Next.js core-web-vitals + TypeScript)
+pnpm format:check  # Prettier formatting check
+pnpm format        # Prettier auto-format
 ```
 
 ## Project structure

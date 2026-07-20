@@ -41,7 +41,10 @@ export function BuildsContent() {
           files that became the source of truth for everything downstream:
         </p>
         <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
-          <li>globals.css (CSS custom properties for color, spacing, and typography)</li>
+          <li>
+            globals.css (CSS custom properties for color, spacing, and
+            typography)
+          </li>
           <li>primitives.tokens.json (the raw design tokens)</li>
         </ul>
         <p className="mt-4 text-regular leading-regular text-foreground text-pretty">
@@ -58,14 +61,14 @@ export function BuildsContent() {
           prototyping in v0
         </h2>
         <p className="mt-6 text-regular leading-regular text-foreground text-pretty">
-          With the design system exported, I moved into v0 and fed it the{" "}
+          With the design system exported, I moved into v0 and fed it the{' '}
           <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.9em] text-foreground">
             globals.css
-          </code>{" "}
-          and{" "}
+          </code>{' '}
+          and{' '}
           <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.9em] text-foreground">
             primitives.tokens.json
-          </code>{" "}
+          </code>{' '}
           files directly insuring that it inherited the actual design language
           rather than inventing its own.
         </p>
@@ -102,7 +105,9 @@ export function BuildsContent() {
           GitHub
         </h2>
         <p className="mt-6 text-regular leading-regular text-foreground text-pretty">
-          Before moving into Cursor the v0 project gets pushed to GitHub.<br/>Why:
+          Before moving into Cursor the v0 project gets pushed to GitHub.
+          <br />
+          Why:
         </p>
         <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
           <li>
@@ -167,7 +172,9 @@ export function BuildsContent() {
             Every push to main triggers a production deploy; every branch or PR
             gets its own preview URL for review before merging
           </li>
-          <li>Custom domain pointed at Vercel, with SSL handled automatically</li>
+          <li>
+            Custom domain pointed at Vercel, with SSL handled automatically
+          </li>
           <li>
             Basic analytics enabled to see how the site is actually used
             post-launch

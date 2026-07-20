@@ -95,7 +95,9 @@
   --muted: var(--color-surface-muted-light);
   --muted-foreground: var(--color-neutral-ink-muted);
   --accent: var(--color-brand-lime);
-  --accent-foreground: var(--color-neutral-black); /* never white on accent fills */
+  --accent-foreground: var(
+    --color-neutral-black
+  ); /* never white on accent fills */
   --primary: var(--color-brand-cyan);
   --primary-foreground: var(--color-neutral-black);
   --secondary: var(--color-brand-magenta);
@@ -120,13 +122,17 @@
   --muted: var(--color-surface-muted-dark);
   --muted-foreground: var(--color-neutral-gray);
   --accent: var(--color-brand-lime);
-  --accent-foreground: var(--color-neutral-black); /* still black, even in dark mode */
+  --accent-foreground: var(
+    --color-neutral-black
+  ); /* still black, even in dark mode */
   --primary: var(--color-brand-cyan);
   --primary-foreground: var(--color-neutral-black);
   --secondary: var(--color-brand-magenta);
   --secondary-foreground: var(--color-neutral-black);
   --destructive: var(--color-status-destructive-dark);
-  --destructive-foreground: var(--color-neutral-black); /* pinned near-black for contrast on lighter dark-mode red */
+  --destructive-foreground: var(
+    --color-neutral-black
+  ); /* pinned near-black for contrast on lighter dark-mode red */
   --border: var(--color-surface-border-dark);
   --input: var(--color-surface-border-dark);
   --ring: var(--color-brand-cyan-strong);
