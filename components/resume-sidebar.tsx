@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Hyperlink } from '@/components/hyperlink'
+import { TrackedHyperlink } from '@/components/tracked-hyperlink'
 
 export function ResumeSidebar() {
   return (
@@ -15,9 +15,10 @@ export function ResumeSidebar() {
           Design Technologist. Imagining and building digital products and the
           systems, workflows, and content models that power them.
         </p>
-        <Hyperlink
+        <TrackedHyperlink
           href="/mark-tichy-resume.pdf"
           download
+          event="Resume Download"
           className="inline-flex items-center justify-center gap-2 text-regular leading-regular"
         >
           <Image
@@ -30,7 +31,7 @@ export function ResumeSidebar() {
             className="h-[18px] w-[23px]"
           />
           Download résumé (PDF)
-        </Hyperlink>
+        </TrackedHyperlink>
       </div>
     </aside>
   )

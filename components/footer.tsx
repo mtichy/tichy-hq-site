@@ -1,4 +1,4 @@
-import { Hyperlink } from '@/components/hyperlink'
+import { TrackedHyperlink } from '@/components/tracked-hyperlink'
 import { email, linkedInUrl } from '@/lib/site'
 
 export function Footer() {
@@ -10,20 +10,24 @@ export function Footer() {
         </h2>
         <hr className="h-[6px] w-full border-0 bg-[var(--color-brand-cyan)]" />
         <div className="flex flex-col items-start gap-4">
-          <Hyperlink
+          <TrackedHyperlink
             href={`mailto:${email}`}
+            event="Contact Click"
+            eventData={{ channel: 'email' }}
             className="text-medium leading-medium"
           >
             Email
-          </Hyperlink>
-          <Hyperlink
+          </TrackedHyperlink>
+          <TrackedHyperlink
             href={linkedInUrl}
+            event="Contact Click"
+            eventData={{ channel: 'linkedin' }}
             target="_blank"
             rel="noopener noreferrer"
             className="text-medium leading-medium"
           >
             Linked In
-          </Hyperlink>
+          </TrackedHyperlink>
         </div>
       </div>
       <p className="mt-40 text-small leading-small font-bold text-foreground">
