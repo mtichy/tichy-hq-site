@@ -29,7 +29,7 @@ No environment variables are required to run or build the site locally.
 
 ## Getting started
 
-**Prerequisites:** [Node.js](https://nodejs.org) 18+ and [pnpm](https://pnpm.io)
+**Prerequisites:** [Node.js](https://nodejs.org) 22+ (see `.nvmrc`) and [pnpm](https://pnpm.io) 10+
 
 ```bash
 git clone https://github.com/mtichy/tichy-hq-site.git
