@@ -9,8 +9,10 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <NavBar activePath="/" />
-      <Hero />
-      <JourneySection />
+      <main>
+        <Hero />
+        <JourneySection />
+      </main>
       <Footer />
     </div>
   )

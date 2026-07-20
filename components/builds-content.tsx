@@ -22,8 +22,10 @@ export function BuildsContent() {
       {/* 1 — Design System in Figma */}
       <section className="mt-16">
         <h2 className="text-xlarge font-bold leading-xlarge text-foreground text-balance">
-          <span className="text-[var(--color-brand-cyan)]">1</span> Design
-          System in Figma
+          <span className="text-[var(--color-brand-cyan-strong)] dark:text-[var(--color-brand-cyan)]">
+            1
+          </span>{' '}
+          Design System in Figma
         </h2>
         <p className="mt-6 text-regular leading-regular text-foreground text-pretty">
           Before any prompting or prototyping, I built a foundational design
@@ -57,8 +59,10 @@ export function BuildsContent() {
       {/* 2 — Rapid prototyping in v0 */}
       <section className="mt-16">
         <h2 className="text-xlarge font-bold leading-xlarge text-foreground text-balance">
-          <span className="text-[var(--color-brand-cyan)]">2</span> Rapid
-          prototyping in v0
+          <span className="text-[var(--color-brand-cyan-strong)] dark:text-[var(--color-brand-cyan)]">
+            2
+          </span>{' '}
+          Rapid prototyping in v0
         </h2>
         <p className="mt-6 text-regular leading-regular text-foreground text-pretty">
           With the design system exported, I moved into v0 and fed it the{' '}
@@ -101,8 +105,10 @@ export function BuildsContent() {
       {/* 3 — Handoff to GitHub */}
       <section className="mt-16">
         <h2 className="text-xlarge font-bold leading-xlarge text-foreground text-balance">
-          <span className="text-[var(--color-brand-cyan)]">3</span> Handoff to
-          GitHub
+          <span className="text-[var(--color-brand-cyan-strong)] dark:text-[var(--color-brand-cyan)]">
+            3
+          </span>{' '}
+          Handoff to GitHub
         </h2>
         <p className="mt-6 text-regular leading-regular text-foreground text-pretty">
           Before moving into Cursor the v0 project gets pushed to GitHub.
@@ -129,8 +135,10 @@ export function BuildsContent() {
       {/* 4 — Development in Cursor */}
       <section className="mt-16">
         <h2 className="text-xlarge font-bold leading-xlarge text-foreground text-balance">
-          <span className="text-[var(--color-brand-cyan)]">4</span> Development
-          in Cursor
+          <span className="text-[var(--color-brand-cyan-strong)] dark:text-[var(--color-brand-cyan)]">
+            4
+          </span>{' '}
+          Development in Cursor
         </h2>
         <p className="mt-6 text-regular leading-regular text-foreground text-pretty">
           With the repo open in Cursor, the remaining work shifts from
@@ -160,8 +168,10 @@ export function BuildsContent() {
       {/* 4 — Deployment with Vercel */}
       <section className="mt-16">
         <h2 className="text-xlarge font-bold leading-xlarge text-foreground text-balance">
-          <span className="text-[var(--color-brand-cyan)]">4</span> Deployment
-          with Vercel
+          <span className="text-[var(--color-brand-cyan-strong)] dark:text-[var(--color-brand-cyan)]">
+            4
+          </span>{' '}
+          Deployment with Vercel
         </h2>
         <p className="mt-6 text-regular leading-regular text-foreground text-pretty">
           Lastly, the GitHub repo connects to Vercel for continuous integration
