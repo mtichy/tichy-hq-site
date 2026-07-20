@@ -10,7 +10,7 @@ export const defaultDescription =
 /** Placeholder until a dedicated 1200×630 OG asset is added. */
 export const ogImage = {
   url: '/images/avatar-333333.png',
-  width: 288,
-  height: 288,
+  width: 576,
+  height: 576,
   alt: 'Pixel-art portrait of Mark Tichý',
 }

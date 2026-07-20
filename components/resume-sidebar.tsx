@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Hyperlink } from '@/components/hyperlink'
 
 export function ResumeSidebar() {
@@ -19,10 +20,13 @@ export function ResumeSidebar() {
           download
           className="inline-flex items-center justify-center gap-2 text-regular leading-regular"
         >
-          <img
+          <Image
             src="/figma/download-icon.svg"
             alt=""
-            aria-hidden="true"
+            width={23}
+            height={18}
+            unoptimized
+            aria-hidden
             className="h-[18px] w-[23px]"
           />
           Download résumé (PDF)

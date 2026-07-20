@@ -1,4 +1,36 @@
+import Image from 'next/image'
 import { JourneyArrow } from '@/components/journey-arrow'
+
+const LOGOS = [
+  {
+    src: '/figma/saic.png',
+    alt: 'School of the Art Institute of Chicago',
+    width: 311,
+    height: 96,
+    className: 'h-10 w-auto object-contain md:h-12',
+  },
+  {
+    src: '/figma/parsons.png',
+    alt: 'Parsons School of Design',
+    width: 152,
+    height: 96,
+    className: 'h-[51px] w-auto object-contain md:h-12',
+  },
+  {
+    src: '/figma/mtv-logo.png',
+    alt: 'MTV',
+    width: 147,
+    height: 90,
+    className: 'h-12 w-auto object-contain md:h-[45px]',
+  },
+  {
+    src: '/figma/mckinsey.png',
+    alt: 'McKinsey & Company',
+    width: 301,
+    height: 96,
+    className: 'h-11 w-auto object-contain md:h-12',
+  },
+] as const
 
 export function JourneySection() {
   return (
@@ -64,29 +96,20 @@ export function JourneySection() {
 
         {/* Logo row */}
         <div className="mt-16 grid grid-cols-2 justify-items-start gap-x-12 gap-y-10 md:flex md:flex-wrap md:items-center md:justify-items-center md:gap-x-12 md:gap-y-8">
-          <img
-            src="/figma/saic.png"
-            alt="School of the Art Institute of Chicago"
-            className="h-10 w-auto object-contain md:h-12"
-          />
-          <JourneyArrow className="hidden h-5 w-[100px] text-[var(--color-surface-page)] md:block" />
-          <img
-            src="/figma/parsons.png"
-            alt="Parsons School of Design"
-            className="h-[51px] w-auto object-contain md:h-12"
-          />
-          <JourneyArrow className="hidden h-5 w-[100px] text-[var(--color-surface-page)] md:block" />
-          <img
-            src="/figma/mtv-logo.png"
-            alt="MTV"
-            className="h-12 w-auto object-contain md:h-[45px]"
-          />
-          <JourneyArrow className="hidden h-5 w-[100px] text-[var(--color-surface-page)] md:block" />
-          <img
-            src="/figma/mckinsey.png"
-            alt="McKinsey & Company"
-            className="h-11 w-auto object-contain md:h-12"
-          />
+          {LOGOS.map((logo, index) => (
+            <div key={logo.src} className="contents">
+              {index > 0 && (
+                <JourneyArrow className="hidden h-5 w-[100px] text-[var(--color-surface-page)] md:block" />
+              )}
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                className={logo.className}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

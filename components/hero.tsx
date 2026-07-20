@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export function Hero() {
   return (
     <section className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-[69px] pb-[83px]">
@@ -27,14 +29,16 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Portrait column */}
+        {/* Portrait column — unoptimized keeps pixel-art edges crisp */}
         <div className="mx-auto w-full max-w-[288px] shrink-0 lg:mx-0">
-          <img
+          <Image
             src="/images/avatar-333333.png"
             alt="Pixel-art portrait of mark tichý"
-            width={288}
-            height={288}
-            className="aspect-square w-full [image-rendering:pixelated] dark:hidden"
+            width={576}
+            height={576}
+            priority
+            unoptimized
+            className="aspect-square h-auto w-full [image-rendering:pixelated] dark:hidden"
           />
         </div>
       </div>

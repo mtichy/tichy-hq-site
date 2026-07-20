@@ -6,12 +6,6 @@ import prettier from 'eslint-config-prettier/flat'
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  {
-    rules: {
-      // Static PNG/SVG assets use native <img> with images.unoptimized in next.config.
-      '@next/next/no-img-element': 'off',
-    },
-  },
   prettier,
   globalIgnores([
     '.next/**',
