@@ -1,33 +1,99 @@
-# tichy-hq-site
+# Mark Tichý — Portfolio Site
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Personal portfolio and résumé site for [Mark Tichý](https://v0-tichy-hq.vercel.app), a Design Technologist. The live site is the primary deliverable; this repo is part of the application — intended to be read by hiring managers and engineers, not just browsed.
 
-## Built with v0
+**Live site:** [v0-tichy-hq.vercel.app](https://v0-tichy-hq.vercel.app)
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+![Home page screenshot in dark mode](./docs/home-screenshot.png)
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_tUGn4A2c53wcn07e2IazgmiLIuNB)
+## What's here
 
-## Getting Started
+| Route | Purpose |
+|---|---|
+| `/` | Home — intro, bio, career journey |
+| `/resume` | Full résumé with downloadable PDF |
+| `/builds` | Process write-up for how this site was designed and built |
 
-First, run the development server:
+## Stack
+
+- **Framework:** [Next.js 16](https://nextjs.org) (App Router, Turbopack)
+- **UI:** [React 19](https://react.dev), [TypeScript](https://www.typescriptlang.org) (`strict: true`)
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com), design tokens in `app/globals.css`
+- **Components:** [shadcn/ui](https://ui.shadcn.com) (Base UI primitives), [next-themes](https://github.com/pacocoursey/next-themes) for light/dark mode
+- **Analytics:** [@vercel/analytics](https://vercel.com/docs/analytics) (production only)
+- **Deploy:** [Vercel](https://vercel.com) — auto-deploy on push to `main`
+
+No environment variables are required to run or build the site locally.
+
+## Getting started
+
+**Prerequisites:** [Node.js](https://nodejs.org) 18+ and [pnpm](https://pnpm.io)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/mtichy/tichy-hq-site.git
+cd tichy-hq-site
+pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Other scripts
 
-## Learn More
+```bash
+pnpm build   # production build
+pnpm start   # serve production build locally
+pnpm lint    # ESLint (config pending)
+```
 
-To learn more, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+```
+app/                  # Next.js App Router pages and global styles
+  layout.tsx          # Root layout, metadata, theme provider
+  page.tsx            # Home
+  resume/page.tsx
+  builds/page.tsx
+  globals.css         # Design tokens (color, type scale, spacing)
+components/           # UI components (mostly server components)
+  ui/                 # shadcn/ui primitives
+lib/
+  site.ts             # Site URL, default metadata, OG image config
+  utils.ts            # Tailwind class merge helper
+public/               # Static assets (favicons, logos, résumé PDF)
+docs/                 # README assets (screenshots)
+```
+
+## Design system
+
+Typography, color, and spacing are defined as CSS custom properties in `app/globals.css`, exported from a Figma design system before any code generation. Semantic tokens map primitives to light and dark themes (for example `--background`, `--foreground`, `--accent`).
+
+The `/builds` page documents the full workflow: Figma tokens → v0 prototyping → GitHub → Cursor refinement → Vercel deployment.
+
+## Configuration
+
+Site-wide metadata lives in `lib/site.ts`:
+
+- Production URL (`metadataBase`)
+- Default title and description
+- Open Graph / Twitter card defaults
+
+Update `siteUrl` in that file when a custom domain is added.
+
+## Deployment
+
+The repo is connected to Vercel. Every push to `main` triggers a production deploy; branches and pull requests get preview URLs.
+
+Production URL: **https://v0-tichy-hq.vercel.app**
+
+## Notes for reviewers
+
+- **TypeScript:** `strict` mode is enabled in `tsconfig.json`. No `any` types in source.
+- **Client JS:** Minimal `"use client"` usage — limited to the nav (active route), theme provider, and theme toggle.
+- **Accessibility:** Semantic landmarks (`header`, `nav`, `main`, `footer`), `aria-current` on nav links, focus-visible styles on interactive elements, alt text on images.
+- **Secrets:** No API keys or `.env` files in the repo. `.gitignore` excludes `.env*`, `node_modules`, and `.next`.
+- **Static output:** All routes pre-render as static HTML at build time.
+
+## License
+
+Private — all rights reserved.
