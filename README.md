@@ -48,6 +48,8 @@ pnpm format:check  # Prettier formatting check
 pnpm format        # Prettier auto-format
 ```
 
+Pre-commit hooks (Husky + lint-staged) run ESLint and Prettier on staged files automatically.
+
 ## Project structure
 
 ```
@@ -95,6 +97,7 @@ Production URL: **https://v0-tichy-hq.vercel.app**
 - **Accessibility:** Semantic landmarks (`header`, `nav`, `main`, `footer`), `aria-current` on nav links, focus-visible styles on interactive elements, alt text on images.
 - **Secrets:** No API keys or `.env` files in the repo. `.gitignore` excludes `.env*`, `node_modules`, and `.next`.
 - **Static output:** All routes pre-render as static HTML at build time.
+- **Git hooks:** Husky runs lint-staged on commit (ESLint + Prettier on staged files).
 
 ## License
 
