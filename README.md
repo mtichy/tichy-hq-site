@@ -91,7 +91,7 @@ Production URL: **https://v0-tichy-hq.vercel.app**
 ## Notes for reviewers
 
 - **TypeScript:** `strict` mode is enabled in `tsconfig.json`. No `any` types in source.
-- **Client JS:** Minimal `"use client"` usage — limited to the nav (active route), theme provider, and theme toggle.
+- **Client JS:** Minimal `"use client"` usage — theme provider and theme toggle only; NavBar is a server component with per-page `activePath`.
 - **Accessibility:** Semantic landmarks (`header`, `nav`, `main`, `footer`), `aria-current` on nav links, focus-visible styles on interactive elements, alt text on images.
 - **Secrets:** No API keys or `.env` files in the repo. `.gitignore` excludes `.env*`, `node_modules`, and `.next`.
 - **Static output:** All routes pre-render as static HTML at build time.
