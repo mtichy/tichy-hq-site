@@ -2,9 +2,9 @@
 
 [![CI](https://github.com/mtichy/tichy-hq-site/actions/workflows/ci.yml/badge.svg)](https://github.com/mtichy/tichy-hq-site/actions/workflows/ci.yml)
 
-Personal portfolio and résumé site for [Mark Tichý](https://v0-tichy-hq.vercel.app), a Design Technologist. The live site is the primary deliverable; this repo is part of the application — intended to be read by hiring managers and engineers, not just browsed.
+Personal portfolio and résumé site for [Mark Tichý](https://marktichy.com), a Design Technologist. The live site is the primary deliverable; this repo is part of the application — intended to be read by hiring managers and engineers, not just browsed.
 
-**Live site:** [v0-tichy-hq.vercel.app](https://v0-tichy-hq.vercel.app)
+**Live site:** [marktichy.com](https://marktichy.com)
 
 ![Home page screenshot in dark mode](./docs/home-screenshot.png)
 
@@ -84,13 +84,11 @@ Site-wide metadata lives in `lib/site.ts`:
 - Default title and description
 - Open Graph / Twitter card defaults
 
-Update `siteUrl` in that file when a custom domain is added.
-
 ## Deployment
 
 The repo is connected to Vercel. Every push to `main` triggers a production deploy; branches and pull requests get preview URLs.
 
-Production URL: **https://v0-tichy-hq.vercel.app**
+Production URL: **https://marktichy.com**
 
 ## Notes for reviewers
 
@@ -103,4 +101,4 @@ Production URL: **https://v0-tichy-hq.vercel.app**
 
 ## License
 
-Private — all rights reserved.
+[MIT](./LICENSE) © 2026 Mark Tichý

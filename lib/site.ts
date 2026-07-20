@@ -1,4 +1,4 @@
-export const siteUrl = 'https://v0-tichy-hq.vercel.app'
+export const siteUrl = 'https://marktichy.com'
 
 export const siteName = 'Mark Tichý'
 
