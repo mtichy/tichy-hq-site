@@ -165,11 +165,11 @@ export function BuildsContent() {
         </ul>
       </section>
 
-      {/* 4 — Deployment with Vercel */}
+      {/* 5 — Deployment with Vercel */}
       <section className="mt-16">
         <h2 className="text-xlarge font-bold leading-xlarge text-foreground text-balance">
           <span className="text-[var(--color-brand-cyan-strong)] dark:text-[var(--color-brand-cyan)]">
-            4
+            5
           </span>{' '}
           Deployment with Vercel
         </h2>
