@@ -22,14 +22,14 @@ Personal portfolio and résumé site for [Mark Tichý](https://marktichy.com), a
 - **UI:** [React 19](https://react.dev), [TypeScript](https://www.typescriptlang.org) (`strict: true`)
 - **Styling:** [Tailwind CSS 4](https://tailwindcss.com), design tokens in `app/globals.css`
 - **Components:** [shadcn/ui](https://ui.shadcn.com) (Base UI primitives), [next-themes](https://github.com/pacocoursey/next-themes) for light/dark mode
-- **Analytics:** [@vercel/analytics](https://vercel.com/docs/analytics) (production only)
+- **Analytics:** [@vercel/analytics](https://vercel.com/docs/analytics) + [Speed Insights](https://vercel.com/docs/speed-insights) (production only)
 - **Deploy:** [Vercel](https://vercel.com) — auto-deploy on push to `main`
 
 No environment variables are required to run or build the site locally.
 
 ## Getting started
 
-**Prerequisites:** [Node.js](https://nodejs.org) 22+ (see `.nvmrc`) and [pnpm](https://pnpm.io) 10+
+**Prerequisites:** [Node.js](https://nodejs.org) 22+ (see `.nvmrc`) and [pnpm](https://pnpm.io) 11+
 
 ```bash
 git clone https://github.com/mtichy/tichy-hq-site.git
