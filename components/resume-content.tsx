@@ -12,8 +12,8 @@ export function ResumeContent() {
           engineering, design systems, and AI-powered workflows. Leads design
           and technical delivery for global platforms (benefits, intranet,
           employee engagement, leadership communications, and high-traffic
-          events), turns ambiguous stakeholder needs into usable, buildable, and
-          scalable products. Pairs design craft with hands-on engineering to
+          events), and turns ambiguous stakeholder needs into usable, buildable,
+          and scalable products. Pairs design craft with hands-on engineering to
           modernize design-to-development workflows and ship reliably at scale.
         </p>
       </section>
@@ -156,7 +156,7 @@ export function ResumeContent() {
                   </strong>
                 </li>
                 <li>
-                  Led ux and content strategy for Drupal-to-SharePoint
+                  Led UX and content strategy for Drupal-to-SharePoint
                   migrations to both cut costs and{' '}
                   <strong>
                     empower non-technical teams to self-manage content
@@ -174,7 +174,7 @@ export function ResumeContent() {
               </strong>{' '}
               including publishing, alumni, benefits, engineering, and multiple
               client service teams. Advised on AI capabilities, search strategy,
-              platform migration, analytics, user experience, CMS solutions.
+              platform migration, analytics, user experience, CMS solutions,
               component reuse, and more.
             </li>
           </ul>
@@ -199,7 +199,7 @@ export function ResumeContent() {
               <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
                 <li>
                   <strong>
-                    Sustained 3x increase in readership;95% of readers reported
+                    Sustained 3x increase in readership; 95% of readers reported
                     trusting the publication; 71% reported trying something new
                     at work based on what they read.
                   </strong>
@@ -219,11 +219,11 @@ export function ResumeContent() {
                 Modernized the function&apos;s video and analytics
                 infrastructure{' '}
               </strong>
-              and the team&apos;s UX workflow moving to Sketch from Photoshop
+              and the team&apos;s UX workflow, moving to Sketch from Photoshop
               and onboarding junior designers and engineers
             </li>
             <li>
-              Hired and managed development team that led to{' '}
+              Hired and managed a development team that led to{' '}
               <strong>10 years of successful collaboration</strong>
             </li>
           </ul>
@@ -237,12 +237,12 @@ export function ResumeContent() {
 
           {/* Producer, Designer, Writer */}
           <h4 className="mt-2 text-regular font-bold leading-regular text-foreground">
-            Producer, Designer, Writer (2013-2014)
+            Producer, Designer, Writer (2013–2014)
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              <strong>Led technical road map</strong> to ensure ongoing
-              evolution of production technologies and user experience
+              <strong>Led technical roadmap</strong> to ensure ongoing evolution
+              of production technologies and user experience
             </li>
             <li>
               Produced all of mtvU&apos;s online and social media presence
@@ -261,7 +261,7 @@ export function ResumeContent() {
               in conjunction with on-air show and music priorities
             </li>
             <li>
-              Coordinated with On-Air Production, Music &amp; Talent and
+              Coordinated with On-Air Production, Music &amp; Talent, and
               Marketing to maximize digital effectiveness
             </li>
             <li>
@@ -269,20 +269,20 @@ export function ResumeContent() {
               <strong>production, design, and social media</strong> on projects
               like the{' '}
               <strong>
-                MTV Movie Awards, Video Music Awards, the OMA&apos;s, and show
+                MTV Movie Awards, Video Music Awards, the OMAs, and show
                 premieres
               </strong>
             </li>
             <li>
               <strong>Nominated for a 2013 Daytime Emmy </strong>for production
-              work on mtvU&apos;s pro-social &ldquo;Against our will&rdquo;
+              work on mtvU&apos;s pro-social &ldquo;Against Our Will&rdquo;
               anti-trafficking campaign
             </li>
           </ul>
 
           {/* Associate Producer */}
           <h4 className="mt-6 text-regular font-bold leading-regular text-foreground">
-            Associate Producer (2009-2013)
+            Associate Producer (2009–2013)
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
@@ -295,18 +295,18 @@ export function ResumeContent() {
               Contributed to broader MTVN initiatives through specialized{' '}
               <strong>
                 production work on projects like the Movie Awards, Video Music
-                Awards, the OMA&apos;s and show premieres
+                Awards, the OMAs, and show premieres
               </strong>
             </li>
             <li>
               <strong>Managed mtvU-Fulbright blog</strong> in partnership with
-              the the U.S. Department of State and The Fulbright Foreign
-              Scholarship Board
+              the U.S. Department of State and The Fulbright Foreign Scholarship
+              Board
             </li>
             <li>
               <strong>Wrote site content and promotional copy</strong> for
-              priorities ranging from Music and Pro-Social campaigns, to shows,
-              and major tent pole events
+              priorities ranging from music and pro-social campaigns to shows
+              and major tentpole events
             </li>
             <li>
               Conceived, designed, and built Voting Widgets for social network
@@ -318,20 +318,21 @@ export function ResumeContent() {
               campaign
             </li>
             <li>
-              Assured timely delivery and publication of all MTV Music Digital
+              Ensured timely delivery and publication of all MTV Music Digital
               priorities
             </li>
           </ul>
 
           {/* Production Associate */}
           <h4 className="mt-6 text-regular font-bold leading-regular text-foreground">
-            Production Associate (2007-2009)
+            Production Associate (2007–2009)
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>Managed digital presence of all mtvU franchises</li>
-            <li>Produced and designed content for yearly tent-pole events</li>
+            <li>Produced and designed content for yearly tentpole events</li>
             <li>
-              Produced all mtvU show, music and pro-social content for online
+              Produced all mtvU show, music, and pro-social content for online
+              distribution
             </li>
             <li>
               Designed and built embeddable flipbooks that were syndicated via
@@ -463,7 +464,7 @@ export function ResumeContent() {
 
         <div className="mt-6">
           <h3 className="text-regular font-bold leading-regular text-foreground">
-            2013 Nominee Daytime Emmy for MTV &ldquo;Against our Will&rdquo;
+            2013 Nominee Daytime Emmy for MTV &ldquo;Against Our Will&rdquo;
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
             Outstanding New Approaches (Enhancement to a Daytime Program or
@@ -473,7 +474,7 @@ export function ResumeContent() {
 
         <div className="mt-6">
           <h3 className="text-regular font-bold leading-regular text-foreground">
-            2010 Nominee Daytime Emmy for MTV &ldquo;InDebtEd&rdquo;
+            2010 Nominee Daytime Emmy for MTV &ldquo;Indebted&rdquo;
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
             New Approaches (Daytime Entertainment)
@@ -485,13 +486,13 @@ export function ResumeContent() {
             2005 Fellowship at Skowhegan School of Painting &amp; Sculpture
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Selected based off of my work in drawing and digtial media.
-            Skowhegan is a highly competitive, nine-week summer residency
-            program and art school located on a 350-acre historic campus in
-            Madison, Maine. Founded in 1946 by artists for artists, it brings
-            together a diverse group of 65 emerging artists each year to
-            participate in an immersive, rigorous, and community-driven
-            environment led by some of the world&apos;s leading artists.
+            Selected based on my work in drawing and digital media. Skowhegan is
+            a highly competitive, nine-week summer residency program and art
+            school located on a 350-acre historic campus in Madison, Maine.
+            Founded in 1946 by artists for artists, it brings together a diverse
+            group of 65 emerging artists each year to participate in an
+            immersive, rigorous, and community-driven environment led by some of
+            the world&apos;s leading artists.
           </p>
         </div>
       </section>
