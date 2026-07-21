@@ -13,11 +13,10 @@ export const defaultTitle = `${siteName} — ${jobTitle}`
 export const defaultDescription =
   'Design Technologist with 15+ years across McKinsey & Company, MTV Networks, and Parsons School of Design. Product UX, design systems, and AI-native workflows.'
 
-/** Placeholder until a dedicated 1200×630 OG asset is added. */
 export const ogImage = {
-  url: '/images/avatar-333333.png',
-  width: 576,
-  height: 576,
+  url: '/images/og.png',
+  width: 1200,
+  height: 630,
   alt: `Pixel-art portrait of ${siteName}`,
 }
 
