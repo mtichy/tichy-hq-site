@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/mtichy/tichy-hq-site/actions/workflows/ci.yml/badge.svg)](https://github.com/mtichy/tichy-hq-site/actions/workflows/ci.yml)
 
-Personal portfolio and résumé site for [Mark Tichý](https://marktichy.com), a Design Technologist. The live site is the primary deliverable; this repo is part of the application — intended to be read by hiring managers and engineers, not just browsed.
+I'm a Design Technologist and this is my personal portfolio and résumé site. The live site is the primary deliverable. This repo is part of the application and is intended to show my AI-powered design-to-development workflow.
 
 **Live site:** [marktichy.com](https://marktichy.com)
 
