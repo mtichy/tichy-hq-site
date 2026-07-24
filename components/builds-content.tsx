@@ -44,10 +44,17 @@ export function BuildsContent() {
         </p>
         <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
           <li>
-            globals.css (CSS custom properties for color, spacing, and
-            typography)
+            <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.9em] text-foreground">
+              globals.css
+            </code>{' '}
+            (CSS custom properties for color, spacing, and typography)
           </li>
-          <li>primitives.tokens.json (the raw design tokens)</li>
+          <li>
+            <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.9em] text-foreground">
+              primitives.tokens.json
+            </code>{' '}
+            (the raw design tokens)
+          </li>
         </ul>
         <p className="mt-4 text-regular leading-regular text-foreground text-pretty">
           Defining the tokens up front meant every AI tool I used later had a
@@ -125,10 +132,7 @@ export function BuildsContent() {
             sync back to one source of truth instead of forking into
             disconnected exports
           </li>
-          <li>
-            Anyone (including future me) picking this up inherits a normal repo,
-            not a zip file
-          </li>
+          <li>Anyone picking this up inherits a normal repo, not a zip file</li>
         </ul>
       </section>
 
@@ -155,8 +159,7 @@ export function BuildsContent() {
           </li>
           <li>
             Write documentation (README, component notes) so the codebase is
-            legible to a human (especially me), not just to the AI that helped
-            write it
+            legible to a human, not just to the AI that helped write it
           </li>
           <li>
             Test across breakpoints and browsers, plus a basic accessibility
