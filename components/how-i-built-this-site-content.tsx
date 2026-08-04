@@ -4,7 +4,7 @@
  */
 export function HowIBuiltThisSiteContent() {
   return (
-    <div className="flex w-full flex-col gap-16">
+    <div className="flex w-full max-w-[65ch] flex-col gap-16">
       <header className="flex flex-col gap-6">
         <h1 className="text-mega font-bold leading-mega text-balance text-foreground">
           How I built this site

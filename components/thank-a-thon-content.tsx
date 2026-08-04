@@ -24,7 +24,7 @@ export function ThankAThonContent() {
         />
       </div>
 
-      <header className="flex flex-col gap-6">
+      <header className="flex max-w-[65ch] flex-col gap-6">
         <h1 className="text-mega font-bold leading-mega text-balance text-foreground">
           Designing a McKinsey tradition
         </h1>
@@ -35,7 +35,7 @@ export function ThankAThonContent() {
         </p>
       </header>
 
-      <div className="flex flex-col gap-6 text-regular leading-regular text-foreground">
+      <div className="flex max-w-[65ch] flex-col gap-6 text-regular leading-regular text-foreground">
         <p className="text-pretty">
           In 2018 while on McKinsey&apos;s Global Internal Comms team,
           essentially an internal creative agency for the Managing Partner and

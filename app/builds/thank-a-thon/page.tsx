@@ -16,6 +16,7 @@ export default function ThankAThonPage() {
       <NavBar activePath="/builds" />
       <main className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-16">
         <article className="mx-auto flex w-full max-w-[808px] flex-col gap-8">
+          {/* Media uses full 808px; title/body use max-w-[65ch] for reading measure */}
           <BuildsBackLink />
           <ThankAThonContent />
         </article>

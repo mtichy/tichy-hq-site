@@ -15,7 +15,7 @@ export default function HowIBuiltThisSitePage() {
     <div className="min-h-screen">
       <NavBar activePath="/builds" />
       <main className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-16">
-        {/* Figma article column ~808px; centered in the content grid */}
+        {/* Article shell ~808px for media; prose constrained to ~65ch inside */}
         <article className="mx-auto flex w-full max-w-[808px] flex-col gap-8">
           <BuildsBackLink />
           <HowIBuiltThisSiteContent />
