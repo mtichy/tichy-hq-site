@@ -1,6 +1,14 @@
 import * as React from 'react'
 import { cn } from '@/lib/utils'
 
+/** Shared lime + magenta-underline chrome (real links and decorative CTAs). */
+export const hyperlinkChromeClassName = cn(
+  'inline bg-accent px-1.5 text-accent-foreground [box-decoration-break:clone]',
+  'font-sans font-bold',
+  'border-b-4 border-transparent no-underline',
+  'rounded-[2px]',
+)
+
 type HyperlinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement>
 
 const Hyperlink = React.forwardRef<HTMLAnchorElement, HyperlinkProps>(
@@ -9,14 +17,9 @@ const Hyperlink = React.forwardRef<HTMLAnchorElement, HyperlinkProps>(
       <a
         ref={ref}
         className={cn(
-          // inline text link: lime highlight sits behind the text only
-          'inline bg-accent text-accent-foreground [box-decoration-break:clone]',
-          // bold Quicksand type, inherits surrounding font size
-          'font-sans font-bold',
-          // magenta bar flush to the bottom of the lime frame, only on hover/focus
-          'border-b-4 border-transparent no-underline',
+          hyperlinkChromeClassName,
           'hover:border-[var(--color-brand-magenta)] focus-visible:border-[var(--color-brand-magenta)]',
-          'rounded-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
           'cursor-pointer',
           className,
         )}

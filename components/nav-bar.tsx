@@ -7,8 +7,11 @@ const NAV_ITEMS = [
   { label: 'Builds', href: '/builds' },
 ] as const
 
+export type NavPath = (typeof NAV_ITEMS)[number]['href']
+
 type NavBarProps = {
-  activePath: (typeof NAV_ITEMS)[number]['href']
+  /** Current path; omit on lab routes so nothing is highlighted */
+  activePath?: NavPath
 }
 
 export function NavBar({ activePath }: NavBarProps) {
