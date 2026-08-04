@@ -29,7 +29,7 @@ export function ThankAThonContent() {
           Designing a McKinsey tradition
         </h1>
         <p className="text-medium font-light leading-medium text-pretty text-foreground">
-          How keep spirits high? Make gratitude contagious with an annual
+          How to keep spirits high? Make gratitude contagious with an annual
           week-long Thank-a-thon that generates tens of thousands of thank you
           messages and hundreds of thousands of page views across the globe.
         </p>

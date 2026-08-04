@@ -7,7 +7,7 @@ import { ThankAThonContent } from '@/components/thank-a-thon-content'
 export const metadata: Metadata = {
   title: 'Designing a McKinsey tradition',
   description:
-    'How keep spirits high? Make gratitude contagious with an annual week-long Thank-a-thon that generates tens of thousands of thank you messages and hundreds of thousands of page views across the globe.',
+    'How to keep spirits high? Make gratitude contagious with an annual week-long Thank-a-thon that generates tens of thousands of thank you messages and hundreds of thousands of page views across the globe.',
 }
 
 export default function ThankAThonPage() {
