@@ -32,6 +32,7 @@ export const buildProjects: readonly BuildProject[] = [
     title: 'Designing a McKinsey tradition',
     description:
       'How keep spirits high? Make gratitude contagious with an annual week-long Thank-a-thon that generates tens of thousands of thank you messages and hundreds of thousands of page views across the globe.',
+    tags: ['zero-to-one'],
     image: {
       src: '/images/builds-thank-a-thon.png',
       width: 760,
