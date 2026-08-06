@@ -1,4 +1,5 @@
 import type { CardImage } from '@/components/card'
+import { ORBITAL_DRAWINGS_HREF } from '@/lib/labs/orbital-drawings'
 
 export type BuildProject = {
   slug: string
@@ -6,11 +7,15 @@ export type BuildProject = {
   description: string
   tags?: readonly string[]
   image: CardImage
+  /** Defaults to /builds/${slug}; labs override to /labs/... */
+  href?: string
+  ctaLabel?: string
 }
 
 /**
  * Portfolio samples shown on /builds. Adding a project: create
- * `app/builds/[slug]/page.tsx` and append an entry here.
+ * `app/builds/[slug]/page.tsx` (article) or `app/labs/[slug]/page.tsx`
+ * (live experiment), then append an entry here. Use `href` for labs.
  */
 export const buildProjects: readonly BuildProject[] = [
   {
@@ -40,8 +45,27 @@ export const buildProjects: readonly BuildProject[] = [
       unoptimized: true,
     },
   },
+  {
+    slug: 'orbital-drawings',
+    title: '3d orbital interface experiment',
+    description:
+      'I found myself interested in 3d interfaces and made this orbital interface with a few hundred old drawings of mine. The tech stack: Next/React builds the page; Three.js (via R3F) draws the floating cards; GSAP handles focus animation; and I added controls to be able to A/B the effects and learn more about what is possible.',
+    tags: ['lab', 'three.js', 'drawing'],
+    href: ORBITAL_DRAWINGS_HREF,
+    ctaLabel: 'Enter lab →',
+    image: {
+      src: '/images/builds-orbital-drawings.png',
+      width: 760,
+      height: 428,
+      unoptimized: true,
+    },
+  },
 ] as const
 
 export function buildHref(slug: string) {
   return `/builds/${slug}`
+}
+
+export function projectHref(project: BuildProject) {
+  return project.href ?? buildHref(project.slug)
 }

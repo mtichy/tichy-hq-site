@@ -16,10 +16,10 @@ type NavBarProps = {
 
 export function NavBar({ activePath }: NavBarProps) {
   return (
-    <header className="sticky top-0 z-50 w-full border-t-2 border-t-[var(--color-brand-cyan)] bg-background">
+    <header className="sticky top-0 z-50 h-[var(--site-nav-height)] w-full border-t-2 border-t-[var(--color-brand-cyan)] bg-background">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-[var(--breakpoint-content)] items-center gap-8 px-6 py-3"
+        className="mx-auto flex h-full max-w-[var(--breakpoint-content)] items-center gap-8 px-6"
       >
         {NAV_ITEMS.map((item) => (
           <NavLink

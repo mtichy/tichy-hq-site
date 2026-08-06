@@ -7,6 +7,7 @@ const routes = [
   '/builds',
   '/builds/how-i-built-this-site',
   '/builds/thank-a-thon',
+  '/labs/orbital-drawings',
 ] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {

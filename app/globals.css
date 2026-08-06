@@ -85,6 +85,8 @@
 :root {
   color-scheme: light;
   --radius: 0.625rem;
+  /* Global sticky nav: border-t-2 + link row (keeps lab chrome clear underneath) */
+  --site-nav-height: 3.5rem;
   --background: var(--color-surface-page); /* warm off-white, NOT pure white */
   --foreground: var(--color-neutral-black);
   --card: var(--color-neutral-white);
@@ -107,6 +109,21 @@
   --input: var(--color-surface-border-light);
   --ring: var(--color-brand-cyan-strong);
   --link: var(--color-brand-cyan-strong);
+  /* Figma Component/Card elevation (keep in sync with lib/elevation.ts) */
+  --elevation-rest: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  --elevation-raised: 0px 8px 24px 0px rgba(0, 0, 0, 0.14);
+}
+
+/*
+ * Orbital lab — light mode only: darker surface so white drawing cards read
+ * clearly against the page (uses border-light from the surface scale).
+ */
+.orbital-lab-page {
+  --background: var(--color-surface-border-light);
+}
+
+.dark .orbital-lab-page {
+  --background: var(--color-surface-bg-dark);
 }
 
 /* Dark mode semantic tokens */
@@ -136,6 +153,8 @@
   --input: var(--color-surface-border-dark);
   --ring: var(--color-brand-cyan-strong);
   --link: var(--color-brand-cyan-strong);
+  --elevation-rest: 0px 2px 8px 0px rgba(0, 0, 0, 0.35);
+  --elevation-raised: 0px 8px 24px 0px rgba(0, 0, 0, 0.55);
 }
 
 @layer base {

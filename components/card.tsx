@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
-import { hyperlinkChromeClassName } from '@/components/hyperlink'
+import {
+  controlButtonClassName,
+  hyperlinkUnderlineGroupClassName,
+} from '@/components/hyperlink'
 
 export type CardImage = {
   src: string
@@ -85,14 +88,11 @@ export function Card({
         className={cn(
           'relative z-10 flex flex-col overflow-hidden rounded-md',
           'bg-card text-card-foreground',
-          'shadow-[0px_2px_8px_0px_rgba(0,0,0,0.06)]',
+          'shadow-[var(--elevation-rest)]',
           'transition-shadow duration-200 ease-out',
           'motion-reduce:transition-none',
-          'group-hover:shadow-[0px_8px_24px_0px_rgba(0,0,0,0.14)]',
-          'group-focus-within:shadow-[0px_8px_24px_0px_rgba(0,0,0,0.14)]',
-          'dark:shadow-[0px_2px_8px_0px_rgba(0,0,0,0.35)]',
-          'dark:group-hover:shadow-[0px_8px_24px_0px_rgba(0,0,0,0.55)]',
-          'dark:group-focus-within:shadow-[0px_8px_24px_0px_rgba(0,0,0,0.55)]',
+          'group-hover:shadow-[var(--elevation-raised)]',
+          'group-focus-within:shadow-[var(--elevation-raised)]',
         )}
       >
         {/* Figma image frame 380×214 */}
@@ -139,12 +139,11 @@ export function Card({
           <span
             aria-hidden
             className={cn(
-              hyperlinkChromeClassName,
-              'pointer-events-none text-regular leading-regular',
-              'border-transparent transition-colors duration-150',
+              controlButtonClassName,
+              hyperlinkUnderlineGroupClassName,
+              'pointer-events-none cursor-default',
+              'transition-[background-image] duration-150',
               'motion-reduce:transition-none',
-              'group-hover:border-[var(--color-brand-magenta)]',
-              'group-focus-within:border-[var(--color-brand-magenta)]',
             )}
           >
             {ctaLabel}

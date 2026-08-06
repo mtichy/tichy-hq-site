@@ -1,5 +1,5 @@
 import { Card } from '@/components/card'
-import { buildHref, buildProjects } from '@/lib/builds'
+import { buildProjects, projectHref } from '@/lib/builds'
 
 /** Mosaic of project cards for the /builds index. */
 export function BuildsGrid() {
@@ -16,7 +16,8 @@ export function BuildsGrid() {
             ...project.image,
             priority: index === 0 ? true : project.image.priority,
           }}
-          href={buildHref(project.slug)}
+          href={projectHref(project)}
+          ctaLabel={project.ctaLabel}
         />
       ))}
     </div>

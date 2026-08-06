@@ -1,4 +1,4 @@
-import { Hyperlink } from '@/components/hyperlink'
+import { Hyperlink, controlButtonClassName } from '@/components/hyperlink'
 import { cn } from '@/lib/utils'
 
 type BuildsBackLinkProps = {
@@ -10,7 +10,7 @@ export function BuildsBackLink({ className }: BuildsBackLinkProps) {
   return (
     <Hyperlink
       href="/builds"
-      className={cn('w-fit self-start text-regular leading-regular', className)}
+      className={cn(controlButtonClassName, 'w-fit self-start', className)}
     >
       ← Back to Builds
     </Hyperlink>

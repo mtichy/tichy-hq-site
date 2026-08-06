@@ -29,3 +29,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Raw Accumulation Index archive (source scans; curated assets live in public/)
+/accumulation-index/
