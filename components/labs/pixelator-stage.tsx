@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import {
+  PIXELATOR_BACKGROUND_COLOR,
   PIXELATOR_PIXEL_COLOR,
   drawGrid,
   type PixelGrid,
@@ -19,7 +20,7 @@ type PixelatorStageProps = {
 
 /**
  * Preview canvas sized to the source image aspect ratio.
- * Dark stage so off-white pixels read clearly.
+ * Charcoal stage with off-white pixels — matches the PNG export.
  */
 export function PixelatorStage({
   grid,
@@ -47,7 +48,8 @@ export function PixelatorStage({
     ctx.imageSmoothingEnabled = false
 
     if (!grid || grid.cols === 0) {
-      ctx.clearRect(0, 0, width, height)
+      ctx.fillStyle = PIXELATOR_BACKGROUND_COLOR
+      ctx.fillRect(0, 0, width, height)
       return
     }
 
@@ -56,23 +58,24 @@ export function PixelatorStage({
 
   return (
     <div
-      className={cn(
-        'relative overflow-hidden bg-[var(--color-surface-muted-dark)]',
-        className,
-      )}
-      style={{ width, height }}
+      className={cn('relative overflow-hidden', className)}
+      style={{
+        width,
+        height,
+        backgroundColor: PIXELATOR_BACKGROUND_COLOR,
+      }}
     >
       <canvas ref={canvasRef} aria-label="Pixelator preview" />
       {status === 'loading' ? (
         <div
-          className="absolute inset-0 flex items-center justify-center text-regular text-muted-foreground"
+          className="absolute inset-0 flex items-center justify-center text-regular text-[var(--color-surface-page)]"
           aria-busy="true"
         >
           Processing…
         </div>
       ) : null}
       {status === 'empty' ? (
-        <div className="absolute inset-0 flex items-center justify-center px-6 text-center text-regular text-muted-foreground">
+        <div className="absolute inset-0 flex items-center justify-center px-6 text-center text-regular text-[var(--color-surface-page)]">
           Choose a file to upload your image
         </div>
       ) : null}

@@ -5,9 +5,12 @@ export const PIXELATOR_DEFAULT_IMAGE = '/images/avatar-333333.png'
 /** Pixel fill — site surface off-white. */
 export const PIXELATOR_PIXEL_COLOR = '#F1F7EE'
 
+/** Stage + export background — site charcoal. */
+export const PIXELATOR_BACKGROUND_COLOR = '#333333'
+
 /** Longest edge for high-res PNG export. */
 export const PIXELATOR_EXPORT_MAX = 2000
-export const PIXELATOR_EXPORT_FILENAME = 'cleanHighResTransparentPortrait.png'
+export const PIXELATOR_EXPORT_FILENAME = 'pixelator-portrait.png'
 
 /** Preview stage max bounds (css px). Large uploads shrink to fit. */
 export const PIXELATOR_STAGE_MAX_WIDTH = 900
@@ -135,8 +138,10 @@ export function drawGrid(
   color: string,
   width: number,
   height: number,
+  background: string = PIXELATOR_BACKGROUND_COLOR,
 ): void {
-  ctx.clearRect(0, 0, width, height)
+  ctx.fillStyle = background
+  ctx.fillRect(0, 0, width, height)
   if (grid.cols === 0 || grid.rows === 0) return
 
   const { cellSize, xOffset, yOffset } = layoutGrid(
@@ -163,7 +168,7 @@ export function drawGrid(
 }
 
 /**
- * Transparent PNG export. Longest edge is PIXELATOR_EXPORT_MAX;
+ * PNG export on charcoal. Longest edge is PIXELATOR_EXPORT_MAX;
  * aspect matches the pixel grid (source image).
  */
 export function exportPortrait(grid: PixelGrid): Promise<Blob | null> {
@@ -179,7 +184,6 @@ export function exportPortrait(grid: PixelGrid): Promise<Blob | null> {
   const ctx = canvas.getContext('2d')
   if (!ctx) return Promise.resolve(null)
 
-  ctx.clearRect(0, 0, exportW, exportH)
   drawGrid(ctx, grid, PIXELATOR_PIXEL_COLOR, exportW, exportH)
 
   return new Promise((resolve) => {

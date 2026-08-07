@@ -148,7 +148,7 @@ export function PixelatorControls({
           !canSave && 'cursor-not-allowed opacity-50',
         )}
       >
-        Save portrait
+        Save image
       </button>
     </div>
   )

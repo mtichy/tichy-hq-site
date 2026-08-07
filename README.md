@@ -87,7 +87,7 @@ docs/                     # README assets (screenshots)
 
 ## Labs
 
-**`/labs/pixelator-effect`** — Pixel-a-tor effect microtool. Upload a photo, tune brightness threshold and grid size, preview off-white pixels on a dark stage sized to the image aspect ratio, and export a transparent high-res PNG. Same process used for the site avatar (ported from a p5.js sketch to React + Canvas 2D).
+**`/labs/pixelator-effect`** — Pixel-a-tor effect microtool. Upload a photo, tune brightness threshold and grid size, preview off-white pixels on charcoal, and export a high-res PNG. Same process used for the site avatar (ported from a p5.js sketch to React + Canvas 2D).
 
 **`/labs/orbital-drawings`** — Drag-to-orbit 3D cloud of drawings with tap/click focus, pinch/scroll zoom, live A/B controls (density, size, orbit feel, shape, elevation), and a WebGL mosaic fallback when WebGL is unavailable. Reduce Motion quiets entrance and inertia but keeps the interactive canvas.
 

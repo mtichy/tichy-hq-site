@@ -5,7 +5,7 @@ import { NavBar } from '@/components/nav-bar'
 export const metadata: Metadata = {
   title: 'Pixelator effect',
   description:
-    'A tools lab: upload a photo, threshold it into a pixel portrait, and export a transparent PNG — the same process behind the site avatar.',
+    'Upload a photo, adjust the threshold and grid size, export as a PNG. This is exactly how I made my site avatar.',
 }
 
 export default function PixelatorEffectPage() {
