@@ -65,8 +65,8 @@ export const buildProjects: readonly BuildProject[] = [
     slug: 'orbital-drawings',
     title: '3d orbital interface experiment',
     description:
-      'I found myself interested in 3d interfaces and made this orbital interface with a few hundred old drawings of mine. The tech stack: Next/React builds the page; Three.js (via R3F) draws the floating cards; GSAP handles focus animation; and I added controls to be able to A/B the effects and learn more about what is possible.',
-    tags: ['lab', 'three.js', 'drawing'],
+      'Got interested in 3d interfaces and made this with about 350 of my old drawings. The tech stack: Next/React builds the page; Three.js (via R3F) draws the floating cards; GSAP handles focus animation; and I added controls to be able to A/B the effects and learn more about what is possible.',
+    tags: ['three.js', 'drawing'],
     href: ORBITAL_DRAWINGS_HREF,
     ctaLabel: 'Enter lab →',
     image: {
