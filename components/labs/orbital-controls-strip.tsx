@@ -1,6 +1,6 @@
 'use client'
 
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import {
   ORBITAL_ELEVATIONS,
   ORBITAL_LAYOUT_SHAPES,
@@ -15,6 +15,8 @@ type OrbitalControlsStripProps = {
   onReshuffle: () => void
   /** Vertical stack for the lab sidebar; default is a wrapping strip */
   layout?: 'strip' | 'sidebar'
+  /** Prefix input ids when two strips mount (desktop + mobile). */
+  idPrefix?: string
   className?: string
 }
 
@@ -37,6 +39,17 @@ function ControlField({
   )
 }
 
+function rangeProgress(value: number, min: number, max: number): string {
+  if (max <= min) return '0%'
+  return `${((value - min) / (max - min)) * 100}%`
+}
+
+function rangeStyle(value: number, min: number, max: number): CSSProperties {
+  return {
+    ['--range-progress' as string]: rangeProgress(value, min, max),
+  }
+}
+
 /**
  * Lab controls — tokens only, no card chrome.
  * Use `layout="sidebar"` for the left-rail vertical stack.
@@ -46,17 +59,17 @@ export function OrbitalControlsStrip({
   onChange,
   onReshuffle,
   layout = 'strip',
+  idPrefix = 'orbital',
   className,
 }: OrbitalControlsStripProps) {
   const patch = (partial: Partial<OrbitalSettings>) =>
     onChange({ ...value, ...partial })
 
   const isSidebar = layout === 'sidebar'
+  const id = (name: string) => `${idPrefix}-${name}`
 
   const rangeClassName = cn(
-    'h-2 cursor-pointer appearance-none rounded-full',
-    'bg-muted accent-[var(--color-brand-cyan)]',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+    'control-range',
     isSidebar ? 'w-full' : 'w-full max-w-[9rem]',
   )
 
@@ -71,9 +84,9 @@ export function OrbitalControlsStrip({
       role="group"
       aria-label="Orbital lab controls"
     >
-      <ControlField label="Density" htmlFor="orbital-density">
+      <ControlField label="Density" htmlFor={id('density')}>
         <input
-          id="orbital-density"
+          id={id('density')}
           type="range"
           min={0.15}
           max={1}
@@ -81,13 +94,14 @@ export function OrbitalControlsStrip({
           value={value.density}
           onChange={(e) => patch({ density: Number(e.target.value) })}
           className={rangeClassName}
+          style={rangeStyle(value.density, 0.15, 1)}
           aria-valuetext={`${Math.round(value.density * 100)} percent`}
         />
       </ControlField>
 
-      <ControlField label="Card size" htmlFor="orbital-card-size">
+      <ControlField label="Card size" htmlFor={id('card-size')}>
         <input
-          id="orbital-card-size"
+          id={id('card-size')}
           type="range"
           min={0.5}
           max={2}
@@ -95,12 +109,13 @@ export function OrbitalControlsStrip({
           value={value.cardSize}
           onChange={(e) => patch({ cardSize: Number(e.target.value) })}
           className={rangeClassName}
+          style={rangeStyle(value.cardSize, 0.5, 2)}
         />
       </ControlField>
 
-      <ControlField label="Focus size" htmlFor="orbital-focus-size">
+      <ControlField label="Focus size" htmlFor={id('focus-size')}>
         <input
-          id="orbital-focus-size"
+          id={id('focus-size')}
           type="range"
           min={0.35}
           max={0.85}
@@ -108,13 +123,14 @@ export function OrbitalControlsStrip({
           value={value.focusSize}
           onChange={(e) => patch({ focusSize: Number(e.target.value) })}
           className={rangeClassName}
+          style={rangeStyle(value.focusSize, 0.35, 0.85)}
           aria-valuetext={`${Math.round(value.focusSize * 100)} percent of view height`}
         />
       </ControlField>
 
-      <ControlField label="Orbit feel" htmlFor="orbital-sensitivity">
+      <ControlField label="Orbit feel" htmlFor={id('sensitivity')}>
         <input
-          id="orbital-sensitivity"
+          id={id('sensitivity')}
           type="range"
           min={0.002}
           max={0.012}
@@ -122,12 +138,13 @@ export function OrbitalControlsStrip({
           value={value.orbitSensitivity}
           onChange={(e) => patch({ orbitSensitivity: Number(e.target.value) })}
           className={rangeClassName}
+          style={rangeStyle(value.orbitSensitivity, 0.002, 0.012)}
         />
       </ControlField>
 
-      <ControlField label="Inertia" htmlFor="orbital-inertia">
+      <ControlField label="Inertia" htmlFor={id('inertia')}>
         <input
-          id="orbital-inertia"
+          id={id('inertia')}
           type="range"
           min={0.8}
           max={0.985}
@@ -135,6 +152,7 @@ export function OrbitalControlsStrip({
           value={value.inertia}
           onChange={(e) => patch({ inertia: Number(e.target.value) })}
           className={rangeClassName}
+          style={rangeStyle(value.inertia, 0.8, 0.985)}
         />
       </ControlField>
 

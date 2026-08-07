@@ -116,6 +116,7 @@ export default function OrbitalDrawings() {
             <div className="hidden lg:block">
               <OrbitalControlsStrip
                 layout="sidebar"
+                idPrefix="orbital-desktop"
                 value={settings}
                 onChange={setSettings}
                 onReshuffle={onReshuffle}
@@ -139,6 +140,7 @@ export default function OrbitalDrawings() {
         <div className="order-3 w-full max-w-[288px] pb-2 lg:hidden">
           <OrbitalControlsStrip
             layout="sidebar"
+            idPrefix="orbital-mobile"
             value={settings}
             onChange={setSettings}
             onReshuffle={onReshuffle}
