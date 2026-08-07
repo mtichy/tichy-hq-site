@@ -13,8 +13,9 @@ const LOGOS = [
     src: '/figma/parsons.png',
     alt: 'Parsons School of Design',
     width: 152,
-    height: 96,
-    className: 'h-[51px] w-auto object-contain md:h-12',
+    height: 44,
+    // Match SAIC’s rendered width (h-10 / md:h-12 → ~130 / ~156)
+    className: 'h-auto w-[130px] object-contain md:w-[156px]',
   },
   {
     src: '/figma/mtv-logo.png',

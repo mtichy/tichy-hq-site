@@ -19,20 +19,6 @@ export type BuildProject = {
  */
 export const buildProjects: readonly BuildProject[] = [
   {
-    slug: 'how-i-built-this-site',
-    title: 'How I built this site?',
-    description:
-      'The short version: a real design system as the foundation, AI tools doing what they do well on execution, and a carbon-based life form reviewing and directing every step.',
-    tags: ['build notes', 'design systems', 'tech stack'],
-    image: {
-      src: '/images/builds-how-i-built-this-site.png',
-      width: 1024,
-      height: 537,
-      unoptimized: true,
-      priority: true,
-    },
-  },
-  {
     slug: 'thank-a-thon',
     title: 'Designing a McKinsey tradition',
     description:
@@ -42,6 +28,20 @@ export const buildProjects: readonly BuildProject[] = [
       src: '/images/builds-thank-a-thon.png',
       width: 760,
       height: 428,
+      unoptimized: true,
+      priority: true,
+    },
+  },
+  {
+    slug: 'how-i-built-this-site',
+    title: 'How I built this site',
+    description:
+      'The short version: a real design system as the foundation, AI tools doing what they do well on execution, and a carbon-based life form reviewing and directing every step.',
+    tags: ['build notes', 'design systems', 'tech stack'],
+    image: {
+      src: '/images/builds-how-i-built-this-site.png',
+      width: 1024,
+      height: 537,
       unoptimized: true,
     },
   },

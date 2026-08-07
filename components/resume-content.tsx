@@ -1,3 +1,5 @@
+import { Hyperlink } from '@/components/hyperlink'
+
 export function ResumeContent() {
   return (
     <div className="w-full max-w-[600px]">
@@ -7,14 +9,23 @@ export function ResumeContent() {
           Summary
         </h2>
         <p className="mt-4 text-regular leading-regular text-foreground text-pretty">
-          15+ years across McKinsey &amp; Company, MTV Networks, and Parsons
-          School of Design, working at the intersection of UX, front-end
-          engineering, design systems, and AI-powered workflows. Leads design
-          and technical delivery for global platforms (benefits, intranet,
-          employee engagement, leadership communications, and high-traffic
-          events), and turns ambiguous stakeholder needs into usable, buildable,
-          and scalable products. Pairs design craft with hands-on engineering to
-          modernize design-to-development workflows and ship reliably at scale.
+          I design products and then build them. My work sits at the
+          intersection of product UX, front-end engineering, design systems, and
+          AI-native workflows, across consumer products at MTV Networks and
+          enterprise platforms at McKinsey &amp; Company. I design in Figma and
+          ship in React, using Claude, Cursor, and v0 to close the gap between
+          design intent and production code rather than handing it off. I build
+          design systems, component libraries, and token architecture that let
+          teams move fast without losing coherence, and I turn ambiguous
+          stakeholder needs into things that are usable, buildable, and
+          maintainable.
+        </p>
+        <p className="mt-4 text-regular leading-regular text-foreground text-pretty">
+          Selected case studies live on the{' '}
+          <Hyperlink href="/builds" className="text-regular leading-regular">
+            Builds
+          </Hyperlink>{' '}
+          page.
         </p>
       </section>
 
@@ -30,314 +41,143 @@ export function ResumeContent() {
             McKinsey &amp; Company
           </h3>
 
-          {/* UX Design & Technical Lead */}
           <h4 className="mt-2 text-regular font-bold leading-regular text-foreground">
             UX Design &amp; Technical Lead (2017–2026)
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              <strong>
-                Advanced through the firm&apos;s impact bands to Expert
-              </strong>
-              , one tier below Associate Partner
+              Designed, built, and managed a portfolio of 15+ digital products
+              reaching 45,000 people globally, owning UX, user research,
+              information architecture, content modeling, and front-end
+              delivery. Included the global benefits platform, architected to
+              scale across languages and regional legal requirements.
             </li>
             <li>
-              <strong>
-                Designed, built, and managed a suite of 15+ digital
-                products{' '}
-              </strong>
-              across the firm&apos;s Reach &amp; Engagement function including:
-              <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
-                <li>
-                  McKinsey&apos;s <strong>global benefits platform</strong> (UX,
-                  user research, information architecture, content model,
-                  production workflows, rollout strategy) serving 45,000 global
-                  employees on infrastructure built to scale across languages
-                  and regional legal requirements.
-                </li>
-                <li>
-                  McKinsey&apos;s <strong>employee recognition platform</strong>{' '}
-                  (Thank-a-thon) including UX, development coordination, QA, and
-                  round-the-clock support. This platform generates at least{' '}
-                  <strong>
-                    75K+ messages and 200K+ pageviews during its annual two-week
-                    run.
-                  </strong>
-                </li>
-                <li>
-                  McKinsey&apos;s{' '}
-                  <strong>flagship editorial news channel</strong> (McKinsey
-                  News) which included a custom CMS that{' '}
-                  <strong>
-                    enabled editors and producers to create reusable templates,
-                    components, and styles on the fly.
-                  </strong>
-                </li>
-              </ul>
+              Designed, built, and maintained a native mobile application (iOS
+              and Android) delivering the firm&apos;s flagship editorial
+              channel, owning it end to end for two years. Designed mobile-first
+              across the full product portfolio for the past decade.
             </li>
             <li>
-              <strong>
-                Modernized our tech stack across multiple dimensions, driving
-                adoption each time:
-              </strong>
-              <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
-                <li>
-                  <strong>Design:</strong> onboarded Figma for richer
-                  collaboration, prototyping, and robust design-to-dev handoff
-                </li>
-                <li>
-                  <strong>Analytics:</strong> onboarded Heap for more thorough
-                  and accessible answers to our data questions
-                </li>
-                <li>
-                  <strong>Infrastructure:</strong> moved from JW Player to
-                  Brightcove for video, and local servers to AWS for hosting
-                </li>
-                <li>
-                  <strong>Collaboration:</strong> pioneered Slack, Monday, and
-                  Notion
-                </li>
-                <li>Most of the above ended up becoming firm-wide standards</li>
-              </ul>
+              Designed and shipped Thank-a-thon, an employee recognition
+              platform generating tens of thousands of messages and 200,000+
+              pageviews during a two-week annual run, owning UX, development
+              coordination, QA, and round-the-clock launch support.
             </li>
             <li>
-              Served as analytics point person across the product suite (Heap,
-              Dynatrace, custom dashboards), providing data-informed design
-              decisions and helping craft reporting for senior stakeholders,
-              including the CEO
+              Introduced and piloted AI-native prototyping and design-to-code
+              workflows using Claude, Cursor, v0, and Figma Make, building
+              working prototypes to validate concepts before engineering
+              committed. Shipped internal microtools including a custom GPT
+              agent trained on roughly 3,000 articles used to restructure site
+              taxonomy, an editorial intelligence dashboard with a
+              natural-language analytics interface, and a Jira ticket generator
+              for non-technical teammates.
             </li>
             <li>
-              Introduced and piloted <strong>AI-native prototyping</strong> and
-              design-to-code workflows (v0, Cursor, Figma Make) and built
-              microtools including:
-              <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
-                <li>
-                  A custom <strong>ChatGPT agent</strong> trained on ~3,000
-                  articles spanning decades of firm content and used it to
-                  evaluate the taxonomy and design a smarter structure.
-                </li>
-                <li>
-                  A POC of an <strong>editorial intelligence</strong> dashboard
-                  that placed site content (not charts) at the center and
-                  included an AI chat interface to answer analytics inquiries
-                  using common language, empowering any teammate to quickly get
-                  data-informed answers
-                </li>
-                <li>
-                  A <strong>Jira ticket creator</strong> that enabled
-                  non-technical teammates to create consistent, accurate Jira
-                  tickets
-                </li>
-              </ul>
+              Led jQuery-to-React component modernization across the product
+              suite, building reusable template and component libraries with
+              Figma and Storybook as the single source of truth, keeping fifteen
+              products visually and behaviorally consistent.
             </li>
             <li>
-              <strong>
-                Partnered cross-functionally with engineers and product
-                managers{' '}
-              </strong>
-              on QA, sprint execution, and risk mitigation for high-traffic
-              launches including the firm&apos;s Partner Elections, annual
-              benefits open enrollment, global executive livestreams, and
-              various technical projects including:
-              <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
-                <li>
-                  <strong>Led jQuery-to-React component modernization</strong>{' '}
-                  and built reusable template and component libraries,
-                  establishing Figma and Storybook as the single source of
-                  truth.
-                </li>
-                <li>
-                  <strong>Migrated entire product suite</strong> from external
-                  vendors to the internal engineering team with no loss of
-                  business continuity, importing product-management and
-                  design-to-dev handoff practices and{' '}
-                  <strong>
-                    saving hundreds of thousands of dollars in the process.
-                  </strong>
-                </li>
-                <li>
-                  Led UX and content strategy for Drupal-to-SharePoint
-                  migrations to both cut costs and{' '}
-                  <strong>
-                    empower non-technical teams to self-manage content
-                  </strong>
-                </li>
-                <li>
-                  Led Box-to-SharePoint migrations for multiple functions,
-                  mapping out content and teaching technical workflows
-                </li>
-              </ul>
+              Owned analytics across the portfolio using Heap, Dynatrace, and
+              custom dashboards, translating behavioral data into design
+              decisions and building reporting consumed by senior leadership
+              including the CEO.
             </li>
             <li>
-              <strong>
-                Served as design and technical advisor to teams across the firm,
-              </strong>{' '}
-              including publishing, alumni, benefits, engineering, and multiple
-              client service teams. Advised on AI capabilities, search strategy,
-              platform migration, analytics, user experience, CMS solutions,
-              component reuse, and more.
+              Partnered daily with engineering and product management on QA,
+              sprint execution, and risk mitigation for high-stakes,
+              high-traffic launches including the firm&apos;s Partner Elections,
+              annual benefits enrollment, and global executive livestreams.
+            </li>
+            <li>
+              Migrated the full product suite from external vendors to an
+              internal engineering team with no loss of business continuity,
+              importing product management and design-to-development practice.
+            </li>
+            <li>
+              Led accessibility remediation across the product suite, including
+              a full audit and dedicated improvement sprint on the recognition
+              platform.
+            </li>
+            <li>
+              Served as design and technical advisor to teams across the firm
+              including publishing, alumni, benefits, engineering, and client
+              service, covering AI search strategy, platform migration,
+              analytics, CMS architecture, and component reuse.
+            </li>
+            <li>
+              Advanced through the firm&apos;s impact bands to Expert, one tier
+              below Associate Partner.
             </li>
           </ul>
 
-          {/* Lead Interactive Designer */}
           <h4 className="mt-6 text-regular font-bold leading-regular text-foreground">
             Lead Interactive Designer (2014–2017)
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              <strong>Led design and product strategy </strong>for
-              McKinsey&apos;s internal communications function supporting CEO
-              change initiatives
+              Redesigned and rebuilt the firm&apos;s flagship editorial channel
+              from the ground up, establishing the design-to-development
+              workflow that grew into the product suite I went on to lead.
+              Sustained a 3x readership increase, with 95% of readers reporting
+              trust in the publication and 71% reporting they tried something
+              new at work based on what they read.
             </li>
             <li>
-              <strong>
-                Redesigned and built the firm&apos;s flagship internal
-                communications channel
-              </strong>{' '}
-              (McKinsey News), establishing the design-to-dev workflow that grew
-              into the larger product suite I went on to lead.
-              <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
-                <li>
-                  <strong>
-                    Sustained 3x increase in readership; 95% of readers reported
-                    trusting the publication; 71% reported trying something new
-                    at work based on what they read.
-                  </strong>
-                </li>
-              </ul>
+              Hired and managed the development team that became a ten-year
+              collaboration. Onboarded junior designers and engineers and moved
+              the team&apos;s UX workflow from Photoshop to Sketch.
             </li>
             <li>
-              Created interactive content, campaign branding, and editorial
-              content for dozens of global initiatives
-            </li>
-            <li>
-              <strong>Designed and produced hundreds of articles </strong>for
-              the firm&apos;s main communications channel (McKinsey News)
-            </li>
-            <li>
-              <strong>
-                Modernized the function&apos;s video and analytics
-                infrastructure{' '}
-              </strong>
-              and the team&apos;s UX workflow, moving to Sketch from Photoshop
-              and onboarding junior designers and engineers
-            </li>
-            <li>
-              Hired and managed a development team that led to{' '}
-              <strong>10 years of successful collaboration</strong>
+              Created interactive content, campaign systems, and editorial
+              design for dozens of global initiatives.
             </li>
           </ul>
         </div>
 
-        {/* MTV Networks */}
+        {/* MTV Networks / Viacom */}
         <div className="mt-10">
           <h3 className="text-regular font-bold leading-regular text-foreground">
-            MTV Networks
+            MTV Networks / Viacom
           </h3>
 
-          {/* Producer, Designer, Writer */}
           <h4 className="mt-2 text-regular font-bold leading-regular text-foreground">
-            Producer, Designer, Writer (2013–2014)
+            Producer, Designer, Writer (2007–2014)
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              <strong>Led technical roadmap</strong> to ensure ongoing evolution
-              of production technologies and user experience
+              Designed, produced, and shipped consumer digital experiences
+              across mtvU&apos;s web, social, and on-air properties,
+              contributing to tentpole franchises including the MTV Movie
+              Awards, Video Music Awards, and the O Music Awards.
             </li>
             <li>
-              Produced all of mtvU&apos;s online and social media presence
-              across platforms (blog, TV, social)
-              <ul className="mt-2 flex list-disc flex-col gap-2 pl-6">
-                <li>
-                  Organically grew mtvU Twitter account to{' '}
-                  <strong>over 30,000 followers</strong>
-                </li>
-              </ul>
+              Conceived, designed, and built social-syndicated voting widgets
+              that collected over 1.5 million votes, designed for one-tap
+              participation by an audience with no incentive to work at it.
             </li>
             <li>
-              <strong>
-                Created and implemented editorial strategy &amp; content
-              </strong>{' '}
-              in conjunction with on-air show and music priorities
+              Designed and built embeddable interactive flipbooks syndicated
+              across award show and fan social properties, generating millions
+              of impressions.
             </li>
             <li>
-              Coordinated with On-Air Production, Music &amp; Talent, and
-              Marketing to maximize digital effectiveness
+              Grew mtvU&apos;s Twitter presence organically to 30,000+ followers
+              and owned editorial strategy across blog, television, and social.
             </li>
             <li>
-              Contributed to broader MTV initiatives through{' '}
-              <strong>production, design, and social media</strong> on projects
-              like the{' '}
-              <strong>
-                MTV Movie Awards, Video Music Awards, the OMAs, and show
-                premieres
-              </strong>
+              Managed the mtvU-Fulbright program blog in partnership with the
+              U.S. Department of State and the Fulbright Foreign Scholarship
+              Board.
             </li>
             <li>
-              <strong>Nominated for a 2013 Daytime Emmy </strong>for production
-              work on mtvU&apos;s pro-social &ldquo;Against Our Will&rdquo;
-              anti-trafficking campaign
-            </li>
-          </ul>
-
-          {/* Associate Producer */}
-          <h4 className="mt-6 text-regular font-bold leading-regular text-foreground">
-            Associate Producer (2009–2013)
-          </h4>
-          <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
-            <li>
-              <strong>
-                Managed all aspects of mtvU&apos;s social media presence,{' '}
-              </strong>
-              including conceiving/supporting company-wide promotional plans
-            </li>
-            <li>
-              Contributed to broader MTVN initiatives through specialized{' '}
-              <strong>
-                production work on projects like the Movie Awards, Video Music
-                Awards, the OMAs, and show premieres
-              </strong>
-            </li>
-            <li>
-              <strong>Managed mtvU-Fulbright blog</strong> in partnership with
-              the U.S. Department of State and The Fulbright Foreign Scholarship
-              Board
-            </li>
-            <li>
-              <strong>Wrote site content and promotional copy</strong> for
-              priorities ranging from music and pro-social campaigns to shows
-              and major tentpole events
-            </li>
-            <li>
-              Conceived, designed, and built Voting Widgets for social network
-              syndication that earned <strong>over 1.5 million votes</strong>
-            </li>
-            <li>
-              <strong>Nominated for a 2010 Daytime Emmy </strong>for production
-              work on mtvU&apos;s &ldquo;Indebted&rdquo; financial education
-              campaign
-            </li>
-            <li>
-              Ensured timely delivery and publication of all MTV Music Digital
-              priorities
-            </li>
-          </ul>
-
-          {/* Production Associate */}
-          <h4 className="mt-6 text-regular font-bold leading-regular text-foreground">
-            Production Associate (2007–2009)
-          </h4>
-          <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
-            <li>Managed digital presence of all mtvU franchises</li>
-            <li>Produced and designed content for yearly tentpole events</li>
-            <li>
-              Produced all mtvU show, music, and pro-social content for online
-              distribution
-            </li>
-            <li>
-              Designed and built embeddable flipbooks that were syndicated via
-              Award Show Nominee and Fan social media sites{' '}
-              <strong>garnering millions of impressions</strong>
+              Nominated for two Daytime Emmy Awards for production work on
+              mtvU&apos;s pro-social campaigns: &ldquo;Against Our Will&rdquo;
+              anti-trafficking (2013) and &ldquo;InDebtEd&rdquo; financial
+              education (2010).
             </li>
           </ul>
         </div>
@@ -348,21 +188,14 @@ export function ResumeContent() {
             Parsons School of Design
           </h3>
 
-          {/* Adjunct Faculty */}
           <h4 className="mt-2 text-regular font-bold leading-regular text-foreground">
             Adjunct Faculty (2006–2007)
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              Taught a prerequisite course in{' '}
-              <strong>Design &amp; Visuality,</strong> mentoring undergraduate
-              students in visual communication, digital practice, and critique,
-              connecting design theory to technology.
-            </li>
-            <li>
-              Helped students translate conceptual work into visual and digital
-              artifacts through structured assignments and applied design
-              practice.
+              Taught Design &amp; Visuality, mentoring undergraduates in visual
+              communication, digital practice, and critique, connecting design
+              theory to technology.
             </li>
           </ul>
         </div>
@@ -379,79 +212,51 @@ export function ResumeContent() {
             Core Strengths
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Product Experience Strategy &amp; UX Leadership | Design Systems
-            &amp; Component Libraries | AI-Native Prototyping &amp;
-            Design-to-Code | Front-End Engineering &amp; Design-to-Dev Workflows
-            | Analytics-Informed Design | Cross-Functional Stakeholder
-            Partnership | High-Traffic Launch Management | Vendor-to-In-House
-            Transition Leadership | Editorial / CMS Platforms | Intranets &amp;
-            Employee Experience | Stakeholder Governance
+            Product Design &amp; UX Leadership | Design Systems, Component
+            Libraries &amp; Design Tokens | AI-Native Prototyping &amp;
+            Design-to-Code | Front-End Engineering | Native Mobile &amp;
+            Responsive Web | User Research | Accessibility | Analytics-Informed
+            Design | High-Traffic Launch Management | Cross-Functional
+            Partnership | Mentorship
           </p>
         </div>
 
         <div className="mt-6">
           <h3 className="text-regular font-bold leading-regular text-foreground">
-            Design / Prototyping
+            Design &amp; Prototyping
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Figma, Sketch, v0, Cursor, Lovable, Photoshop, Illustrator,
-            Premiere, After Effects
+            Figma, v0, Cursor, Lovable, Sketch, Photoshop, Illustrator, After
+            Effects, Premiere
           </p>
         </div>
 
         <div className="mt-6">
           <h3 className="text-regular font-bold leading-regular text-foreground">
-            AI / Research
+            AI
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            ChatGPT / custom GPTs, Claude, Gemini, Perplexity, LLM / RAG
-            prototypes, prompt and workflow design
+            Claude and Claude Code, ChatGPT and custom GPTs, Gemini, Perplexity,
+            LLM and RAG prototypes, prompt and workflow design
           </p>
         </div>
 
         <div className="mt-6">
           <h3 className="text-regular font-bold leading-regular text-foreground">
-            Front-End / CMS
+            Front-End
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            HTML, CSS, JavaScript, React, jQuery-to-React modernization,
-            Storybook, Drupal PaaS, WordPress, SharePoint
+            HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind,
+            Storybook, Three.js / R3F, GSAP
           </p>
         </div>
 
         <div className="mt-6">
           <h3 className="text-regular font-bold leading-regular text-foreground">
-            Data / Product Ops
+            Data
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Heap, Dynatrace, Snowflake / SQL, Jira, Notion, Miro, Monday.com,
-            Box, Microsoft Teams, Slack, Brightcove
-          </p>
-        </div>
-      </section>
-
-      {/* Education */}
-      <section className="mt-16">
-        <h2 className="text-medium font-bold leading-medium text-foreground">
-          Education
-        </h2>
-
-        <div className="mt-6">
-          <h3 className="text-regular font-bold leading-regular text-foreground">
-            2006 MFA from Parsons School of Design
-          </h3>
-          <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Studied fine art, design, and technology. Exhibited drawing and
-            digital media internationally.
-          </p>
-        </div>
-
-        <div className="mt-6">
-          <h3 className="text-regular font-bold leading-regular text-foreground">
-            2004 BFA from School of the Art Institute of Chicago (SAIC)
-          </h3>
-          <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Studied fine art and technology in the Art &amp; Technology program.
+            Heap, Dynatrace, Snowflake / SQL, Jira, Notion, Miro
           </p>
         </div>
       </section>
@@ -464,36 +269,45 @@ export function ResumeContent() {
 
         <div className="mt-6">
           <h3 className="text-regular font-bold leading-regular text-foreground">
-            2013 Nominee Daytime Emmy for MTV &ldquo;Against Our Will&rdquo;
+            2013 Daytime Emmy Nominee, MTV &ldquo;Against Our Will&rdquo;
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Outstanding New Approaches (Enhancement to a Daytime Program or
-            Series)
+            Outstanding New Approaches
           </p>
         </div>
 
         <div className="mt-6">
           <h3 className="text-regular font-bold leading-regular text-foreground">
-            2010 Nominee Daytime Emmy for MTV &ldquo;Indebted&rdquo;
+            2010 Daytime Emmy Nominee, MTV &ldquo;InDebtEd&rdquo;
           </h3>
           <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            New Approaches (Daytime Entertainment)
+            New Approaches
           </p>
         </div>
 
         <div className="mt-6">
           <h3 className="text-regular font-bold leading-regular text-foreground">
-            2005 Fellowship at Skowhegan School of Painting &amp; Sculpture
+            2005 Fellowship, Skowhegan School of Painting &amp; Sculpture
           </h3>
-          <p className="mt-2 text-regular leading-regular text-foreground text-pretty">
-            Selected based on my work in drawing and digital media. Skowhegan is
-            a highly competitive, nine-week summer residency program and art
-            school located on a 350-acre historic campus in Madison, Maine.
-            Founded in 1946 by artists for artists, it brings together a diverse
-            group of 65 emerging artists each year to participate in an
-            immersive, rigorous, and community-driven environment led by some of
-            the world&apos;s leading artists.
-          </p>
+        </div>
+      </section>
+
+      {/* Education */}
+      <section className="mt-16">
+        <h2 className="text-medium font-bold leading-medium text-foreground">
+          Education
+        </h2>
+
+        <div className="mt-6">
+          <h3 className="text-regular font-bold leading-regular text-foreground">
+            MFA, Parsons School of Design
+          </h3>
+        </div>
+
+        <div className="mt-6">
+          <h3 className="text-regular font-bold leading-regular text-foreground">
+            BFA, School of the Art Institute of Chicago, Art &amp; Technology
+          </h3>
         </div>
       </section>
     </div>

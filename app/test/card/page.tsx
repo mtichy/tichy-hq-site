@@ -33,7 +33,7 @@ export default function CardDemoPage() {
         <div className="mt-8 columns-1 gap-8 sm:columns-2 xl:columns-3">
           <Card
             className="mb-8 max-w-none break-inside-avoid"
-            title="How I built this site?"
+            title="How I built this site"
             description="The short version: a real design system as the foundation, AI tools doing what they do well on execution, and a carbon-based life form reviewing and directing every step."
             image={{
               src: '/images/avatar-dark.png',

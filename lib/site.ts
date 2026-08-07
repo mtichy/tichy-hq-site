@@ -4,9 +4,15 @@ export const siteName = 'Mark Tichý'
 
 export const jobTitle = 'Design Technologist'
 
+export const tagline =
+  'AI-native Product Designer + Design Technologist. I design digital products and the systems that power them, and I work in GitHub and a terminal too.'
+
 export const email = 'mf.tichy@gmail.com'
 
 export const linkedInUrl = 'https://www.linkedin.com/in/mark-tichy'
+
+export const githubUrl =
+  'https://github.com/mtichy/tichy-hq-site?tab=readme-ov-file'
 
 export const defaultTitle = `${siteName} — ${jobTitle}`
 
@@ -30,5 +36,5 @@ export const personJsonLd = {
   image: `${siteUrl}${ogImage.url}`,
   email,
   description: defaultDescription,
-  sameAs: [linkedInUrl],
+  sameAs: [linkedInUrl, githubUrl],
 } as const

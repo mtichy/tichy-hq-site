@@ -1,5 +1,8 @@
 import Image from 'next/image'
+import { controlButtonClassName } from '@/components/hyperlink'
 import { TrackedHyperlink } from '@/components/tracked-hyperlink'
+import { cn } from '@/lib/utils'
+import { tagline } from '@/lib/site'
 
 export function ResumeSidebar() {
   return (
@@ -12,14 +15,13 @@ export function ResumeSidebar() {
         </h1>
         <hr className="h-[6px] w-full border-0 bg-[var(--color-brand-cyan)]" />
         <p className="text-medium leading-medium text-foreground text-pretty">
-          Design Technologist. Imagining and building digital products and the
-          systems, workflows, and content models that power them.
+          {tagline}
         </p>
         <TrackedHyperlink
           href="/mark-tichy-resume.pdf"
           download
           event="Resume Download"
-          className="inline-flex items-center justify-center gap-2 text-regular leading-regular"
+          className={cn(controlButtonClassName, 'w-fit gap-2')}
         >
           <Image
             src="/figma/download-icon.svg"
@@ -28,7 +30,7 @@ export function ResumeSidebar() {
             height={18}
             unoptimized
             aria-hidden
-            className="h-[18px] w-[23px]"
+            className="h-[14px] w-[18px]"
           />
           Download résumé (PDF)
         </TrackedHyperlink>

@@ -1,6 +1,6 @@
-import { Hyperlink } from '@/components/hyperlink'
+import { controlButtonClassName, Hyperlink } from '@/components/hyperlink'
 import { TrackedHyperlink } from '@/components/tracked-hyperlink'
-import { email, linkedInUrl, siteName } from '@/lib/site'
+import { email, githubUrl, linkedInUrl, siteName } from '@/lib/site'
 
 export function Footer() {
   return (
@@ -15,7 +15,7 @@ export function Footer() {
             href={`mailto:${email}`}
             event="Contact Click"
             eventData={{ channel: 'email' }}
-            className="text-medium leading-medium"
+            className={controlButtonClassName}
           >
             Email
           </TrackedHyperlink>
@@ -25,9 +25,19 @@ export function Footer() {
             eventData={{ channel: 'linkedin' }}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-medium leading-medium"
+            className={controlButtonClassName}
           >
             Linked In
+          </TrackedHyperlink>
+          <TrackedHyperlink
+            href={githubUrl}
+            event="Contact Click"
+            eventData={{ channel: 'github' }}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={controlButtonClassName}
+          >
+            GitHub
           </TrackedHyperlink>
         </div>
       </div>
