@@ -17,6 +17,7 @@ I'm an AI-native Product Designer and Design Technologist. This is my personal p
 | `/builds`                       | Index of projects, case studies, and labs                  |
 | `/builds/thank-a-thon`          | Case study — McKinsey Thank-a-thon                         |
 | `/builds/how-i-built-this-site` | Process write-up for how this site was designed and built  |
+| `/labs/pixelator-effect`        | Pixel portrait microtool — threshold + grid → PNG (lab)    |
 | `/labs/orbital-drawings`        | Interactive 3D orbital interface of archive drawings (lab) |
 
 **Content model:** `/builds/[slug]` pages are articles. `/labs/[slug]` pages are interactive experiments. Labs are discovered from Builds cards (there is no separate Labs nav item).
@@ -28,6 +29,7 @@ I'm an AI-native Product Designer and Design Technologist. This is my personal p
 - **Styling:** [Tailwind CSS 4](https://tailwindcss.com), design tokens in `app/globals.css`
 - **Components:** [shadcn/ui](https://ui.shadcn.com) (Base UI primitives), [next-themes](https://github.com/pacocoursey/next-themes) for light/dark mode
 - **Labs (3D):** [Three.js](https://threejs.org) via [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) + [Drei](https://github.com/pmndrs/drei); [GSAP](https://gsap.com) for focus / entrance motion
+- **Labs (2D):** Canvas 2D for the Pixelator effect microtool (no p5 runtime on the site; original sketch was p5.js)
 - **Analytics:** [@vercel/analytics](https://vercel.com/docs/analytics) + [Speed Insights](https://vercel.com/docs/speed-insights) (production only)
 - **Deploy:** [Vercel](https://vercel.com) — auto-deploy on push to `main`
 
@@ -71,12 +73,12 @@ app/                      # Next.js App Router pages and global styles
   sitemap.ts
   globals.css             # Design tokens (color, type scale, spacing)
 components/
-  labs/                   # Orbital lab UI + R3F canvas
+  labs/                   # Lab shells, controls, canvases (2D + R3F)
   ui/                     # shadcn/ui primitives
 lib/
   site.ts                 # Site URL, tagline, default metadata, OG config
   builds.ts               # Builds index entries (articles + lab links)
-  labs/                   # Lab assets catalog + orbital settings
+  labs/                   # Lab helpers (pixelator process/export, orbital catalog/settings)
   elevation.ts            # Shared card elevation tokens for 3D + CSS
   utils.ts                # Tailwind class merge helper
 public/                   # Static assets (favicons, logos, résumé PDF, lab images)
@@ -85,13 +87,17 @@ docs/                     # README assets (screenshots)
 
 ## Labs
 
-The first public lab is **`/labs/orbital-drawings`**: a drag-to-orbit 3D cloud of drawings with tap/click focus, pinch/scroll zoom, live A/B controls (density, size, orbit feel, shape, elevation), and a WebGL mosaic fallback when WebGL is unavailable. Reduce Motion quiets entrance and inertia but keeps the interactive canvas.
+**`/labs/pixelator-effect`** — Pixel-a-tor effect microtool. Upload a photo, tune brightness threshold and grid size, preview off-white pixels on a dark stage sized to the image aspect ratio, and export a transparent high-res PNG. Same process used for the site avatar (ported from a p5.js sketch to React + Canvas 2D).
+
+**`/labs/orbital-drawings`** — Drag-to-orbit 3D cloud of drawings with tap/click focus, pinch/scroll zoom, live A/B controls (density, size, orbit feel, shape, elevation), and a WebGL mosaic fallback when WebGL is unavailable. Reduce Motion quiets entrance and inertia but keeps the interactive canvas.
 
 Adding a lab:
 
 1. Create `app/labs/[slug]/page.tsx` and components under `components/labs/`
 2. Register catalog / settings under `lib/labs/` as needed
 3. Append a Builds card in `lib/builds.ts` with `href` pointing at `/labs/...` and a lab CTA
+
+Builds cards use a row-major CSS grid (`sm: 2` / `xl: 3` columns) so leftover cards on a new row start on the left.
 
 ## Design system
 

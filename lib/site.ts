@@ -2,7 +2,7 @@ export const siteUrl = 'https://marktichy.com'
 
 export const siteName = 'Mark Tichý'
 
-export const jobTitle = 'Design Technologist'
+export const jobTitle = 'Product Designer + Design Technologist'
 
 export const tagline =
   'AI-native Product Designer + Design Technologist. I design digital products and the systems that power them, and I work in GitHub and a terminal too.'

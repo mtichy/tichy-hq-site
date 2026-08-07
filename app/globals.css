@@ -126,6 +126,18 @@
   --background: var(--color-surface-bg-dark);
 }
 
+/*
+ * Pixelator lab — same surface treatment as orbital so the stage reads
+ * against page chrome without fighting the homepage off-white.
+ */
+.pixelator-lab-page {
+  --background: var(--color-surface-border-light);
+}
+
+.dark .pixelator-lab-page {
+  --background: var(--color-surface-bg-dark);
+}
+
 /* Dark mode semantic tokens */
 .dark {
   color-scheme: dark;

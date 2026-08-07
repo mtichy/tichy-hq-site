@@ -1,5 +1,6 @@
 import type { CardImage } from '@/components/card'
 import { ORBITAL_DRAWINGS_HREF } from '@/lib/labs/orbital-drawings'
+import { PIXELATOR_EFFECT_HREF } from '@/lib/labs/pixelator'
 
 export type BuildProject = {
   slug: string
@@ -42,6 +43,21 @@ export const buildProjects: readonly BuildProject[] = [
       src: '/images/builds-how-i-built-this-site.png',
       width: 1024,
       height: 537,
+      unoptimized: true,
+    },
+  },
+  {
+    slug: 'pixelator-effect',
+    title: 'Pixel-a-tor effect microtool',
+    description:
+      'This is the little P5.JS sketch I made and then used to create my site Avatar.',
+    tags: ['P5.JS', 'build your own tools'],
+    href: PIXELATOR_EFFECT_HREF,
+    ctaLabel: 'Enter lab →',
+    image: {
+      src: '/images/builds-pixelator-effect.png',
+      width: 760,
+      height: 428,
       unoptimized: true,
     },
   },
