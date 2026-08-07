@@ -50,7 +50,7 @@ export const buildProjects: readonly BuildProject[] = [
     slug: 'pixelator-effect',
     title: 'Pixel-a-tor effect microtool',
     description:
-      'This is the little P5.JS sketch I made and then used to create my site Avatar.',
+      'This is the little P5.JS sketch I built to create my site avatar. Give it a try.',
     tags: ['P5.JS', 'build your own tools'],
     href: PIXELATOR_EFFECT_HREF,
     ctaLabel: 'Enter lab →',
