@@ -11,7 +11,9 @@ type OrbitalDrawingsMosaicProps = {
 }
 
 /**
- * Static keyboard-friendly mosaic for prefers-reduced-motion.
+ * Static mosaic fallback when WebGL is unavailable.
+ * Prefer the 3D canvas even when prefers-reduced-motion is on —
+ * that path quiets entrance/inertia instead of swapping UIs.
  */
 export function OrbitalDrawingsMosaic({
   drawings,

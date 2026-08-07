@@ -20,6 +20,8 @@ import {
 } from '@/lib/labs/orbital-settings'
 import { elevationOpacity, elevationWorldLayout } from '@/lib/elevation'
 import type { OrbitalDrawing } from '@/lib/labs/orbital-drawings'
+import { controlButtonClassName } from '@/components/hyperlink'
+import { cn } from '@/lib/utils'
 
 /**
  * World-space Z for a focused plane (camera sits at z ≈ 11).
@@ -36,6 +38,18 @@ const CLOUD_VIEW_MARGIN = 0.9
 const CLOUD_OPTICAL_Y_LIFT = 0.1
 const CAMERA_Z = 11
 const CAMERA_FOV = 40
+/** Pinch / wheel zoom scale on the cloud (1 = default framing). */
+const ZOOM_MIN = 0.62
+const ZOOM_MAX = 1.85
+const DRAG_THRESHOLD_PX = 6
+const PITCH_LIMIT = Math.PI * 0.42
+
+function pointerDistance(
+  a: { x: number; y: number },
+  b: { x: number; y: number },
+) {
+  return Math.hypot(a.x - b.x, a.y - b.y)
+}
 
 type LayoutItem = {
   drawing: OrbitalDrawing
@@ -253,6 +267,7 @@ type DrawingPlaneProps = {
   focusSize: number
   elevation: OrbitalElevation
   shadowMap: THREE.CanvasTexture
+  reducedMotion: boolean
 }
 
 function isDarkTheme() {
@@ -308,6 +323,7 @@ function DrawingPlane({
   focusSize,
   elevation,
   shadowMap,
+  reducedMotion,
 }: DrawingPlaneProps) {
   const groupRef = useRef<THREE.Group>(null)
   const matRef = useRef<THREE.MeshBasicMaterial>(null)
@@ -358,6 +374,15 @@ function DrawingPlane({
     const shadowMat = shadowMatRef.current
     if (!group || !mat || !entered) return
 
+    if (reducedMotion) {
+      group.scale.set(1, 1, 1)
+      mat.opacity = 1
+      if (shadowMat) {
+        shadowMat.opacity = targetElevationOpacity(elevation, false, false)
+      }
+      return
+    }
+
     group.scale.set(0.001, 0.001, 0.001)
     mat.opacity = 0
     if (shadowMat) shadowMat.opacity = 0
@@ -383,7 +408,7 @@ function DrawingPlane({
         ease: 'power2.out',
       })
     }
-  }, [entered, index, elevation])
+  }, [entered, index, elevation, reducedMotion])
 
   // Focus / dim / elevation
   useEffect(() => {
@@ -394,6 +419,7 @@ function DrawingPlane({
 
     const [ox, oy, oz] = item.position
     const [rx, ry, rz] = item.rotation
+    const dur = reducedMotion ? 0.01 : undefined
 
     const tweens: gsap.core.Tween[] = []
     const shadowOpacity = targetElevationOpacity(elevation, isFocused, isDimmed)
@@ -415,24 +441,28 @@ function DrawingPlane({
           x: 0,
           y: 0,
           z: FOCUS_Z,
-          duration: 0.85,
+          duration: dur ?? 0.85,
           ease: 'power3.inOut',
         }),
         gsap.to(group.rotation, {
           x: 0,
           y: 0,
           z: 0,
-          duration: 0.85,
+          duration: dur ?? 0.85,
           ease: 'power3.inOut',
         }),
         gsap.to(group.scale, {
           x: focusScale,
           y: focusScale,
           z: focusScale,
-          duration: 0.85,
+          duration: dur ?? 0.85,
           ease: 'power3.inOut',
         }),
-        gsap.to(mat, { opacity: 1, duration: 0.2, overwrite: true }),
+        gsap.to(mat, {
+          opacity: 1,
+          duration: dur ?? 0.2,
+          overwrite: true,
+        }),
       )
     } else if (isDimmed) {
       mat.depthTest = true
@@ -443,11 +473,16 @@ function DrawingPlane({
           x: ox * 1.08,
           y: oy * 1.08,
           z: oz * 1.08,
-          duration: 0.7,
+          duration: dur ?? 0.7,
           ease: 'power2.out',
         }),
-        gsap.to(mat, { opacity: 0.22, duration: 0.5 }),
-        gsap.to(group.scale, { x: 0.92, y: 0.92, z: 0.92, duration: 0.5 }),
+        gsap.to(mat, { opacity: 0.22, duration: dur ?? 0.5 }),
+        gsap.to(group.scale, {
+          x: 0.92,
+          y: 0.92,
+          z: 0.92,
+          duration: dur ?? 0.5,
+        }),
       )
     } else {
       mat.depthTest = true
@@ -458,18 +493,23 @@ function DrawingPlane({
           x: ox,
           y: oy,
           z: oz,
-          duration: 0.75,
+          duration: dur ?? 0.75,
           ease: 'power3.out',
         }),
         gsap.to(group.rotation, {
           x: rx,
           y: ry,
           z: rz,
-          duration: 0.75,
+          duration: dur ?? 0.75,
           ease: 'power3.out',
         }),
-        gsap.to(group.scale, { x: 1, y: 1, z: 1, duration: 0.6 }),
-        gsap.to(mat, { opacity: 1, duration: 0.5 }),
+        gsap.to(group.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+          duration: dur ?? 0.6,
+        }),
+        gsap.to(mat, { opacity: 1, duration: dur ?? 0.5 }),
       )
     }
 
@@ -477,7 +517,7 @@ function DrawingPlane({
       tweens.push(
         gsap.to(shadowMat, {
           opacity: shadowOpacity,
-          duration: 0.45,
+          duration: dur ?? 0.45,
           overwrite: true,
         }),
       )
@@ -495,6 +535,7 @@ function DrawingPlane({
     height,
     focusSize,
     elevation,
+    reducedMotion,
   ])
 
   return (
@@ -552,21 +593,26 @@ type OrbitState = {
   velocityPitch: number
 }
 
+type PinchState = {
+  active: boolean
+  startDist: number
+  startZoom: number
+}
+
 type CloudProps = {
   focusedId: string | null
   onSelect: (id: string | null) => void
   onGrabbingChange?: (grabbing: boolean) => void
   settings: OrbitalSettings
+  reducedMotion: boolean
 }
-
-const DRAG_THRESHOLD_PX = 6
-const PITCH_LIMIT = Math.PI * 0.42
 
 function ImageCloud({
   focusedId,
   onSelect,
   onGrabbingChange,
   settings,
+  reducedMotion,
 }: CloudProps) {
   const groupRef = useRef<THREE.Group>(null)
   const { camera, size, gl } = useThree()
@@ -593,6 +639,13 @@ function ImageCloud({
     velocityYaw: 0,
     velocityPitch: 0,
   })
+  const pinch = useRef<PinchState>({
+    active: false,
+    startDist: 0,
+    startZoom: 1,
+  })
+  const zoom = useRef(1)
+  const activePointers = useRef(new Map<number, { x: number; y: number }>())
   const dragStart = useRef({ x: 0, y: 0 })
   const lastPointer = useRef({ x: 0, y: 0 })
 
@@ -631,8 +684,41 @@ function ImageCloud({
   useEffect(() => {
     const el = gl.domElement
 
+    const beginPinch = () => {
+      const pts = [...activePointers.current.values()]
+      if (pts.length < 2) return
+      const o = orbit.current
+      o.pointerDown = false
+      o.dragging = true
+      o.velocityYaw = 0
+      o.velocityPitch = 0
+      pinch.current = {
+        active: true,
+        startDist: Math.max(pointerDistance(pts[0], pts[1]), 1),
+        startZoom: zoom.current,
+      }
+      onGrabbingChange?.(true)
+    }
+
+    const endPinchIfNeeded = () => {
+      if (activePointers.current.size < 2) {
+        pinch.current.active = false
+      }
+    }
+
     const onDown = (e: PointerEvent) => {
       if (e.button !== 0 || focusedRef.current) return
+      activePointers.current.set(e.pointerId, {
+        x: e.clientX,
+        y: e.clientY,
+      })
+      el.setPointerCapture(e.pointerId)
+
+      if (activePointers.current.size >= 2) {
+        beginPinch()
+        return
+      }
+
       const o = orbit.current
       o.pointerDown = true
       o.dragging = false
@@ -641,12 +727,33 @@ function ImageCloud({
       dragStart.current = { x: e.clientX, y: e.clientY }
       lastPointer.current = { x: e.clientX, y: e.clientY }
       onGrabbingChange?.(true)
-      el.setPointerCapture(e.pointerId)
     }
 
     const onMove = (e: PointerEvent) => {
+      if (activePointers.current.has(e.pointerId)) {
+        activePointers.current.set(e.pointerId, {
+          x: e.clientX,
+          y: e.clientY,
+        })
+      }
+
+      if (focusedRef.current) return
+
+      if (pinch.current.active && activePointers.current.size >= 2) {
+        const pts = [...activePointers.current.values()]
+        const dist = Math.max(pointerDistance(pts[0], pts[1]), 1)
+        const scale = dist / pinch.current.startDist
+        // Fingers apart → zoom in.
+        zoom.current = THREE.MathUtils.clamp(
+          pinch.current.startZoom * scale,
+          ZOOM_MIN,
+          ZOOM_MAX,
+        )
+        return
+      }
+
       const o = orbit.current
-      if (!o.pointerDown || focusedRef.current) return
+      if (!o.pointerDown || pinch.current.active) return
 
       const totalDx = e.clientX - dragStart.current.x
       const totalDy = e.clientY - dragStart.current.y
@@ -659,7 +766,9 @@ function ImageCloud({
       const dy = e.clientY - lastPointer.current.y
       lastPointer.current = { x: e.clientX, y: e.clientY }
 
-      const sensitivity = settingsRef.current.orbitSensitivity
+      const sensitivity =
+        settingsRef.current.orbitSensitivity *
+        (window.matchMedia('(pointer: coarse)').matches ? 1.45 : 1)
       const dYaw = dx * sensitivity
       const dPitch = dy * sensitivity
       o.yaw += dYaw
@@ -673,28 +782,58 @@ function ImageCloud({
     }
 
     const onUp = (e: PointerEvent) => {
-      const o = orbit.current
-      o.pointerDown = false
-      onGrabbingChange?.(false)
+      activePointers.current.delete(e.pointerId)
       try {
         el.releasePointerCapture(e.pointerId)
       } catch {
         // already released
       }
-      requestAnimationFrame(() => {
+
+      endPinchIfNeeded()
+
+      if (activePointers.current.size === 0) {
+        const o = orbit.current
+        o.pointerDown = false
+        onGrabbingChange?.(false)
+        requestAnimationFrame(() => {
+          o.dragging = false
+        })
+      } else if (activePointers.current.size === 1 && !focusedRef.current) {
+        // Hand off to remaining finger as a fresh orbit drag.
+        const remaining = [...activePointers.current.values()][0]
+        const o = orbit.current
+        pinch.current.active = false
+        o.pointerDown = true
         o.dragging = false
-      })
+        o.velocityYaw = 0
+        o.velocityPitch = 0
+        dragStart.current = { x: remaining.x, y: remaining.y }
+        lastPointer.current = { x: remaining.x, y: remaining.y }
+      }
+    }
+
+    const onWheel = (e: WheelEvent) => {
+      if (focusedRef.current) return
+      e.preventDefault()
+      const factor = Math.exp(-e.deltaY * 0.0015)
+      zoom.current = THREE.MathUtils.clamp(
+        zoom.current * factor,
+        ZOOM_MIN,
+        ZOOM_MAX,
+      )
     }
 
     el.addEventListener('pointerdown', onDown)
     el.addEventListener('pointermove', onMove)
     el.addEventListener('pointerup', onUp)
     el.addEventListener('pointercancel', onUp)
+    el.addEventListener('wheel', onWheel, { passive: false })
     return () => {
       el.removeEventListener('pointerdown', onDown)
       el.removeEventListener('pointermove', onMove)
       el.removeEventListener('pointerup', onUp)
       el.removeEventListener('pointercancel', onUp)
+      el.removeEventListener('wheel', onWheel)
     }
   }, [gl, onGrabbingChange])
 
@@ -702,6 +841,11 @@ function ImageCloud({
     const group = groupRef.current
     if (!group) return
     const o = orbit.current
+
+    const targetScale = focusedId ? 1 : zoom.current
+    const blend = reducedMotion ? 1 : Math.min(1, delta * 10)
+    const nextScale = THREE.MathUtils.lerp(group.scale.x, targetScale, blend)
+    group.scale.setScalar(nextScale)
 
     if (focusedId) {
       group.rotation.x = THREE.MathUtils.lerp(group.rotation.x, 0, 0.1)
@@ -712,18 +856,23 @@ function ImageCloud({
       return
     }
 
-    if (!o.dragging && !o.pointerDown) {
-      o.yaw += o.velocityYaw
-      o.pitch = THREE.MathUtils.clamp(
-        o.pitch + o.velocityPitch,
-        -PITCH_LIMIT,
-        PITCH_LIMIT,
-      )
-      const damp = Math.pow(settingsRef.current.inertia, delta * 60)
-      o.velocityYaw *= damp
-      o.velocityPitch *= damp
-      if (Math.abs(o.velocityYaw) < 1e-5) o.velocityYaw = 0
-      if (Math.abs(o.velocityPitch) < 1e-5) o.velocityPitch = 0
+    if (!o.dragging && !o.pointerDown && !pinch.current.active) {
+      if (reducedMotion) {
+        o.velocityYaw = 0
+        o.velocityPitch = 0
+      } else {
+        o.yaw += o.velocityYaw
+        o.pitch = THREE.MathUtils.clamp(
+          o.pitch + o.velocityPitch,
+          -PITCH_LIMIT,
+          PITCH_LIMIT,
+        )
+        const damp = Math.pow(settingsRef.current.inertia, delta * 60)
+        o.velocityYaw *= damp
+        o.velocityPitch *= damp
+        if (Math.abs(o.velocityYaw) < 1e-5) o.velocityYaw = 0
+        if (Math.abs(o.velocityPitch) < 1e-5) o.velocityPitch = 0
+      }
     }
 
     group.rotation.order = 'YXZ'
@@ -741,13 +890,14 @@ function ImageCloud({
           index={index}
           focusedId={focusedId}
           onSelect={(id) => {
-            if (orbit.current.dragging) return
+            if (orbit.current.dragging || pinch.current.active) return
             onSelect(id)
           }}
           entered={entered}
           focusSize={settings.focusSize}
           elevation={settings.elevation}
           shadowMap={shadowMap}
+          reducedMotion={reducedMotion}
         />
       ))}
     </group>
@@ -782,13 +932,16 @@ function TextureLoadingHint() {
 
 export function OrbitalDrawingsCanvas({
   settings,
+  reducedMotion = false,
 }: {
   settings: OrbitalSettings
+  reducedMotion?: boolean
 }) {
   const clearColor = usePageClearColor()
   const tabVisible = useTabVisible()
   const [focusedId, setFocusedId] = useState<string | null>(null)
   const [isGrabbing, setIsGrabbing] = useState(false)
+  const [showHint, setShowHint] = useState(true)
   const dragGuard = useRef(false)
 
   const onSelect = useCallback((id: string | null) => {
@@ -797,8 +950,10 @@ export function OrbitalDrawingsCanvas({
 
   const onGrabbingChange = useCallback((grabbing: boolean) => {
     setIsGrabbing(grabbing)
-    if (grabbing) dragGuard.current = true
-    else {
+    if (grabbing) {
+      dragGuard.current = true
+      setShowHint(false)
+    } else {
       requestAnimationFrame(() => {
         dragGuard.current = false
       })
@@ -819,17 +974,40 @@ export function OrbitalDrawingsCanvas({
     }
   }, [])
 
+  useEffect(() => {
+    if (!showHint) return
+    const id = window.setTimeout(() => setShowHint(false), 4500)
+    return () => window.clearTimeout(id)
+  }, [showHint])
+
   return (
     <div
       className={
         isGrabbing
-          ? 'absolute inset-0 h-full w-full touch-none cursor-grabbing'
-          : 'absolute inset-0 h-full w-full touch-none cursor-grab'
+          ? 'absolute inset-0 h-full w-full touch-none overscroll-none cursor-grabbing'
+          : 'absolute inset-0 h-full w-full touch-none overscroll-none cursor-grab'
       }
       role="img"
-      aria-label="Interactive 3D orbital interface of drawings. Drag to orbit. Click a drawing to focus it; press Escape to restore."
+      aria-label="Interactive 3D orbital interface of drawings. Drag to orbit. Pinch or scroll to zoom. Tap a drawing to focus it; tap empty space or Close to restore."
     >
       <TextureLoadingHint />
+      {showHint && !focusedId ? (
+        <p className="pointer-events-none absolute inset-x-0 bottom-4 z-20 px-4 text-center text-small text-muted-foreground lg:hidden">
+          Drag to orbit · pinch to zoom · tap to focus
+        </p>
+      ) : null}
+      {focusedId ? (
+        <button
+          type="button"
+          className={cn(
+            controlButtonClassName,
+            'absolute top-3 right-3 z-20 lg:top-4 lg:right-4',
+          )}
+          onClick={() => setFocusedId(null)}
+        >
+          Close
+        </button>
+      ) : null}
       <Canvas
         camera={{
           position: [0, 0, CAMERA_Z],
@@ -844,7 +1022,16 @@ export function OrbitalDrawingsCanvas({
           alpha: false,
           powerPreference: 'high-performance',
         }}
-        style={{ width: '100%', height: '100%' }}
+        style={{ width: '100%', height: '100%', touchAction: 'none' }}
+        onCreated={({ gl }) => {
+          gl.domElement.addEventListener(
+            'webglcontextlost',
+            (e) => {
+              e.preventDefault()
+            },
+            false,
+          )
+        }}
       >
         <color attach="background" args={[clearColor]} />
         <ClickAway
@@ -859,6 +1046,7 @@ export function OrbitalDrawingsCanvas({
             onSelect={onSelect}
             onGrabbingChange={onGrabbingChange}
             settings={settings}
+            reducedMotion={reducedMotion}
           />
         </Suspense>
       </Canvas>
