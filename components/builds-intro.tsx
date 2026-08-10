@@ -12,10 +12,7 @@ export function BuildsIntro() {
         behind my build of this site from design system to deployment as well as
         a snapshot of a global employee recognition platform that I designed,
         built, and managed that McKinsey has written about publicly multiple
-        times.
-      </p>
-      <p className="text-regular leading-regular text-pretty text-foreground">
-        More to come...
+        times. <span className="font-bold">More to come...</span>
       </p>
     </div>
   )
