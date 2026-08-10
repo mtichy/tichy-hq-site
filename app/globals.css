@@ -188,12 +188,16 @@
 /*
  * Brand range control — accent-color alone fails on iOS once appearance is reset.
  * Progress fill uses --range-progress (0%–100%) set inline from the input value.
+ *
+ * Desktop (lg+): lab sidebars use overflow-y-auto, which also clips overflow-x and
+ * crops the thumb at 0%/100%. Inset only from lg so mobile (no overflow clip) is unchanged.
  */
 @layer components {
   .control-range {
     -webkit-appearance: none;
     appearance: none;
     display: block;
+    box-sizing: border-box;
     height: 0.5rem;
     width: 100%;
     cursor: pointer;
@@ -206,6 +210,23 @@
       var(--muted) 100%
     );
     accent-color: var(--color-brand-cyan);
+  }
+
+  @media (min-width: 1024px) {
+    .control-range {
+      height: 1.125rem;
+      padding-inline: 0.625rem;
+      background: linear-gradient(
+          to right,
+          var(--color-brand-cyan) 0%,
+          var(--color-brand-cyan) var(--range-progress, 0%),
+          var(--muted) var(--range-progress, 0%),
+          var(--muted) 100%
+        )
+        no-repeat content-box;
+      background-size: 100% 0.5rem;
+      background-position: left center;
+    }
   }
 
   .control-range:focus-visible {
