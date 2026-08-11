@@ -13,7 +13,7 @@ const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
         aria-current={selected ? 'page' : undefined}
         className={cn(
           // bold Quicksand nav type in dark ink
-          'inline-block pb-1 font-sans font-bold text-regular text-foreground no-underline',
+          'inline-block pb-1 font-sans font-bold text-small text-foreground no-underline',
           // reserve the 6px bar so state changes never shift layout
           'border-b-[6px] border-transparent transition-[filter,border-color] duration-150',
           // default state: soft blur, no underline bar
