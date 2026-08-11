@@ -53,12 +53,6 @@ export function ResumeContent() {
               scale across languages and regional legal requirements.
             </li>
             <li>
-              Designed, built, and maintained a native mobile application (iOS
-              and Android) delivering the firm&apos;s flagship editorial
-              channel, owning it end to end for two years. Designed mobile-first
-              across the full product portfolio for the past decade.
-            </li>
-            <li>
               Designed and shipped Thank-a-thon, an employee recognition
               platform generating tens of thousands of messages and 200,000+
               pageviews during a two-week annual run, owning UX, development
@@ -109,6 +103,14 @@ export function ResumeContent() {
               analytics, CMS architecture, and component reuse.
             </li>
             <li>
+              Introduced and onboarded Slack to our function nearly two years
+              before firm-wide adoption, licensed and rolled out Monday across
+              multiple functions, then brought on Notion which is now used
+              firm-wide, including on client engagements. Modernizing my
+              functions comms and project management is how &ldquo;Technical
+              Lead&rdquo; was added to my title.
+            </li>
+            <li>
               Advanced through the firm&apos;s impact bands to Expert, one tier
               below Associate Partner.
             </li>
@@ -125,6 +127,12 @@ export function ResumeContent() {
               Sustained a 3x readership increase, with 95% of readers reporting
               trust in the publication and 71% reporting they tried something
               new at work based on what they read.
+            </li>
+            <li>
+              Designed, built, and maintained a native mobile application (iOS
+              and Android) delivering the firm&apos;s flagship editorial
+              channel, owning it end to end for two years. Designed mobile-first
+              across the full product portfolio for the past decade.
             </li>
             <li>
               Hired and managed the development team that became a ten-year
