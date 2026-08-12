@@ -20,6 +20,20 @@ export type BuildProject = {
  */
 export const buildProjects: readonly BuildProject[] = [
   {
+    slug: 'fetch',
+    title: 'Fetch: people-first editorial intelligence',
+    description:
+      'A sanitized rebuild of an editorial analytics product: people and stories as the way in, plain-language answers, and one home route that defaults differently for authors and editors.',
+    tags: ['analytics', 'interactive demo'],
+    ctaLabel: 'View project →',
+    image: {
+      src: '/images/builds-fetch.png',
+      width: 760,
+      height: 428,
+      unoptimized: true,
+    },
+  },
+  {
     slug: 'thank-a-thon',
     title: 'Designing a McKinsey tradition',
     description:

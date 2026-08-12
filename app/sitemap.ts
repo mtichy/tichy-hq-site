@@ -7,6 +7,7 @@ const routes = [
   '/builds',
   '/builds/how-i-built-this-site',
   '/builds/thank-a-thon',
+  '/builds/fetch',
   '/labs/orbital-drawings',
   '/labs/pixelator-effect',
 ] as const
