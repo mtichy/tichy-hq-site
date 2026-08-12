@@ -10,17 +10,19 @@ I'm an AI-native Product Designer and Design Technologist. This is my personal p
 
 ## What's here
 
-| Route                           | Purpose                                                    |
-| ------------------------------- | ---------------------------------------------------------- |
-| `/`                             | Home — intro, bio, career journey                          |
-| `/resume`                       | Full résumé with downloadable PDF                          |
-| `/builds`                       | Index of projects, case studies, and labs                  |
-| `/builds/thank-a-thon`          | Case study — McKinsey Thank-a-thon                         |
-| `/builds/how-i-built-this-site` | Process write-up for how this site was designed and built  |
-| `/labs/pixelator-effect`        | Pixel portrait microtool — threshold + grid → PNG (lab)    |
-| `/labs/orbital-drawings`        | Interactive 3D orbital interface of archive drawings (lab) |
+| Route                           | Purpose                                                            |
+| ------------------------------- | ------------------------------------------------------------------ |
+| `/`                             | Home — intro, bio, career journey                                  |
+| `/resume`                       | Full résumé with downloadable PDF                                  |
+| `/builds`                       | Index of projects, case studies, and labs                          |
+| `/builds/fetch`                 | Case study — people-first editorial analytics (Fetch)              |
+| `/builds/fetch/demo`            | Interactive Fetch demo (synthetic data; Author/Editor role toggle) |
+| `/builds/thank-a-thon`          | Case study — McKinsey Thank-a-thon                                 |
+| `/builds/how-i-built-this-site` | Process write-up for how this site was designed and built          |
+| `/labs/pixelator-effect`        | Pixel portrait microtool — threshold + grid → PNG (lab)            |
+| `/labs/orbital-drawings`        | Interactive 3D orbital interface of archive drawings (lab)         |
 
-**Content model:** `/builds/[slug]` pages are articles. `/labs/[slug]` pages are interactive experiments. Labs are discovered from Builds cards (there is no separate Labs nav item).
+**Content model:** `/builds/[slug]` pages are articles. `/labs/[slug]` pages are interactive experiments. Labs are discovered from Builds cards (there is no separate Labs nav item). Fetch is a Builds case study with an embedded interactive demo under `/builds/fetch/demo` (synthetic fixtures only — no backend, API, or browser storage).
 
 ## Stack
 
@@ -69,21 +71,36 @@ app/                      # Next.js App Router pages and global styles
   page.tsx                # Home
   resume/page.tsx
   builds/                 # Builds index + article pages
+    fetch/                # Fetch case study + nested interactive demo
   labs/                   # Interactive experiments (client-heavy)
   sitemap.ts
   globals.css             # Design tokens (color, type scale, spacing)
 components/
+  fetch-demo/             # Fetch demo chrome, anomaly cards, Ask, sparklines
   labs/                   # Lab shells, controls, canvases (2D + R3F)
   ui/                     # shadcn/ui primitives
 lib/
   site.ts                 # Site URL, tagline, default metadata, OG config
   builds.ts               # Builds index entries (articles + lab links)
+  fetch-demo/             # Typed synthetic fixtures + selectors for Fetch
   labs/                   # Lab helpers (pixelator process/export, orbital catalog/settings)
   elevation.ts            # Shared card elevation tokens for 3D + CSS
   utils.ts                # Tailwind class merge helper
 public/                   # Static assets (favicons, logos, résumé PDF, lab images)
 docs/                     # README assets (screenshots)
 ```
+
+## Builds
+
+**`/builds/fetch`** — Case study for Fetch, a sanitized rebuild of an editorial analytics product. Thesis: writers think in people and stories, not charts or query builders. The write-up covers the Author/Editor default decision, what shipped in the demo, and what was cut (Search route, foreground author filters, always-on Reset).
+
+**`/builds/fetch/demo`** — Interactive demo on synthetic data only. Persistent Author | Editor toggle, anomaly cards, story/person detail with sparklines and horizontal reader breakdowns, Ask Fetch (keyword-matched answers), and demonstrable states via `?state=firstrun|empty|loading|error`.
+
+Adding a Builds article:
+
+1. Create `app/builds/[slug]/page.tsx` (and optional content component)
+2. Append a card in `lib/builds.ts`
+3. Add the route to `app/sitemap.ts`
 
 ## Labs
 
@@ -125,9 +142,9 @@ Production URL: **https://marktichy.com**
 
 - **TypeScript:** `strict` mode is enabled in `tsconfig.json`. No `any` types in source.
 - **Client JS:** Kept minimal on marketing/résumé pages (theme provider, theme toggle, light analytics wrappers). Labs intentionally use client components for WebGL, pointer input, and live controls.
-- **Accessibility:** Semantic landmarks (`header`, `nav`, `main`, `footer`), `aria-current` on nav links, focus-visible styles on interactive elements, alt text on images. Lab canvas exposes an accessible label; mosaic fallback when WebGL is missing.
+- **Accessibility:** Semantic landmarks (`header`, `nav`, `main`, `footer`), `aria-current` on nav links, focus-visible styles on interactive elements, alt text on images. Lab canvas exposes an accessible label; mosaic fallback when WebGL is missing. The Fetch demo adds radiogroup role toggle, live regions for Ask, sparkline `role="img"` labels, and reduced-motion handling for Ask delay and skeletons.
 - **Secrets:** No API keys or `.env` files in the repo. `.gitignore` excludes `.env*`, `node_modules`, and `.next`.
-- **Rendering:** Marketing and article routes pre-render as static HTML. Lab pages ship a static shell and hydrate the interactive canvas on the client.
+- **Rendering:** Marketing and article routes pre-render as static HTML. Lab pages ship a static shell and hydrate the interactive canvas on the client. Fetch demo routes use a mix of static shells and client islands for role/filters/Ask (still no network I/O).
 - **Git hooks:** Husky runs lint-staged on commit (ESLint + Prettier on staged files).
 
 ## License
