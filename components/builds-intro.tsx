@@ -4,8 +4,8 @@ export function BuildsIntro() {
     <div className="flex w-full max-w-[65ch] flex-col gap-4">
       <p className="text-regular font-bold leading-regular text-pretty text-foreground">
         After building and managing confidential products at McKinsey &amp;
-        Company for 12 years I will be using this space to share new projects
-        and experiments moving forward.
+        Company for 12 years, this is where I document and share new projects
+        and experiments.
       </p>
     </div>
   )
