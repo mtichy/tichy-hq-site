@@ -46,11 +46,12 @@ export function ResumeContent() {
           </h4>
           <ul className="mt-2 flex list-disc flex-col gap-2 pl-6 text-regular leading-regular text-foreground">
             <li>
-              Designed, built, and managed a portfolio of 15+ digital products
-              reaching 45,000 people globally, owning UX, user research,
-              information architecture, content modeling, and front-end
-              delivery. Included the global benefits platform, architected to
-              scale across languages and regional legal requirements.
+              Built and managed a portfolio of 15+ digital products, every one
+              of them zero-to-one, reaching 45,000 people globally, owning UX,
+              user research, information architecture, content modeling, and
+              front-end delivery. This included McKinsey&apos;s global benefits
+              platform, architected to scale across languages and regional legal
+              &amp; security requirements.
             </li>
             <li>
               Designed and shipped Thank-a-thon, an employee recognition
