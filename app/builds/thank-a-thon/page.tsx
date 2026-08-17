@@ -1,14 +1,15 @@
-import type { Metadata } from 'next'
 import { BuildsBackLink } from '@/components/builds-back-link'
 import { Footer } from '@/components/footer'
 import { NavBar } from '@/components/nav-bar'
 import { ThankAThonContent } from '@/components/thank-a-thon-content'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Designing a McKinsey tradition',
   description:
     'How to keep spirits high? Make gratitude contagious with an annual week-long Thank-a-thon that generates tens of thousands of thank you messages and hundreds of thousands of page views across the globe.',
-}
+  path: '/builds/thank-a-thon',
+})
 
 export default function ThankAThonPage() {
   return (

@@ -1,16 +1,14 @@
-import type { Metadata } from 'next'
 import { Card } from '@/components/card'
 import { Footer } from '@/components/footer'
 import { NavBar } from '@/components/nav-bar'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Card demo',
   description: 'Local lab page for the Card component.',
-  robots: {
-    index: false,
-    follow: false,
-  },
-}
+  path: '/test/card',
+  noIndex: true,
+})
 
 /** Dev-only Card mosaic lab — gated by `app/test/layout.tsx`. */
 export default function CardDemoPage() {

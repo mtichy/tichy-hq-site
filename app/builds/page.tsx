@@ -1,15 +1,16 @@
-import type { Metadata } from 'next'
 import { BuildsGrid } from '@/components/builds-grid'
 import { BuildsIntro } from '@/components/builds-intro'
 import { BuildsSidebar } from '@/components/builds-sidebar'
 import { Footer } from '@/components/footer'
 import { NavBar } from '@/components/nav-bar'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Builds',
   description:
-    'A selection of projects, experiments, and things built by Mark Tichý.',
-}
+    'Product case studies and process write-ups — how each project was designed, built, and shipped through a Figma-to-code workflow.',
+  path: '/builds',
+})
 
 export default function BuildsPage() {
   return (

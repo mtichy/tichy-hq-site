@@ -1,11 +1,12 @@
-import type { Metadata } from 'next'
 import { AskPanel } from '@/components/fetch-demo/ask-panel'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Ask · Fetch demo',
   description: 'Ask Fetch a question. Synthetic demo responses only.',
-  robots: { index: false, follow: false },
-}
+  path: '/builds/fetch/demo/ask',
+  noIndex: true,
+})
 
 export default function AskPage() {
   return (

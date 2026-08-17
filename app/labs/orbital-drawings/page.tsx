@@ -1,12 +1,13 @@
-import type { Metadata } from 'next'
 import OrbitalDrawings from '@/components/labs/orbital-drawings'
 import { NavBar } from '@/components/nav-bar'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: '3d orbital interface experiment',
   description:
     'An interactive 3D orbital interface of old drawings — a labs experiment with live A/B controls.',
-}
+  path: '/labs/orbital-drawings',
+})
 
 export default function OrbitalDrawingsPage() {
   return (

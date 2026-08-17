@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { BarBreakdown } from '@/components/fetch-demo/bar-breakdown'
@@ -10,6 +9,7 @@ import {
   getPerson,
   storiesForAuthor,
 } from '@/lib/fetch-demo/selectors'
+import { pageMetadata } from '@/lib/site'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -19,15 +19,17 @@ export async function generateStaticParams() {
   return people.map((p) => ({ slug: p.slug }))
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
   const person = getPerson(slug)
-  return {
+  return pageMetadata({
     title: person ? `${person.name} · Fetch demo` : 'Person · Fetch demo',
-    robots: { index: false, follow: false },
-  }
+    description: person
+      ? `${person.name}, ${person.roleTitle}. Synthetic Fetch demo — illustrative only.`
+      : 'Person in the Fetch demo. Synthetic editorial analytics. Illustrative only.',
+    path: `/builds/fetch/demo/people/${slug}`,
+    noIndex: true,
+  })
 }
 
 export default async function PersonPage({ params }: PageProps) {

@@ -1,12 +1,13 @@
-import type { Metadata } from 'next'
 import PixelatorEffect from '@/components/labs/pixelator-effect'
 import { NavBar } from '@/components/nav-bar'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Pixelator effect',
   description:
     'Upload a photo, adjust the threshold and grid size, export as a PNG. This is exactly how I made my site avatar.',
-}
+  path: '/labs/pixelator-effect',
+})
 
 export default function PixelatorEffectPage() {
   return (
