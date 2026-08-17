@@ -144,7 +144,7 @@ export function processImage(
       const i = (y * cols + x) * 4
       const a = data[i + 3]
       if (a < 8) {
-        cells[y * cols + x] = invert ? 255 : 0
+        cells[y * cols + x] = 0
         continue
       }
       const b = pixelBrightness(data[i], data[i + 1], data[i + 2])
