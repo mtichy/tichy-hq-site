@@ -120,6 +120,45 @@ export function PixelatorControls({
       </ControlField>
 
       <ControlField
+        label="Softness"
+        htmlFor={id('softness')}
+        hint={String(value.softness)}
+      >
+        <input
+          id={id('softness')}
+          type="range"
+          min={0}
+          max={120}
+          step={1}
+          value={value.softness}
+          onChange={(e) => patch({ softness: Number(e.target.value) })}
+          className="control-range w-full"
+          style={rangeStyle(value.softness, 0, 120)}
+          aria-valuetext={`${value.softness}`}
+        />
+      </ControlField>
+
+      <div className="flex flex-col gap-1.5">
+        <span className="text-small font-bold leading-small text-foreground">
+          Invert
+        </span>
+        <button
+          type="button"
+          aria-pressed={value.invert}
+          onClick={() => patch({ invert: !value.invert })}
+          className={cn(
+            controlButtonClassName,
+            'w-fit',
+            value.invert
+              ? 'bg-accent text-accent-foreground'
+              : 'bg-muted text-muted-foreground',
+          )}
+        >
+          {value.invert ? 'On' : 'Off'}
+        </button>
+      </div>
+
+      <ControlField
         label="Grid size"
         htmlFor={id('grid-size')}
         hint={String(value.gridSize)}

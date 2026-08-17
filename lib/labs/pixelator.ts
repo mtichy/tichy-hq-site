@@ -18,15 +18,20 @@ export const PIXELATOR_STAGE_MAX_HEIGHT = 620
 
 export type PixelatorSettings = {
   threshold: number
+  /** Luma falloff around the threshold (0 = hard 1-bit cut). */
+  softness: number
   gridSize: number
+  invert: boolean
 }
 
 export const DEFAULT_PIXELATOR_SETTINGS: PixelatorSettings = {
   threshold: 120,
+  softness: 64,
   gridSize: 80,
+  invert: false,
 }
 
-/** Binary occupancy grid: cols × rows of 0 | 1 */
+/** Occupancy grid: cols × rows of 0–255 (255 = full cell). */
 export type PixelGrid = {
   cols: number
   rows: number
@@ -37,6 +42,34 @@ export type PixelGrid = {
 /** p5 brightness() equivalent (Rec. 601 luma, 0–255). */
 export function pixelBrightness(r: number, g: number, b: number): number {
   return 0.299 * r + 0.587 * g + 0.114 * b
+}
+
+function clamp01(n: number): number {
+  return Math.min(1, Math.max(0, n))
+}
+
+/**
+ * How fully a cell fills, 0–1. Softness is luma units on either side of
+ * `threshold`: 0 is the original hard cut; higher values shrink/grow squares
+ * through midtones so the slider actually reads on high-contrast sources.
+ */
+export function pixelOccupancy(
+  brightness: number,
+  threshold: number,
+  softness: number,
+  invert: boolean,
+): number {
+  let fill: number
+  if (softness < 0.5) {
+    fill = brightness < threshold ? 1 : 0
+  } else {
+    const lo = threshold - softness
+    const hi = threshold + softness
+    const u = clamp01((brightness - lo) / (hi - lo))
+    const smooth = u * u * (3 - 2 * u)
+    fill = 1 - smooth
+  }
+  return invert ? 1 - fill : fill
 }
 
 /**
@@ -62,13 +95,18 @@ export function fitWithin(
 
 /**
  * Resize source to `gridSize` width (aspect-preserving height), then
- * threshold by brightness — same pipeline as the original p5 sketch.
+ * map brightness through threshold + softness — hard cut when softness is 0.
  */
 export function processImage(
   source: CanvasImageSource,
-  options: { gridSize: number; threshold: number },
+  options: {
+    gridSize: number
+    threshold: number
+    softness: number
+    invert: boolean
+  },
 ): PixelGrid {
-  const { gridSize, threshold } = options
+  const { gridSize, threshold, softness, invert } = options
 
   const srcW =
     'naturalWidth' in source
@@ -106,11 +144,13 @@ export function processImage(
       const i = (y * cols + x) * 4
       const a = data[i + 3]
       if (a < 8) {
-        cells[y * cols + x] = 0
+        cells[y * cols + x] = invert ? 255 : 0
         continue
       }
       const b = pixelBrightness(data[i], data[i + 1], data[i + 2])
-      cells[y * cols + x] = b < threshold ? 1 : 0
+      cells[y * cols + x] = Math.round(
+        pixelOccupancy(b, threshold, softness, invert) * 255,
+      )
     }
   }
 
@@ -155,14 +195,16 @@ export function drawGrid(
   ctx.fillStyle = color
   for (let y = 0; y < grid.rows; y++) {
     for (let x = 0; x < grid.cols; x++) {
-      if (grid.cells[y * grid.cols + x] === 1) {
-        ctx.fillRect(
-          xOffset + x * cellSize,
-          yOffset + y * cellSize,
-          cellSize,
-          cellSize,
-        )
-      }
+      const occ = grid.cells[y * grid.cols + x] / 255
+      if (occ <= 0.02) continue
+      const size = occ >= 0.995 ? cellSize : cellSize * occ
+      const inset = (cellSize - size) / 2
+      ctx.fillRect(
+        xOffset + x * cellSize + inset,
+        yOffset + y * cellSize + inset,
+        size,
+        size,
+      )
     }
   }
 }
