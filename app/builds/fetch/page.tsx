@@ -1,14 +1,15 @@
-import type { Metadata } from 'next'
 import { BuildsBackLink } from '@/components/builds-back-link'
 import { FetchContent } from '@/components/fetch-content'
 import { Footer } from '@/components/footer'
 import { NavBar } from '@/components/nav-bar'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Fetch: people-first editorial intelligence',
   description:
     'A sanitized rebuild of an editorial analytics product: people and stories as the way in, plain-language answers, and a single route that defaults differently for authors and editors.',
-}
+  path: '/builds/fetch',
+})
 
 export default function FetchPage() {
   return (

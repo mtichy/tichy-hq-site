@@ -1,14 +1,15 @@
-import type { Metadata } from 'next'
 import { BuildsBackLink } from '@/components/builds-back-link'
 import { Footer } from '@/components/footer'
 import { HowIBuiltThisSiteContent } from '@/components/how-i-built-this-site-content'
 import { NavBar } from '@/components/nav-bar'
+import { pageMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'How I built this site',
   description:
     'The short version: a real design system as the foundation, AI tools doing the heavy lifting on execution, and a human reviewing and directing every step.',
-}
+  path: '/builds/how-i-built-this-site',
+})
 
 export default function HowIBuiltThisSitePage() {
   return (

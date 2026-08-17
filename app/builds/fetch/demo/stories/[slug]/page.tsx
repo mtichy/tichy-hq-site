@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { BarBreakdown } from '@/components/fetch-demo/bar-breakdown'
@@ -14,6 +13,7 @@ import {
   storyLocationItems,
   storySeniorityItems,
 } from '@/lib/fetch-demo/selectors'
+import { pageMetadata } from '@/lib/site'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -24,15 +24,17 @@ export async function generateStaticParams() {
   return stories.map((s) => ({ slug: s.slug }))
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
   const story = getStory(slug)
-  return {
+  return pageMetadata({
     title: story ? `${story.headline} · Fetch demo` : 'Story · Fetch demo',
-    robots: { index: false, follow: false },
-  }
+    description: story
+      ? `${story.headline}. Synthetic Fetch demo — illustrative only.`
+      : 'Story in the Fetch demo. Synthetic editorial analytics. Illustrative only.',
+    path: `/builds/fetch/demo/stories/${slug}`,
+    noIndex: true,
+  })
 }
 
 export default async function StoryPage({ params }: PageProps) {
