@@ -80,6 +80,8 @@ export default function PixelatorEffect() {
       const result = processImage(img, {
         gridSize: next.gridSize,
         threshold: next.threshold,
+        softness: next.softness,
+        invert: next.invert,
       })
       setGrid(result)
       setStatus(result.cols > 0 ? 'ready' : 'empty')
@@ -122,7 +124,14 @@ export default function PixelatorEffect() {
     const img = imageRef.current
     if (!img?.complete || !img.naturalWidth) return
     reprocess(img, settings)
-  }, [settings.threshold, settings.gridSize, reprocess, settings])
+  }, [
+    settings.threshold,
+    settings.softness,
+    settings.invert,
+    settings.gridSize,
+    reprocess,
+    settings,
+  ])
 
   useEffect(() => {
     const slot = stageSlotRef.current
@@ -180,8 +189,8 @@ export default function PixelatorEffect() {
                 Pixelator effect
               </h1>
               <p className="text-small text-muted-foreground text-pretty">
-                Upload a photo, adjust the threshold and grid size, export as a
-                PNG. This is exactly how I made my site avatar.
+                Upload a photo, tune threshold, softness, and grid size, export
+                as a PNG. Softness at 0 is the hard cut I used for the avatar.
               </p>
             </div>
             <div className="hidden lg:block">

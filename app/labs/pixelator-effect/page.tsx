@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/site'
 export const metadata = pageMetadata({
   title: 'Pixelator effect',
   description:
-    'Upload a photo, adjust the threshold and grid size, export as a PNG. This is exactly how I made my site avatar.',
+    'Upload a photo, adjust threshold, softness, and grid size, export as a PNG. This is how I made my site avatar.',
   path: '/labs/pixelator-effect',
 })
 
