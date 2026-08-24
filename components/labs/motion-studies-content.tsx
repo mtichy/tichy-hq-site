@@ -46,7 +46,9 @@ function ExternalLink({
         {children}
         <span className="sr-only"> (opens in a new tab)</span>
       </Hyperlink>
-      {/* Explicit text node — production JSX minify drops a space after </ExternalLink> */}{' '}
+      {/* Span, not {' '}: production compile turns a whitespace-only text
+          node into <!-- --> and the following word glues to the link. */}
+      <span aria-hidden="true"> </span>
     </>
   )
 }
