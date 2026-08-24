@@ -1,4 +1,5 @@
 import type { CardImage } from '@/components/card'
+import { MOTION_STUDIES_HREF } from '@/lib/labs/motion-studies'
 import { ORBITAL_DRAWINGS_HREF } from '@/lib/labs/orbital-drawings'
 import { PIXELATOR_EFFECT_HREF } from '@/lib/labs/pixelator'
 
@@ -85,6 +86,21 @@ export const buildProjects: readonly BuildProject[] = [
     ctaLabel: 'Enter lab →',
     image: {
       src: '/images/builds-orbital-drawings.png',
+      width: 760,
+      height: 428,
+      unoptimized: true,
+    },
+  },
+  {
+    slug: 'motion-studies',
+    title: 'Motion studies: how little is enough?',
+    description:
+      'How little is enough? Studies in motion from After Effects, P5.js, and Procreate.',
+    tags: ['After Effects', 'P5.js', 'Procreate'],
+    href: MOTION_STUDIES_HREF,
+    ctaLabel: 'Enter lab →',
+    image: {
+      src: '/images/builds-motion-studies.png',
       width: 760,
       height: 428,
       unoptimized: true,

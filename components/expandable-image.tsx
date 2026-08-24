@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useId, useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import { controlButtonClassName } from '@/components/hyperlink'
 import { cn } from '@/lib/utils'
 
@@ -29,11 +29,15 @@ export function ExpandableImage({
 }: ExpandableImageProps) {
   const [open, setOpen] = useState(false)
   const titleId = useId()
+  const captionId = useId()
+  const triggerRef = useRef<HTMLButtonElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     if (!open) return
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
+    closeRef.current?.focus()
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpen(false)
     }
@@ -41,14 +45,19 @@ export function ExpandableImage({
     return () => {
       document.body.style.overflow = prev
       window.removeEventListener('keydown', onKey)
+      triggerRef.current?.focus()
     }
   }, [open])
 
   return (
     <figure className={cn('flex w-full flex-col gap-3', className)}>
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setOpen(true)}
+        aria-expanded={open}
+        aria-haspopup="dialog"
+        aria-describedby={caption ? captionId : undefined}
         className={cn(
           'group relative block w-full overflow-hidden rounded-md bg-muted text-left outline-none',
           'focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
@@ -57,7 +66,7 @@ export function ExpandableImage({
       >
         <Image
           src={src}
-          alt={alt}
+          alt=""
           width={width}
           height={height}
           className="h-auto w-full"
@@ -76,7 +85,10 @@ export function ExpandableImage({
         </span>
       </button>
       {caption ? (
-        <figcaption className="text-center text-small leading-small text-muted-foreground">
+        <figcaption
+          id={captionId}
+          className="text-center text-small leading-small text-muted-foreground"
+        >
           {caption}
         </figcaption>
       ) : null}
@@ -93,6 +105,7 @@ export function ExpandableImage({
             {alt}
           </p>
           <button
+            ref={closeRef}
             type="button"
             className={cn(
               controlButtonClassName,
