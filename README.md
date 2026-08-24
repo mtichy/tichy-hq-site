@@ -21,8 +21,9 @@ I'm an AI-native Product Designer and Design Technologist. This is my personal p
 | `/builds/how-i-built-this-site` | Process write-up for how this site was designed and built          |
 | `/labs/pixelator-effect`        | Pixel portrait microtool — threshold + grid → PNG (lab)            |
 | `/labs/orbital-drawings`        | Interactive 3D orbital interface of archive drawings (lab)         |
+| `/labs/motion-studies`          | Article — motion studies (Procreate, p5.js, After Effects)         |
 
-**Content model:** `/builds/[slug]` pages are articles. `/labs/[slug]` pages are interactive experiments. Labs are discovered from Builds cards (there is no separate Labs nav item). Fetch is a Builds case study with an embedded interactive demo under `/builds/fetch/demo` (synthetic fixtures only — no backend, API, or browser storage).
+**Content model:** `/builds/[slug]` pages are articles. `/labs/[slug]` pages are labs: interactive experiments or article-style studies with media. Labs are discovered from Builds cards (there is no separate Labs nav item). Fetch is a Builds case study with an embedded interactive demo under `/builds/fetch/demo` (synthetic fixtures only — no backend, API, or browser storage).
 
 ## Stack
 
@@ -32,6 +33,7 @@ I'm an AI-native Product Designer and Design Technologist. This is my personal p
 - **Components:** [shadcn/ui](https://ui.shadcn.com) (Base UI primitives), [next-themes](https://github.com/pacocoursey/next-themes) for light/dark mode
 - **Labs (3D):** [Three.js](https://threejs.org) via [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) + [Drei](https://github.com/pmndrs/drei); [GSAP](https://gsap.com) for focus / entrance motion
 - **Labs (2D):** Canvas 2D for the Pixelator effect microtool (no p5 runtime on the site; original sketch was p5.js)
+- **Labs (media):** H.264 MP4 embeds for motion studies (`LabVideo`); looping clips respect `prefers-reduced-motion` and always expose pause controls
 - **Analytics:** [@vercel/analytics](https://vercel.com/docs/analytics) + [Speed Insights](https://vercel.com/docs/speed-insights) (production only)
 - **Deploy:** [Vercel](https://vercel.com) — auto-deploy on push to `main`
 
@@ -72,12 +74,12 @@ app/                      # Next.js App Router pages and global styles
   resume/page.tsx
   builds/                 # Builds index + article pages
     fetch/                # Fetch case study + nested interactive demo
-  labs/                   # Interactive experiments (client-heavy)
+  labs/                   # Labs: interactive experiments + article-style studies
   sitemap.ts
   globals.css             # Design tokens (color, type scale, spacing)
 components/
   fetch-demo/             # Fetch demo chrome, anomaly cards, Ask, sparklines
-  labs/                   # Lab shells, controls, canvases (2D + R3F)
+  labs/                   # Lab shells, controls, canvases, article media
   ui/                     # shadcn/ui primitives
 lib/
   site.ts                 # Site URL, tagline, default metadata, OG config
@@ -86,7 +88,7 @@ lib/
   labs/                   # Lab helpers (pixelator process/export, orbital catalog/settings)
   elevation.ts            # Shared card elevation tokens for 3D + CSS
   utils.ts                # Tailwind class merge helper
-public/                   # Static assets (favicons, logos, résumé PDF, lab images)
+public/                   # Static assets (favicons, logos, résumé PDF, lab images/video)
 docs/                     # README assets (screenshots)
 ```
 
@@ -107,6 +109,8 @@ Adding a Builds article:
 **`/labs/pixelator-effect`** — Pixel-a-tor effect microtool. Upload a photo, tune brightness threshold and grid size, preview off-white pixels on charcoal, and export a high-res PNG. Same process used for the site avatar (ported from a p5.js sketch to React + Canvas 2D).
 
 **`/labs/orbital-drawings`** — Drag-to-orbit 3D cloud of drawings with tap/click focus, pinch/scroll zoom, live A/B controls (density, size, orbit feel, shape, elevation), and a WebGL mosaic fallback when WebGL is unavailable. Reduce Motion quiets entrance and inertia but keeps the interactive canvas.
+
+**`/labs/motion-studies`** — Article: how little is enough? Five studies (three-frame Procreate loops, calligraphic stroke animation, live p5.js webcam effects, After Effects time displacement with score, and a shipped glitch banner). Looping clips are muted, pausable, and do not autoplay when Reduce Motion is on.
 
 Adding a lab:
 
@@ -142,7 +146,7 @@ Production URL: **https://marktichy.com**
 
 - **TypeScript:** `strict` mode is enabled in `tsconfig.json`. No `any` types in source.
 - **Client JS:** Kept minimal on marketing/résumé pages (theme provider, theme toggle, light analytics wrappers). Labs intentionally use client components for WebGL, pointer input, and live controls.
-- **Accessibility:** Semantic landmarks (`header`, `nav`, `main`, `footer`), `aria-current` on nav links, focus-visible styles on interactive elements, alt text on images. Lab canvas exposes an accessible label; mosaic fallback when WebGL is missing. The Fetch demo adds radiogroup role toggle, live regions for Ask, sparkline `role="img"` labels, and reduced-motion handling for Ask delay and skeletons.
+- **Accessibility:** Semantic landmarks (`header`, `nav`, `main`, `footer`), `aria-current` on nav links, focus-visible styles on interactive elements, alt text on images. Lab canvas exposes an accessible label; mosaic fallback when WebGL is missing. The Fetch demo adds radiogroup role toggle, live regions for Ask, sparkline `role="img"` labels, and reduced-motion handling for Ask delay and skeletons. Motion studies videos have pause controls, descriptive labels, and reduced-motion (no autoplay).
 - **Secrets:** No API keys or `.env` files in the repo. `.gitignore` excludes `.env*`, `node_modules`, and `.next`.
 - **Rendering:** Marketing and article routes pre-render as static HTML. Lab pages ship a static shell and hydrate the interactive canvas on the client. Fetch demo routes use a mix of static shells and client islands for role/filters/Ask (still no network I/O).
 - **Git hooks:** Husky runs lint-staged on commit (ESLint + Prettier on staged files).
