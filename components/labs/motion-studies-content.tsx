@@ -36,15 +36,18 @@ function ExternalLink({
   children: ReactNode
 }) {
   return (
-    <Hyperlink
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-regular leading-regular"
-    >
-      {children}
-      <span className="sr-only"> (opens in a new tab)</span>
-    </Hyperlink>
+    <>
+      <Hyperlink
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-regular leading-regular"
+      >
+        {children}
+        <span className="sr-only"> (opens in a new tab)</span>
+      </Hyperlink>
+      {/* Explicit text node — production JSX minify drops a space after </ExternalLink> */}{' '}
+    </>
   )
 }
 
@@ -63,7 +66,7 @@ export function MotionStudiesContent() {
             I attended the{' '}
             <ExternalLink href="https://skowheganart.org/">
               Skowhegan School of Painting and Sculpture
-            </ExternalLink>{' '}
+            </ExternalLink>
             in 2005 on a fellowship for my drawing and film/video work. After
             that I got to work at MTV producing the digital side of on-air shows
             &amp; events, then, a move to McKinsey building editorial, digital,
