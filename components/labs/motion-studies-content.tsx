@@ -175,8 +175,8 @@ export function MotionStudiesContent() {
           Live, in the browser
         </SectionHeading>
         <LabVideo
-          src="/videos/labs/motion-studies/01-motion-capture.mp4"
-          poster="/images/labs/motion-studies/01-motion-capture-poster.jpg"
+          src="/videos/labs/motion-studies/01-motion-capture.mp4?v=2"
+          poster="/images/labs/motion-studies/01-motion-capture-poster.jpg?v=2"
           width={1280}
           height={720}
           label="Split webcam feed: one-bit threshold on the left, misregistered CMYK dot screen on the right."
