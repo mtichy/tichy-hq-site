@@ -187,17 +187,22 @@ export function MotionStudiesContent() {
             Two effects running on the same webcam feed, side by side.
           </p>
           <p className="text-pretty">
-            On the left is a threshold. Every pixel is on or off, nothing in
-            between. On the right is a CMYK dot screen with the plates being
-            pulled progressively out of alignment.
-          </p>
-          <p className="text-pretty">
             I built these in the browser with{' '}
             <ExternalLink href="https://p5js.org/">p5.js</ExternalLink> because
             I wanted to adjust the values while watching live video. The point
             was to find the settings by feel, then keep the frames worth
             keeping. It&apos;s another example of how you can build your own
-            micro-tools to generate graphic effects.
+            micro-tools to generate graphic effects, or even interface
+            interactions.
+          </p>
+          <p className="text-pretty">
+            Adjusting the dial, I noticed the misregistration has a number. Zero
+            is aligned, six is broken, everything in between is available. That
+            makes it a state rather than a texture, and a state can carry
+            information. Content that has not loaded could sit at four and
+            settle to zero as it arrives. A stream that is buffering could drift
+            out of alignment and come back when it recovers. The printing error
+            becomes a loading state.
           </p>
         </div>
       </section>
