@@ -10,6 +10,7 @@ const routes = [
   '/builds/fetch',
   '/labs/orbital-drawings',
   '/labs/pixelator-effect',
+  '/labs/motion-studies',
 ] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {
