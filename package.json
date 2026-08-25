@@ -14,13 +14,18 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "chess:pull": "node --experimental-strip-types --no-warnings scripts/chess-pull.ts",
+    "stockfish:copy": "node scripts/copy-stockfish.mjs",
+    "postinstall": "node scripts/copy-stockfish.mjs",
     "prepare": "husky"
   },
   "dependencies": {
+    "@lichess-org/chessground": "^10.1.1",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.7.0",
     "@vercel/analytics": "1.6.1",
     "@vercel/speed-insights": "^1.3.1",
+    "chess.js": "^1.4.0",
     "clsx": "^2.1.1",
     "gsap": "^3.15.0",
     "next": "16.2.6",

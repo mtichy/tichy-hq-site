@@ -32,3 +32,10 @@ next-env.d.ts
 
 # Raw Accumulation Index archive (source scans; curated assets live in public/)
 /accumulation-index/
+
+# Chess.com dumps — regenerate with `pnpm chess:pull` (do not commit)
+/data/chess-coach/pgn/chesscom-*.pgn
+
+# Stockfish WASM — copied from node_modules on install (`pnpm stockfish:copy`)
+/public/vendor/stockfish/*.js
+/public/vendor/stockfish/*.wasm

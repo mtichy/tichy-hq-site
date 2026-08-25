@@ -138,6 +138,27 @@
   --background: var(--color-surface-bg-dark);
 }
 
+.chess-coach-lab-page {
+  --background: var(--color-surface-border-light);
+}
+
+.dark .chess-coach-lab-page {
+  --background: var(--color-surface-bg-dark);
+}
+
+.chess-coach-board .cg-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.chess-coach-board cg-board square.last-move {
+  background-color: color-mix(
+    in srgb,
+    var(--color-brand-cyan) 38%,
+    transparent
+  );
+}
+
 /* Dark mode semantic tokens */
 .dark {
   color-scheme: dark;
@@ -158,13 +179,12 @@
   --secondary: var(--color-brand-magenta);
   --secondary-foreground: var(--color-neutral-black);
   --destructive: var(--color-status-destructive-dark);
-  --destructive-foreground: var(
-    --color-neutral-black
-  ); /* pinned near-black for contrast on lighter dark-mode red */
+  /* Intentional exception: true black (not --color-neutral-black) so this token meets WCAG AA on the lighter dark-mode red. */
+  --destructive-foreground: #000000;
   --border: var(--color-surface-border-dark);
   --input: var(--color-surface-border-dark);
-  --ring: var(--color-brand-cyan-strong);
-  --link: var(--color-brand-cyan-strong);
+  --ring: var(--color-brand-cyan);
+  --link: var(--color-brand-cyan);
   --elevation-rest: 0px 2px 8px 0px rgba(0, 0, 0, 0.35);
   --elevation-raised: 0px 8px 24px 0px rgba(0, 0, 0, 0.55);
 }
