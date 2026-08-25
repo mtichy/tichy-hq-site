@@ -3,9 +3,14 @@
  * Writes data/chess-coach/pgn/chesscom-dtspider.pgn and removes samples.pgn
  * once a real dump is on disk.
  *
- * Usage: pnpm chess:pull
+ * Usage:
+ *   pnpm chess:pull
+ *   pnpm chess:ensure   (skip if the dump already exists)
+ *
+ * Production: `pnpm build` runs chess:ensure so Vercel (clean checkout, no
+ * gitignored PGN) fetches dtspider games before the page is generated.
  */
-import { mkdir, unlink, writeFile } from 'node:fs/promises'
+import { access, mkdir, unlink, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import {
   CHESSCOM_PGN_FILENAME,
@@ -27,16 +32,25 @@ type MonthlyGamesResponse = { games?: MonthlyGame[] }
 const USER_AGENT = `tichy-hq-site chess:pull (+${siteUrl}; ${email})`
 
 async function chessComGet(url: string): Promise<Response> {
-  const response = await fetch(url, {
-    headers: {
-      Accept: 'application/json',
-      'User-Agent': USER_AGENT,
-    },
-  })
-  if (!response.ok) {
-    throw new Error(`${response.status} ${response.statusText} for ${url}`)
+  let lastError: Error | undefined
+  for (let attempt = 1; attempt <= 4; attempt += 1) {
+    const response = await fetch(url, {
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': USER_AGENT,
+      },
+    })
+    if (response.ok) return response
+    lastError = new Error(
+      `${response.status} ${response.statusText} for ${url}`,
+    )
+    if (response.status !== 429 && response.status < 500) throw lastError
+    const retryAfter = Number(response.headers.get('retry-after'))
+    const delayMs =
+      retryAfter > 0 ? retryAfter * 1000 : 400 * 2 ** (attempt - 1)
+    await new Promise((resolve) => setTimeout(resolve, delayMs))
   }
-  return response
+  throw lastError
 }
 
 function monthFromArchiveUrl(url: string): string {
@@ -45,6 +59,23 @@ function monthFromArchiveUrl(url: string): string {
 }
 
 async function main() {
+  if (process.env.SKIP_CHESS_PULL === '1') {
+    console.log('Skipping chess:pull (SKIP_CHESS_PULL=1)')
+    return
+  }
+
+  const dir = path.join(process.cwd(), 'data', 'chess-coach', 'pgn')
+  const outPath = path.join(dir, CHESSCOM_PGN_FILENAME)
+  if (process.argv.includes('--if-missing')) {
+    try {
+      await access(outPath)
+      console.log(`Keeping ${PGN_DIR}/${CHESSCOM_PGN_FILENAME}`)
+      return
+    } catch {
+      // download
+    }
+  }
+
   const handle = chessCoachPlayer.chessComHandle
   const archivesUrl = `https://api.chess.com/pub/player/${handle}/games/archives`
   const archivesJson = (await chessComGet(archivesUrl).then((r) =>
@@ -88,9 +119,7 @@ async function main() {
     throw new Error(`No standard-chess PGNs returned for ${handle}`)
   }
 
-  const dir = path.join(process.cwd(), 'data', 'chess-coach', 'pgn')
   await mkdir(dir, { recursive: true })
-  const outPath = path.join(dir, CHESSCOM_PGN_FILENAME)
   await writeFile(outPath, `${pgnParts.join('\n\n')}\n`, 'utf8')
   console.log(`Wrote ${kept} game(s) to ${PGN_DIR}/${CHESSCOM_PGN_FILENAME}`)
   if (skippedVariant > 0) {
