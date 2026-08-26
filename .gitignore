@@ -39,3 +39,5 @@ next-env.d.ts
 # Stockfish WASM — copied from node_modules on install (`pnpm stockfish:copy`)
 /public/vendor/stockfish/*.js
 /public/vendor/stockfish/*.wasm
+*storybook.log
+storybook-static

@@ -1,0 +1,4 @@
+@import '../app/globals.css';
+
+/* Ensure Storybook templates are scanned for Tailwind v4 utilities. */
+@source '../src/stories/**/*.{js,ts,jsx,tsx}';
