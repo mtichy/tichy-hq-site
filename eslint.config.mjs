@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     'next-env.d.ts',
     'node_modules/**',
     'public/vendor/stockfish/**',
+    'storybook-static/**',
+    'public/storybook/**',
   ]),
 ])
 
