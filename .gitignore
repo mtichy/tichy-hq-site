@@ -41,3 +41,4 @@ next-env.d.ts
 /public/vendor/stockfish/*.wasm
 *storybook.log
 storybook-static
+/public/storybook

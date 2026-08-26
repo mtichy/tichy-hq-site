@@ -15,6 +15,7 @@ const eslintConfig = defineConfig([
     'node_modules/**',
     'public/vendor/stockfish/**',
     'storybook-static/**',
+    'public/storybook/**',
   ]),
 ])
 

@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm chess:ensure && next build",
+    "build": "pnpm chess:ensure && pnpm storybook:publish && next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -20,7 +20,8 @@
     "postinstall": "node scripts/copy-stockfish.mjs",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build -o storybook-static",
+    "storybook:publish": "node scripts/publish-storybook.mjs"
   },
   "dependencies": {
     "@lichess-org/chessground": "^10.1.1",

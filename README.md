@@ -57,12 +57,13 @@ Open [http://localhost:3000](http://localhost:3000).
 ### Other scripts
 
 ```bash
-pnpm build          # production build
+pnpm build          # production build (includes Storybook → public/storybook)
 pnpm start          # serve production build locally
 pnpm lint           # ESLint (Next.js core-web-vitals + TypeScript)
 pnpm typecheck      # TypeScript (`tsc --noEmit`)
 pnpm format:check   # Prettier formatting check
 pnpm format         # Prettier auto-format
+pnpm storybook      # Storybook dev server (http://localhost:6006)
 ```
 
 Pre-commit hooks (Husky + lint-staged) run ESLint and Prettier on staged files automatically.
@@ -145,6 +146,12 @@ Builds and lab discovery live in `lib/builds.ts`.
 The repo is connected to Vercel. Every push to `main` triggers a production deploy; branches and pull requests get preview URLs.
 
 Production URL: **https://marktichy.com**
+
+Storybook is built into `public/storybook` during `pnpm build` and ships with the site:
+
+- Local: `pnpm storybook` → [http://localhost:6006](http://localhost:6006)
+- Production: [https://marktichy.com/storybook/](https://marktichy.com/storybook/)
+- Preview: `https://<preview>.vercel.app/storybook/`
 
 ## Notes for reviewers
 

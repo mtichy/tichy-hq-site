@@ -18,10 +18,11 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ['../public'],
-  async viteFinal(config) {
+  async viteFinal(config, { configType }) {
     // Vite can miss the root postcss.config.mjs; without it, Tailwind v4
     // @theme tokens never compile into utilities.
     return mergeConfig(config, {
+      base: configType === 'PRODUCTION' ? '/storybook/' : '/',
       css: {
         postcss: path.resolve(dirname, '../postcss.config.mjs'),
       },
