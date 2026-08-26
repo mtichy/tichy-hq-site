@@ -56,7 +56,7 @@ function SwatchGrid({ items }: { items: Swatch[] }) {
           <div
             className={`h-20 w-full rounded-lg border border-border ${item.className}`}
           />
-          <p className="text-small leading-small text-foreground">
+          <p className="text-small leading-small font-medium text-foreground">
             {item.name}
           </p>
         </div>
