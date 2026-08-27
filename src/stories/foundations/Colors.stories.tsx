@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
+import { FoundationPage } from '../FoundationPage'
+
 type Swatch = {
   name: string
   className: string
@@ -67,17 +69,10 @@ function SwatchGrid({ items }: { items: Swatch[] }) {
 
 function Colors() {
   return (
-    <div className="mx-auto flex max-w-content flex-col gap-10">
-      <header>
-        <h1 className="text-large leading-large font-medium text-foreground">
-          Colors
-        </h1>
-        <p className="mt-2 max-w-prose text-regular leading-regular text-muted-foreground">
-          Primitive tokens from the theme, plus semantic colors that follow the
-          light/dark toggle.
-        </p>
-      </header>
-
+    <FoundationPage
+      title="Colors"
+      description="Primitive tokens from the theme, plus semantic colors that follow the light/dark toggle. Lime is a fill only — never text. Prefer semantic names in components."
+    >
       <section className="flex flex-col gap-4">
         <h2 className="text-medium leading-medium font-medium text-foreground">
           Primitives
@@ -91,7 +86,7 @@ function Colors() {
         </h2>
         <SwatchGrid items={semantic} />
       </section>
-    </div>
+    </FoundationPage>
   )
 }
 

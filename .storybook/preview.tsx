@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/components/theme-provider'
 import type { Preview } from '@storybook/nextjs-vite'
 import { create } from 'storybook/theming'
 
@@ -72,9 +73,16 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <div className="min-h-screen bg-background p-8 font-sans text-foreground antialiased">
-        <Story />
-      </div>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="light"
+        enableSystem={false}
+        disableTransitionOnChange
+      >
+        <div className="min-h-screen bg-background font-sans text-foreground antialiased">
+          <Story />
+        </div>
+      </ThemeProvider>
     ),
   ],
 }
