@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { ReactNode } from 'react'
 import { Card } from '@/components/card'
+import { ForceColorScheme } from '../ForceColorScheme'
 
 const fetchImage = {
   src: '/images/builds-fetch.png',
@@ -39,7 +40,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Flagship card: cyan underlay slides 4px on hover/focus, elevation rest → raised, magenta ring on focus-visible. Use the toolbar for light/dark.',
+          'Flagship card: cyan underlay slides 4px on hover/focus, elevation rest → raised, magenta ring on focus-visible. Light and Dark stories pin scheme locally; other stories follow the toolbar.',
       },
     },
   },
@@ -172,40 +173,42 @@ export const ReducedMotion: Story = {
 
 export const Light: Story = {
   parameters: {
+    layout: 'fullscreen',
     docs: {
       description: {
         story:
-          'Wraps the card in `.light`, which redeclares semantic tokens (same block as `:root`). That resets surfaces and elevation even when `html` is `.dark` from the toolbar.',
+          'Pinned to light via data-color-scheme. Independent of the toolbar moon/sun toggle.',
       },
     },
   },
   decorators: [
     (Story) => (
-      <div className="light min-h-[28rem] bg-background p-6">
+      <ForceColorScheme scheme="light">
         <Frame>
           <Story />
         </Frame>
-      </div>
+      </ForceColorScheme>
     ),
   ],
 }
 
 export const Dark: Story = {
   parameters: {
+    layout: 'fullscreen',
     docs: {
       description: {
         story:
-          'Forced dark tokens on this canvas. Elevation uses the darker rest/raised opacities from globals.css.',
+          'Pinned to dark via data-color-scheme. Independent of the toolbar moon/sun toggle.',
       },
     },
   },
   decorators: [
     (Story) => (
-      <div className="dark min-h-[28rem] bg-background p-6">
+      <ForceColorScheme scheme="dark">
         <Frame>
           <Story />
         </Frame>
-      </div>
+      </ForceColorScheme>
     ),
   ],
 }

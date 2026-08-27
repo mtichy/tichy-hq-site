@@ -1,7 +1,14 @@
 @import 'tailwindcss';
 @import 'shadcn/tailwind.css';
 
-@custom-variant dark (&:is(.dark *));
+/*
+ * Dark utilities follow the nearest scheme root. html.dark still drives the
+ * page, but [data-color-scheme='light'] islands (Storybook Light stories)
+ * must not keep matching &:is(.dark *).
+ */
+@custom-variant dark (
+  &:is(.dark *, [data-color-scheme='dark'] *):not(:is([data-color-scheme='light'] *))
+);
 
 @theme {
   /* Font */
@@ -83,12 +90,12 @@
 
 /*
  * Light mode semantic tokens (default) — 17 tokens.
- * `.light` redeclares the same properties so a nested canvas can force
- * light when an ancestor (html) is `.dark`. Custom properties inherit;
- * a class with no declarations cannot reset them.
+ * `[data-color-scheme='light']` (and `.light`) redeclare tokens so a nested
+ * canvas can force light when an ancestor is `.dark`.
  */
 :root,
-.light {
+.light,
+[data-color-scheme='light'] {
   color-scheme: light;
   --radius: 0.625rem;
   /* Global sticky nav: border-t-2 + link row (keeps lab chrome clear underneath) */
@@ -158,7 +165,8 @@
 }
 
 /* Dark mode semantic tokens */
-.dark {
+.dark,
+[data-color-scheme='dark'] {
   color-scheme: dark;
   --background: var(--color-surface-bg-dark);
   --foreground: var(--color-surface-fg-dark);
@@ -185,6 +193,39 @@
   --link: var(--color-brand-cyan);
   --elevation-rest: 0px 2px 8px 0px rgba(0, 0, 0, 0.35);
   --elevation-raised: 0px 8px 24px 0px rgba(0, 0, 0, 0.55);
+}
+
+/*
+ * Re-bind @theme inline color aliases on every scheme root. Tailwind may
+ * register --color-* with @property (computed <color> inherits). Nested
+ * --card on a child cannot change an inherited computed --color-card;
+ * redeclaring the aliases here forces them to recompute from local tokens.
+ */
+:root,
+.light,
+.dark,
+[data-color-scheme='light'],
+[data-color-scheme='dark'] {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-link: var(--link);
 }
 
 @layer base {
