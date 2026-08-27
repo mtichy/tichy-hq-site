@@ -12,6 +12,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "eval:ask": "vite-node --config vitest.config.mts scripts/eval-ask.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "chess:pull": "node --experimental-strip-types --no-warnings scripts/chess-pull.ts",
@@ -60,7 +62,9 @@
     "storybook-dark-mode": "^5.0.0",
     "tailwindcss": "^4.2.0",
     "typescript": "5.7.3",
-    "vite": "^8.2.2"
+    "vite": "^8.2.2",
+    "vite-node": "^6.0.0",
+    "vitest": "^4.1.11"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

@@ -88,8 +88,9 @@ export function FetchContent() {
               meaning alone.
             </li>
             <li>
-              AI-powered &ldquo;Ask Fetch&rdquo; absorbs search, meaning one
-              input for both lookup and questions.
+              &ldquo;Ask Fetch&rdquo; absorbs search: one input for lookup and
+              questions. In this demo the answers are keyword-matched over
+              synthetic fixtures, not a live model.
             </li>
           </ul>
           <p className="text-pretty">
@@ -98,6 +99,38 @@ export function FetchContent() {
             invented for this portfolio piece.)
           </p>
         </div>
+      </section>
+
+      <section className="flex max-w-[65ch] flex-col gap-6 text-regular leading-regular text-foreground">
+        <h2 className="text-xlarge font-bold leading-xlarge text-balance">
+          Evals before models
+        </h2>
+        <p className="text-pretty">
+          Ask is the one surface that pretends to take a natural-language
+          question. That is exactly where quality drifts if you only eyeball the
+          happy path. An eval here is a frozen question, a structured expected
+          match (person, story, canned prose, or fallback), and a scorer that
+          says pass or fail. The suite lives next to the matcher and runs in CI,
+          so a keyword change cannot silently reroute Dana to the wrong card.
+        </p>
+        <p className="text-pretty">
+          What it proves: regression on routing. &ldquo;What is
+          resurfacing&rdquo; still returns the sprawl piece. Empty and unknown
+          questions still refuse. Collisions stay visible instead of becoming
+          folklore: first matching keyword wins, so &ldquo;meeting sprawl vs
+          automation&rdquo; hits resurfacing before compare, and &ldquo;weather
+          in EMEA&rdquo; hits the audience pair because EMEA is a keyword.
+          &ldquo;Marcus&rdquo; alone falls through; the full name does not.
+          Those are product facts, not test trivia.
+        </p>
+        <p className="text-pretty">
+          What it does not prove: whether a generated paragraph would be helpful
+          or grounded. This demo has no model, so there is nothing for an
+          LLM-as-judge to grade. If Ask later swapped implementations, the same
+          cases would stay as the contract — Dana still has to resolve to Dana —
+          and only then would free-form prose need a second scorer, with
+          fallback still a first-class label.
+        </p>
       </section>
 
       <section className="flex max-w-[65ch] flex-col gap-6 text-regular leading-regular text-foreground">

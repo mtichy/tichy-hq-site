@@ -61,6 +61,8 @@ pnpm build          # production build (includes Storybook → public/storybook)
 pnpm start          # serve production build locally
 pnpm lint           # ESLint (Next.js core-web-vitals + TypeScript)
 pnpm typecheck      # TypeScript (`tsc --noEmit`)
+pnpm test           # Vitest — includes Ask Fetch golden evals
+pnpm eval:ask       # Print Ask Fetch eval pass-rate table
 pnpm format:check   # Prettier formatting check
 pnpm format         # Prettier auto-format
 pnpm storybook      # Storybook dev server (http://localhost:6006)
@@ -89,7 +91,7 @@ components/
 lib/
   site.ts                 # Site URL, tagline, default metadata, OG config
   builds.ts               # Builds index entries (articles + lab links)
-  fetch-demo/             # Typed synthetic fixtures + selectors for Fetch
+  fetch-demo/             # Typed synthetic fixtures, selectors, Ask golden evals
   labs/                   # Lab helpers (pixelator process/export, orbital catalog/settings)
   elevation.ts            # Shared card elevation tokens for 3D + CSS
   utils.ts                # Tailwind class merge helper
@@ -99,9 +101,9 @@ docs/                     # README assets (screenshots)
 
 ## Builds
 
-**`/builds/fetch`** — Case study for Fetch, a sanitized rebuild of an editorial analytics product. Thesis: writers think in people and stories, not charts or query builders. The write-up covers the Author/Editor default decision, what shipped in the demo, and what was cut (Search route, foreground author filters, always-on Reset).
+**`/builds/fetch`** — Case study for Fetch, a sanitized rebuild of an editorial analytics product. Thesis: writers think in people and stories, not charts or query builders. The write-up covers the Author/Editor default decision, what shipped in the demo, evals before models on Ask Fetch, and what was cut (Search route, foreground author filters, always-on Reset).
 
-**`/builds/fetch/demo`** — Interactive demo on synthetic data only. Persistent Author | Editor toggle, anomaly cards, story/person detail with sparklines and horizontal reader breakdowns, Ask Fetch (keyword-matched answers), and demonstrable states via `?state=firstrun|empty|loading|error`.
+**`/builds/fetch/demo`** — Interactive demo on synthetic data only. Persistent Author | Editor toggle, anomaly cards, story/person detail with sparklines and horizontal reader breakdowns, Ask Fetch (keyword-matched answers, golden evals in CI), and demonstrable states via `?state=firstrun|empty|loading|error`.
 
 Adding a Builds article:
 
@@ -156,6 +158,7 @@ Storybook is built into `public/storybook` during `pnpm build` and ships with th
 ## Notes for reviewers
 
 - **TypeScript:** `strict` mode is enabled in `tsconfig.json`. No `any` types in source.
+- **Ask evals:** Frozen queries in `lib/fetch-demo/ask-evals.ts` score `matchAsk` (person / story / prose / fallback). `pnpm test` is the scorer; `pnpm eval:ask` prints the table. This is routing regression, not an LLM judge.
 - **Client JS:** Kept minimal on marketing/résumé pages (theme provider, theme toggle, light analytics wrappers). Labs intentionally use client components for WebGL, pointer input, and live controls.
 - **Accessibility:** Semantic landmarks (`header`, `nav`, `main`, `footer`), `aria-current` on nav links, focus-visible styles on interactive elements, alt text on images. Lab canvas exposes an accessible label; mosaic fallback when WebGL is missing. The Fetch demo adds radiogroup role toggle, live regions for Ask, sparkline `role="img"` labels, and reduced-motion handling for Ask delay and skeletons. Motion studies videos have pause controls, descriptive labels, and reduced-motion (no autoplay). The custom 404 uses cyan-strong (light) / cyan (dark) for WCAG AA large-text contrast and a static heading when Reduce Motion is on.
 - **Secrets:** No API keys or `.env` files in the repo. `.gitignore` excludes `.env*`, `node_modules`, and `.next`.

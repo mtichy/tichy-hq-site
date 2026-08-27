@@ -95,6 +95,15 @@ export type AskPair = {
   response: AskMatch
 }
 
+/** One frozen Ask query and the structured match it must still produce. */
+export type AskEvalCase = {
+  id: string
+  query: string
+  expected: AskMatch
+  /** Why this case is in the set — happy path, collision, or fallback. */
+  note: string
+}
+
 export type BarItem = {
   label: string
   percent: number
