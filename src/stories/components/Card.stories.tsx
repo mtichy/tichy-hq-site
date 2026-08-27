@@ -175,7 +175,7 @@ export const Light: Story = {
     docs: {
       description: {
         story:
-          'Forced light tokens on this canvas (toolbar may still be dark). Elevation uses the light rest/raised opacities.',
+          'Wraps the card in `.light`, which redeclares semantic tokens (same block as `:root`). That resets surfaces and elevation even when `html` is `.dark` from the toolbar.',
       },
     },
   },

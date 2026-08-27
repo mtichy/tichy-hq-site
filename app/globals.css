@@ -81,8 +81,14 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Light mode semantic tokens (default) — 17 tokens */
-:root {
+/*
+ * Light mode semantic tokens (default) — 17 tokens.
+ * `.light` redeclares the same properties so a nested canvas can force
+ * light when an ancestor (html) is `.dark`. Custom properties inherit;
+ * a class with no declarations cannot reset them.
+ */
+:root,
+.light {
   color-scheme: light;
   --radius: 0.625rem;
   /* Global sticky nav: border-t-2 + link row (keeps lab chrome clear underneath) */
