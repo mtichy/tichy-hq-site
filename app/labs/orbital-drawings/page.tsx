@@ -1,5 +1,6 @@
 import OrbitalDrawings from '@/components/labs/orbital-drawings'
 import { NavBar } from '@/components/nav-bar'
+import { socialImageFromBuild } from '@/lib/builds'
 import { pageMetadata } from '@/lib/site'
 
 export const metadata = pageMetadata({
@@ -7,6 +8,7 @@ export const metadata = pageMetadata({
   description:
     'An interactive 3D orbital interface of old drawings — a labs experiment with live A/B controls.',
   path: '/labs/orbital-drawings',
+  image: socialImageFromBuild('orbital-drawings'),
 })
 
 export default function OrbitalDrawingsPage() {
