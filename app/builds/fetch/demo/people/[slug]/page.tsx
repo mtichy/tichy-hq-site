@@ -9,6 +9,7 @@ import {
   getPerson,
   storiesForAuthor,
 } from '@/lib/fetch-demo/selectors'
+import { socialImageFromBuild } from '@/lib/builds'
 import { pageMetadata } from '@/lib/site'
 
 type PageProps = {
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: PageProps) {
       : 'Person in the Fetch demo. Synthetic editorial analytics. Illustrative only.',
     path: `/builds/fetch/demo/people/${slug}`,
     noIndex: true,
+    image: socialImageFromBuild('fetch'),
   })
 }
 

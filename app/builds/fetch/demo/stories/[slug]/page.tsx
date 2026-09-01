@@ -13,6 +13,7 @@ import {
   storyLocationItems,
   storySeniorityItems,
 } from '@/lib/fetch-demo/selectors'
+import { socialImageFromBuild } from '@/lib/builds'
 import { pageMetadata } from '@/lib/site'
 
 type PageProps = {
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: PageProps) {
       : 'Story in the Fetch demo. Synthetic editorial analytics. Illustrative only.',
     path: `/builds/fetch/demo/stories/${slug}`,
     noIndex: true,
+    image: socialImageFromBuild('fetch'),
   })
 }
 

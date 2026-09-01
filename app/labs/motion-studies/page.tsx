@@ -2,6 +2,7 @@ import { BuildsBackLink } from '@/components/builds-back-link'
 import { Footer } from '@/components/footer'
 import { MotionStudiesContent } from '@/components/labs/motion-studies-content'
 import { NavBar } from '@/components/nav-bar'
+import { socialImageFromBuild } from '@/lib/builds'
 import { MOTION_STUDIES_HREF } from '@/lib/labs/motion-studies'
 import { pageMetadata } from '@/lib/site'
 
@@ -10,6 +11,7 @@ export const metadata = pageMetadata({
   description:
     'How little is enough? Studies in motion from After Effects, P5.js, and Procreate.',
   path: MOTION_STUDIES_HREF,
+  image: socialImageFromBuild('motion-studies'),
 })
 
 export default function MotionStudiesPage() {

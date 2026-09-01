@@ -1,4 +1,5 @@
 import { AskPanel } from '@/components/fetch-demo/ask-panel'
+import { socialImageFromBuild } from '@/lib/builds'
 import { pageMetadata } from '@/lib/site'
 
 export const metadata = pageMetadata({
@@ -6,6 +7,7 @@ export const metadata = pageMetadata({
   description: 'Ask Fetch a question. Synthetic demo responses only.',
   path: '/builds/fetch/demo/ask',
   noIndex: true,
+  image: socialImageFromBuild('fetch'),
 })
 
 export default function AskPage() {

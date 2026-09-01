@@ -27,25 +27,43 @@ export const ogImage = {
   alt: `Pixel-art portrait of ${siteName}`,
 }
 
+export type SocialImage = {
+  url: string
+  width?: number
+  height?: number
+  alt?: string
+}
+
 /**
  * Next.js App Router merges metadata shallowly at the top level, so a child
  * that sets only `title` and `description` inherits the root `openGraph` and
  * `twitter` objects in full — including the homepage description and `url: '/'`.
  * Always return a complete social block from this helper instead of partial
  * page metadata.
+ *
+ * Pass `image` for project pages so shared links use the /builds card art
+ * instead of the site-wide avatar.
  */
 export function pageMetadata({
   title,
   description,
   path,
   noIndex = false,
+  image = ogImage,
 }: {
   title: string
   description: string
   path: string
   noIndex?: boolean
+  image?: SocialImage
 }): Metadata {
   const socialTitle = `${title} — ${siteName}`
+  const socialImage = {
+    url: image.url,
+    width: image.width ?? ogImage.width,
+    height: image.height ?? ogImage.height,
+    alt: image.alt ?? socialTitle,
+  }
 
   return {
     title,
@@ -58,13 +76,13 @@ export function pageMetadata({
       title: socialTitle,
       description,
       url: path,
-      images: [ogImage],
+      images: [socialImage],
     },
     twitter: {
       card: 'summary_large_image',
       title: socialTitle,
       description,
-      images: [ogImage.url],
+      images: [socialImage.url],
     },
     ...(noIndex ? { robots: { index: false, follow: false } } : {}),
   }
