@@ -115,3 +115,22 @@ export function buildHref(slug: string) {
 export function projectHref(project: BuildProject) {
   return project.href ?? buildHref(project.slug)
 }
+
+export function getBuildProject(slug: string): BuildProject {
+  const project = buildProjects.find((entry) => entry.slug === slug)
+  if (!project) {
+    throw new Error(`Unknown build project: ${slug}`)
+  }
+  return project
+}
+
+/** Card art as an Open Graph / Twitter image for shared project links. */
+export function socialImageFromBuild(slug: string) {
+  const project = getBuildProject(slug)
+  return {
+    url: project.image.src,
+    width: project.image.width ?? 760,
+    height: project.image.height ?? 428,
+    alt: project.image.alt ?? project.title,
+  }
+}

@@ -1,4 +1,5 @@
 import { HomeView } from '@/components/fetch-demo/home-view'
+import { socialImageFromBuild } from '@/lib/builds'
 import { parseDemoState } from '@/lib/fetch-demo/selectors'
 import { pageMetadata } from '@/lib/site'
 
@@ -8,6 +9,7 @@ export const metadata = pageMetadata({
     'Interactive demo of Fetch — synthetic editorial analytics. Illustrative only.',
   path: '/builds/fetch/demo',
   noIndex: true,
+  image: socialImageFromBuild('fetch'),
 })
 
 type PageProps = {
