@@ -11,6 +11,16 @@ import {
   type EngineEval,
 } from '@/lib/labs/chess-coach/eval'
 
+function createEngineWorker(): Worker | null {
+  try {
+    return new Worker(new URL(STOCKFISH_WORKER_HREF, window.location.origin), {
+      name: 'stockfish',
+    })
+  } catch {
+    return null
+  }
+}
+
 export function useStockfishEval(fen: string): EngineEval | null {
   const [evaln, setEvaln] = useState<EngineEval | null>(null)
   const workerRef = useRef<Worker | null>(null)
@@ -23,7 +33,8 @@ export function useStockfishEval(fen: string): EngineEval | null {
 
   useEffect(() => {
     let cancelled = false
-    const worker = new Worker(STOCKFISH_WORKER_HREF)
+    const worker = createEngineWorker()
+    if (!worker) return
     workerRef.current = worker
 
     const analyze = (nextFen: string) => {
@@ -68,6 +79,7 @@ export function useStockfishEval(fen: string): EngineEval | null {
   useEffect(() => {
     const worker = workerRef.current
     if (!worker || !readyRef.current) return
+    setEvaln(null)
     worker.postMessage('stop')
     worker.postMessage(`position fen ${fen}`)
     worker.postMessage(`go depth ${STOCKFISH_DEPTH}`)

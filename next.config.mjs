@@ -20,6 +20,20 @@ const nextConfig = {
       },
     ]
   },
+  async headers() {
+    return [
+      {
+        source: '/vendor/stockfish/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          { key: 'Cross-Origin-Resource-Policy', value: 'same-origin' },
+        ],
+      },
+    ]
+  },
   async rewrites() {
     return [
       // Browser URL stays /storybook (no trailing slash). Relative Storybook
