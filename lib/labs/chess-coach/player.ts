@@ -13,8 +13,8 @@ export const chessCoachPlayer = {
    */
   regularRating: 1954,
   /** USCF rating printed on the NYS advance-entry list (snapshot). */
-  entryListRating: 1945,
-  lastUpdated: '2026-08-13',
+  entryListRating: 1954,
+  lastUpdated: '2026-09-02',
   goals: {
     /** First published 2000+ — waypoint before the Age 17 list. */
     shortTermRating: 2000,
