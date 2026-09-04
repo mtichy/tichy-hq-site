@@ -39,5 +39,12 @@ if (!index.includes(`href="${STORYBOOK_BASE}"`)) {
   throw new Error('Failed to inject Storybook <base href="/storybook/">')
 }
 
+const ogImage = 'https://marktichy.com/images/og-storybook.jpg'
+if (!index.includes(ogImage)) {
+  throw new Error(
+    'Storybook index.html is missing Open Graph tags from .storybook/manager-head.html',
+  )
+}
+
 cpSync('storybook-static', 'public/storybook', { recursive: true })
 console.log('Copied storybook-static → public/storybook')
