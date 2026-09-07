@@ -71,15 +71,17 @@ function fitQuoteToStage(
   quote: HTMLElement,
 ) {
   const box = contentSize(stage)
-  if (box.height < 8 || box.width < 8) return
+  const viewportCap = Math.max(120, window.innerHeight - 180)
+  const maxH = Math.min(box.height, viewportCap)
+  const maxW = box.width
+  if (maxH < 8 || maxW < 8) return
 
   let lo = QUOTE_SIZE_MIN
   let hi = QUOTE_SIZE_MAX
   for (let i = 0; i < 14; i++) {
     const mid = (lo + hi) / 2
     quote.style.setProperty('--quote-size', `${mid}px`)
-    const fits =
-      figure.scrollHeight <= box.height && figure.scrollWidth <= box.width
+    const fits = figure.scrollHeight <= maxH && figure.scrollWidth <= maxW
     if (fits) lo = mid
     else hi = mid
   }
@@ -253,7 +255,7 @@ export default function Uncommonplace() {
 
         <div
           ref={stageRef}
-          className="order-1 flex min-h-[50svh] w-full min-w-0 flex-1 items-center justify-center overflow-visible px-2 py-10 lg:order-2"
+          className="order-1 flex h-[50svh] min-h-[min(20rem,calc(100svh-var(--site-nav-height)-5.5rem))] max-h-[calc(100svh-var(--site-nav-height)-7rem)] w-full min-w-0 shrink-0 items-center justify-center overflow-visible px-2 py-6 lg:order-2 lg:h-auto lg:max-h-[calc(100svh-var(--site-nav-height)-7rem)] lg:min-h-0 lg:flex-1 lg:py-10"
         >
           <div
             className={cn(
@@ -265,7 +267,7 @@ export default function Uncommonplace() {
             {hasQuote ? (
               <figure
                 ref={figureRef}
-                className="mx-auto flex w-fit max-w-full flex-col items-center gap-6 p-3 text-center"
+                className="mx-auto flex w-full min-w-0 max-w-full flex-col gap-4 p-2 text-center max-[500px]:gap-2 sm:gap-6 sm:p-3"
               >
                 <blockquote
                   className={cn(

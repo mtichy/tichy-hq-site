@@ -147,7 +147,9 @@
   line-height: 1.2;
   font-size: var(--quote-size, 33.16px);
   text-align: center;
-  text-wrap: balance;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  width: 100%;
 }
 
 .uncommonplace-lab .quote-treatment-glow,
@@ -176,8 +178,8 @@
   .uncommonplace-lab .quote-treatment-glow,
   .uncommonplace-lab .quote-treatment-glow-cyan {
     color: var(--glow-fill);
-    /* Padding so the 1em halo isn’t clipped by the figure/stage box */
-    padding: 1.1em;
+    /* Reserve some halo in layout; the rest paints into the stage padding. */
+    padding: 0.45em;
     text-shadow:
       0 0 0.1em var(--glow-color),
       0 0 0.3em var(--glow-color),
