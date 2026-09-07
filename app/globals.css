@@ -148,7 +148,8 @@
   font-size: var(--quote-size, 33.16px);
   text-align: center;
   text-wrap: pretty;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
+  word-break: normal;
   width: 100%;
 }
 
@@ -212,7 +213,7 @@
 }
 
 .uncommonplace-lab .quote-treatment-shaded-magenta {
-  --shadow-color: var(--color-brand-magenta-strong);
+  --shadow-color: var(--color-brand-magenta);
 }
 
 .dark .uncommonplace-lab .quote-treatment-shaded-magenta {

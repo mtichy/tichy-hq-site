@@ -24,7 +24,7 @@ import {
 } from '@/lib/labs/uncommonplace/treatments'
 import { cn } from '@/lib/utils'
 
-const QUOTE_SIZE_MIN = 18.66
+const QUOTE_SIZE_MIN = 12
 const QUOTE_SIZE_MAX = 58.92
 const CROSSFADE_MS = 200
 
@@ -76,13 +76,20 @@ function fitQuoteToStage(
   const maxW = box.width
   if (maxH < 8 || maxW < 8) return
 
+  const fitsAt = (size: number) => {
+    quote.style.setProperty('--quote-size', `${size}px`)
+    return (
+      figure.scrollHeight <= maxH &&
+      figure.scrollWidth <= maxW &&
+      quote.scrollWidth <= quote.clientWidth + 1
+    )
+  }
+
   let lo = QUOTE_SIZE_MIN
   let hi = QUOTE_SIZE_MAX
   for (let i = 0; i < 14; i++) {
     const mid = (lo + hi) / 2
-    quote.style.setProperty('--quote-size', `${mid}px`)
-    const fits = figure.scrollHeight <= maxH && figure.scrollWidth <= maxW
-    if (fits) lo = mid
+    if (fitsAt(mid)) lo = mid
     else hi = mid
   }
   quote.style.setProperty('--quote-size', `${lo}px`)
