@@ -33,8 +33,11 @@ export function clearSeenQuoteIds() {
   writeSeenQuoteIds([])
 }
 
-export function markQuoteSeen(id: string, alreadySeen: readonly string[]) {
-  if (alreadySeen.includes(id)) return alreadySeen
+export function markQuoteSeen(
+  id: string,
+  alreadySeen: readonly string[],
+): string[] {
+  if (alreadySeen.includes(id)) return [...alreadySeen]
   const next = [...alreadySeen, id]
   writeSeenQuoteIds(next)
   return next
