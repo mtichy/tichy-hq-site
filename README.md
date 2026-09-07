@@ -22,6 +22,7 @@ I'm an AI-native Product Designer and Design Technologist. This is my personal p
 | `/labs/pixelator-effect`        | Pixel portrait microtool — threshold + grid → PNG (lab)            |
 | `/labs/orbital-drawings`        | Interactive 3D orbital interface of archive drawings (lab)         |
 | `/labs/motion-studies`          | Article — motion studies (Procreate, p5.js, After Effects)         |
+| `/labs/uncommonplace`           | Quote lab — random notebook excerpt + CSS type treatment           |
 | Unknown URLs                    | Custom 404 — decaying/reforming glitch heading (Canvas 2D)         |
 
 **Content model:** `/builds/[slug]` pages are articles. `/labs/[slug]` pages are labs: interactive experiments or article-style studies with media. Labs are discovered from Builds cards (there is no separate Labs nav item). Fetch is a Builds case study with an embedded interactive demo under `/builds/fetch/demo` (synthetic fixtures only — no backend, API, or browser storage).
@@ -36,6 +37,7 @@ I'm an AI-native Product Designer and Design Technologist. This is my personal p
 - **Labs (2D):** Canvas 2D for the Pixelator effect microtool (no p5 runtime on the site; original sketch was p5.js)
 - **404:** Canvas 2D glitch heading (ported from a p5.js sketch; theme tokens, no p5 runtime)
 - **Labs (media):** H.264 MP4 embeds for motion studies (`LabVideo`); looping clips respect `prefers-reduced-motion` and always expose pause controls
+- **Labs (type):** [Bungee](https://fonts.google.com/specimen/Bungee) via `next/font` on `(Un)Commonplace`; six CSS treatments (shaded / glow / outlined and color variants) in `app/globals.css`; type size fit to the stage with a binary search on `--quote-size`
 - **Analytics:** [@vercel/analytics](https://vercel.com/docs/analytics) + [Speed Insights](https://vercel.com/docs/speed-insights) (production only)
 - **Deploy:** [Vercel](https://vercel.com) — auto-deploy on push to `main`
 
@@ -90,7 +92,7 @@ lib/
   site.ts                 # Site URL, tagline, default metadata, OG config
   builds.ts               # Builds index entries (articles + lab links)
   fetch-demo/             # Typed synthetic fixtures + selectors for Fetch
-  labs/                   # Lab helpers (pixelator process/export, orbital catalog/settings)
+  labs/                   # Lab helpers (pixelator, orbital, uncommonplace quotes/treatments/seen)
   elevation.ts            # Shared card elevation tokens for 3D + CSS
   utils.ts                # Tailwind class merge helper
 public/                   # Static assets (favicons, logos, résumé PDF, lab images/video)
@@ -117,10 +119,12 @@ Adding a Builds article:
 
 **`/labs/motion-studies`** — Article: how little is enough? Five studies (three-frame Procreate loops, calligraphic stroke animation, live p5.js webcam effects, After Effects time displacement with score, and a shipped glitch banner). Looping clips are muted, pausable, and do not autoplay when Reduce Motion is on.
 
+**`/labs/uncommonplace`** — Random quote from a typed in-repo list (`lib/labs/uncommonplace/quotes.ts`; not Obsidian at runtime) plus a random CSS type treatment. Display face is Bungee (lab-only, all-caps); chrome stays Quicksand. Six treatments: shaded and shaded-magenta (extruded fill), glow and glow-cyan (`text-shadow` halo, `0.45em` padding so layout reserves part of the 1em glow; the rest paints into stage padding with `overflow-visible`), outlined and outlined-cyan (stroke). **Load another quote** crossfades 200ms; `prefers-reduced-motion: reduce` swaps immediately. Seen IDs live in `localStorage` under `uncommonplace-seen-ids`; exhausted copy offers reload of the prior batch. Type size binary-searches `--quote-size` between 18.66px and 58.92px against the stage content box, capped by viewport height so a flex stage that has not resolved a max height still shrinks instead of growing with the quote.
+
 Adding a lab:
 
 1. Create `app/labs/[slug]/page.tsx` and components under `components/labs/`
-2. Register catalog / settings under `lib/labs/` as needed
+2. Register catalog / settings / data under `lib/labs/` as needed (quotes and treatments for (Un)Commonplace)
 3. Append a Builds card in `lib/builds.ts` with `href` pointing at `/labs/...` and a lab CTA
 
 Builds cards use a row-major CSS grid (`sm: 2` / `xl: 3` columns) so leftover cards on a new row start on the left.
@@ -156,10 +160,10 @@ Storybook is built into `public/storybook` during `pnpm build` and ships with th
 ## Notes for reviewers
 
 - **TypeScript:** `strict` mode is enabled in `tsconfig.json`. No `any` types in source.
-- **Client JS:** Kept minimal on marketing/résumé pages (theme provider, theme toggle, light analytics wrappers). Labs intentionally use client components for WebGL, pointer input, and live controls.
-- **Accessibility:** Semantic landmarks (`header`, `nav`, `main`, `footer`), `aria-current` on nav links, focus-visible styles on interactive elements, alt text on images. Lab canvas exposes an accessible label; mosaic fallback when WebGL is missing. The Fetch demo adds radiogroup role toggle, live regions for Ask, sparkline `role="img"` labels, and reduced-motion handling for Ask delay and skeletons. Motion studies videos have pause controls, descriptive labels, and reduced-motion (no autoplay). The custom 404 uses cyan-strong (light) / cyan (dark) for WCAG AA large-text contrast and a static heading when Reduce Motion is on.
+- **Client JS:** Kept minimal on marketing/résumé pages (theme provider, theme toggle, light analytics wrappers). Labs intentionally use client components for WebGL, pointer input, live controls, and (Un)Commonplace quote fit / seen-state.
+- **Accessibility:** Semantic landmarks (`header`, `nav`, `main`, `footer`), `aria-current` on nav links, focus-visible styles on interactive elements, alt text on images. Lab canvas exposes an accessible label; mosaic fallback when WebGL is missing. The Fetch demo adds radiogroup role toggle, live regions for Ask, sparkline `role="img"` labels, and reduced-motion handling for Ask delay and skeletons. Motion studies videos have pause controls, descriptive labels, and reduced-motion (no autoplay). (Un)Commonplace quotes are real HTML text (not canvas); Reduce Motion skips the quote crossfade. The custom 404 uses cyan-strong (light) / cyan (dark) for WCAG AA large-text contrast and a static heading when Reduce Motion is on.
 - **Secrets:** No API keys or `.env` files in the repo. `.gitignore` excludes `.env*`, `node_modules`, and `.next`.
-- **Rendering:** Marketing and article routes pre-render as static HTML. Lab pages ship a static shell and hydrate the interactive canvas on the client. Fetch demo routes use a mix of static shells and client islands for role/filters/Ask (still no network I/O).
+- **Rendering:** Marketing and article routes pre-render as static HTML. Lab pages ship a static shell and hydrate interactive UI on the client (canvas/WebGL where used; (Un)Commonplace hydrates quote pick, fit, and localStorage). Fetch demo routes use a mix of static shells and client islands for role/filters/Ask (still no network I/O). (Un)Commonplace is the only lab that writes to `localStorage` (`uncommonplace-seen-ids`).
 - **Git hooks:** Husky runs lint-staged on commit (ESLint + Prettier on staged files).
 
 ## License
