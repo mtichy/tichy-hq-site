@@ -138,6 +138,111 @@
   --background: var(--color-surface-bg-dark);
 }
 
+.uncommonplace-lab .quote-display {
+  font-family: var(--font-bungee), sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  word-spacing: 0.12em;
+  line-height: 1.2;
+  font-size: var(--quote-size, 33.16px);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.uncommonplace-lab .quote-treatment-glow,
+.uncommonplace-lab .quote-treatment-glow-cyan {
+  --glow-fill: var(--background);
+  color: var(--glow-color);
+}
+
+.uncommonplace-lab .quote-treatment-glow {
+  --glow-color: var(--color-brand-magenta-strong);
+}
+
+.dark .uncommonplace-lab .quote-treatment-glow {
+  --glow-color: color-mix(in srgb, var(--color-brand-magenta) 46%, transparent);
+}
+
+.uncommonplace-lab .quote-treatment-glow-cyan {
+  --glow-color: var(--color-brand-cyan-strong);
+}
+
+.dark .uncommonplace-lab .quote-treatment-glow-cyan {
+  --glow-color: var(--color-brand-cyan);
+}
+
+@supports (text-shadow: 0 0) {
+  .uncommonplace-lab .quote-treatment-glow,
+  .uncommonplace-lab .quote-treatment-glow-cyan {
+    color: var(--glow-fill);
+    /* Padding so the 1em halo isn’t clipped by the figure/stage box */
+    padding: 1.1em;
+    text-shadow:
+      0 0 0.1em var(--glow-color),
+      0 0 0.3em var(--glow-color),
+      0 0 1em var(--glow-color);
+  }
+}
+
+.uncommonplace-lab .quote-treatment-shaded,
+.uncommonplace-lab .quote-treatment-shaded-magenta {
+  color: var(--foreground);
+  text-shadow:
+    1px -1px 0 var(--shadow-color),
+    2px -2px 0 var(--shadow-color),
+    3px -3px 0 var(--shadow-color),
+    4px -4px 0 var(--shadow-color),
+    5px -5px 0 var(--shadow-color),
+    6px -6px 0 var(--shadow-color),
+    7px -7px 0 var(--shadow-color),
+    8px -8px 0 var(--shadow-color),
+    9px -9px 0 var(--shadow-color),
+    10px -10px 0 var(--shadow-color);
+}
+
+.uncommonplace-lab .quote-treatment-shaded {
+  --shadow-color: var(--color-brand-lime);
+}
+
+.dark .uncommonplace-lab .quote-treatment-shaded {
+  --shadow-color: var(--color-brand-cyan);
+}
+
+.uncommonplace-lab .quote-treatment-shaded-magenta {
+  --shadow-color: var(--color-brand-magenta-strong);
+}
+
+.dark .uncommonplace-lab .quote-treatment-shaded-magenta {
+  --shadow-color: var(--color-brand-magenta);
+}
+
+.uncommonplace-lab .quote-treatment-outlined,
+.uncommonplace-lab .quote-treatment-outlined-cyan {
+  --stroke: 2px;
+  color: var(--stroke-color);
+}
+
+.uncommonplace-lab .quote-treatment-outlined {
+  --stroke-color: var(--foreground);
+}
+
+.uncommonplace-lab .quote-treatment-outlined-cyan {
+  --stroke-color: var(--color-brand-cyan-strong);
+}
+
+.dark .uncommonplace-lab .quote-treatment-outlined-cyan {
+  --stroke-color: var(--color-brand-cyan);
+}
+
+@supports (-webkit-text-stroke: 0) {
+  .uncommonplace-lab .quote-treatment-outlined,
+  .uncommonplace-lab .quote-treatment-outlined-cyan {
+    color: transparent;
+    -webkit-text-stroke: var(--stroke) var(--stroke-color);
+  }
+}
+
 .chess-coach-board .cg-wrap {
   width: 100%;
   height: 100%;

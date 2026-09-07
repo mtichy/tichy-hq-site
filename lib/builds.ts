@@ -2,6 +2,7 @@ import type { CardImage } from '@/components/card'
 import { MOTION_STUDIES_HREF } from '@/lib/labs/motion-studies'
 import { ORBITAL_DRAWINGS_HREF } from '@/lib/labs/orbital-drawings'
 import { PIXELATOR_EFFECT_HREF } from '@/lib/labs/pixelator'
+import { UNCOMMONPLACE_HREF } from '@/lib/labs/uncommonplace'
 
 export type BuildProject = {
   slug: string
@@ -12,6 +13,8 @@ export type BuildProject = {
   /** Defaults to /builds/${slug}; labs override to /labs/... */
   href?: string
   ctaLabel?: string
+  /** When false, the /builds card is hidden. The project page can still ship. */
+  published?: boolean
 }
 
 /**
@@ -106,6 +109,22 @@ export const buildProjects: readonly BuildProject[] = [
       unoptimized: true,
     },
   },
+  {
+    slug: 'uncommonplace',
+    title: '(Un)Commonplace',
+    description:
+      'Commonplace books are an ancient practice of capturing bits of knowledge and inspiration in notebooks. This is my emerging digital version drawn from my own notebooks and CSS experiments.',
+    tags: ['typography', 'commonplace book'],
+    href: UNCOMMONPLACE_HREF,
+    ctaLabel: 'Enter lab →',
+    published: false,
+    image: {
+      src: '/images/builds-uncommonplace.png',
+      width: 1024,
+      height: 537,
+      unoptimized: true,
+    },
+  },
 ] as const
 
 export function buildHref(slug: string) {
@@ -114,6 +133,10 @@ export function buildHref(slug: string) {
 
 export function projectHref(project: BuildProject) {
   return project.href ?? buildHref(project.slug)
+}
+
+export function publishedBuildProjects() {
+  return buildProjects.filter((project) => project.published !== false)
 }
 
 export function getBuildProject(slug: string): BuildProject {

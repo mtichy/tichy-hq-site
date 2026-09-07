@@ -11,6 +11,7 @@ const routes = [
   '/labs/orbital-drawings',
   '/labs/pixelator-effect',
   '/labs/motion-studies',
+  '/labs/uncommonplace',
 ] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {
