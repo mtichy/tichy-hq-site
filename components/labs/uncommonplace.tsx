@@ -217,7 +217,7 @@ export default function Uncommonplace() {
       </div>
 
       <div className="mx-auto flex min-h-0 w-full max-w-[var(--breakpoint-content)] flex-1 flex-col gap-4 px-6 pb-6 lg:flex-row lg:items-stretch lg:gap-12">
-        <aside className="order-2 w-full shrink-0 lg:sticky lg:top-[calc(var(--site-nav-height)+4.5rem)] lg:order-1 lg:max-h-[calc(100vh-var(--site-nav-height)-5.5rem)] lg:w-[288px] lg:self-start">
+        <aside className="order-3 w-full shrink-0 lg:sticky lg:top-[calc(var(--site-nav-height)+4.5rem)] lg:order-1 lg:max-h-[calc(100vh-var(--site-nav-height)-5.5rem)] lg:w-[288px] lg:self-start">
           <div className="flex max-w-[288px] flex-col gap-4 lg:gap-6">
             <div className="space-y-2">
               <p className="text-small font-bold uppercase tracking-wide text-muted-foreground">
@@ -241,7 +241,7 @@ export default function Uncommonplace() {
                 disabled={isFading}
                 className={cn(
                   controlButtonClassName,
-                  'w-fit',
+                  'hidden w-fit lg:inline-flex',
                   isFading && 'cursor-not-allowed opacity-50',
                 )}
               >
@@ -302,6 +302,23 @@ export default function Uncommonplace() {
             )}
           </div>
         </div>
+
+        {hasQuote ? (
+          <div className="order-2 flex justify-center lg:hidden">
+            <button
+              type="button"
+              onClick={refresh}
+              disabled={isFading}
+              className={cn(
+                controlButtonClassName,
+                'w-fit',
+                isFading && 'cursor-not-allowed opacity-50',
+              )}
+            >
+              Load another quote
+            </button>
+          </div>
+        ) : null}
       </div>
     </div>
   )
