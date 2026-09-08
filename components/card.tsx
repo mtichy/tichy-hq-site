@@ -22,21 +22,29 @@ export type CardImage = {
   priority?: boolean
 }
 
+export type CardVariant = 'raised' | 'flush'
+
 export type CardProps = {
   title: string
   description: string
   image: CardImage
-  /** When present, tags render and a divider appears beneath them */
+  /** When present, tags render. Raised cards also draw a divider beneath them. */
   tags?: readonly string[]
   href: string
   ctaLabel?: string
+  /**
+   * `raised` (default): card face, elevation, cyan underlay.
+   * `flush`: sits on the page — no face fill, shadow, or underlay.
+   */
+  variant?: CardVariant
   className?: string
 }
 
 /**
  * Interactive project card (Figma Component/Card).
- * Single stretched link for a11y; cyan underlay slides 4px left + 4px down on
- * hover/focus. Gutter compensation keeps the underlay visible inside CSS columns.
+ * Single stretched link for a11y. Raised: cyan underlay slides 4px left + 4px
+ * down on hover/focus; gutter compensation keeps the underlay visible inside CSS
+ * columns. Flush: no chrome; image overlay + CTA underline on hover/focus.
  */
 export function Card({
   title,
@@ -45,39 +53,47 @@ export function Card({
   tags,
   href,
   ctaLabel = 'View project →',
+  variant = 'raised',
   className,
 }: CardProps) {
   const ctaSpoken = ctaLabel.replace(/\s*→\s*$/, '').trim()
+  const isFlush = variant === 'flush'
+  const titleClass = isFlush ? 'text-foreground' : 'text-card-foreground'
+  const tagClass = isFlush ? 'text-foreground' : 'text-card-foreground'
 
   return (
     <article
       className={cn(
         'group relative isolate h-fit',
-        // 4px left/bottom gutter for the underlay; widen + pull back so the
-        // face stays full column width (CSS columns clip overflow).
-        'w-[calc(100%+0.25rem)] max-w-[calc(392px+0.25rem)]',
-        '-ml-1 -mb-1 pl-1 pb-1',
+        isFlush
+          ? 'w-full max-w-[392px]'
+          : // 4px left/bottom gutter for the underlay; widen + pull back so the
+            // face stays full column width (CSS columns clip overflow).
+            'w-[calc(100%+0.25rem)] max-w-[calc(392px+0.25rem)] -ml-1 -mb-1 pl-1 pb-1',
         className,
       )}
     >
-      <div
-        aria-hidden
-        className={cn(
-          'absolute top-0 right-0 bottom-1 left-1 z-0 rounded-md',
-          'bg-[var(--color-brand-cyan)]',
-          'transition-[translate,background-color] duration-200 ease-out',
-          'motion-reduce:transition-none',
-          'group-hover:-translate-x-1 group-hover:translate-y-1',
-          'group-focus-within:-translate-x-1 group-focus-within:translate-y-1',
-          'group-active:-translate-x-1 group-active:translate-y-1 group-active:bg-[var(--color-brand-magenta)]',
-        )}
-      />
+      {isFlush ? null : (
+        <div
+          aria-hidden
+          className={cn(
+            'absolute top-0 right-0 bottom-1 left-1 z-0 rounded-md',
+            'bg-[var(--color-brand-cyan)]',
+            'transition-[translate,background-color] duration-200 ease-out',
+            'motion-reduce:transition-none',
+            'group-hover:-translate-x-1 group-hover:translate-y-1',
+            'group-focus-within:-translate-x-1 group-focus-within:translate-y-1',
+            'group-active:-translate-x-1 group-active:translate-y-1 group-active:bg-[var(--color-brand-magenta)]',
+          )}
+        />
+      )}
 
       {/* Link sits above the face so the focus ring is not clipped by overflow */}
       <a
         href={href}
         className={cn(
-          'absolute top-0 right-0 bottom-1 left-1 z-20 rounded-md',
+          'absolute z-20 rounded-md',
+          isFlush ? 'inset-0' : 'top-0 right-0 bottom-1 left-1',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
           'focus-visible:ring-offset-2 focus-visible:ring-offset-background',
         )}
@@ -86,17 +102,27 @@ export function Card({
 
       <div
         className={cn(
-          'relative z-10 flex flex-col overflow-hidden rounded-md',
-          'bg-card text-card-foreground',
-          'shadow-[var(--elevation-rest)]',
-          'transition-shadow duration-200 ease-out',
-          'motion-reduce:transition-none',
-          'group-hover:shadow-[var(--elevation-raised)]',
-          'group-focus-within:shadow-[var(--elevation-raised)]',
+          'relative z-10 flex flex-col',
+          isFlush
+            ? 'bg-transparent'
+            : cn(
+                'overflow-hidden rounded-md',
+                'bg-card text-card-foreground',
+                'shadow-[var(--elevation-rest)]',
+                'transition-shadow duration-200 ease-out',
+                'motion-reduce:transition-none',
+                'group-hover:shadow-[var(--elevation-raised)]',
+                'group-focus-within:shadow-[var(--elevation-raised)]',
+              ),
         )}
       >
         {/* Figma image frame 380×214 */}
-        <div className="relative aspect-[380/214] w-full shrink-0 bg-muted">
+        <div
+          className={cn(
+            'relative aspect-[380/214] w-full shrink-0 bg-muted',
+            isFlush && 'overflow-hidden rounded-md',
+          )}
+        >
           <Image
             src={image.src}
             alt={image.alt ?? ''}
@@ -110,10 +136,29 @@ export function Card({
             unoptimized={image.unoptimized}
             priority={image.priority}
           />
+          {isFlush ? (
+            <div
+              aria-hidden
+              className={cn(
+                'pointer-events-none absolute inset-0 rounded-md',
+                'bg-[var(--color-neutral-black)]/60 opacity-0',
+                'transition-opacity duration-200 ease-out',
+                'motion-reduce:transition-none',
+                'group-hover:opacity-100',
+                'group-focus-within:opacity-100',
+                'group-active:opacity-100',
+              )}
+            />
+          ) : null}
         </div>
 
         <div className="flex flex-col items-start gap-4 p-6">
-          <h3 className="text-medium font-bold leading-medium text-balance text-card-foreground">
+          <h3
+            className={cn(
+              'text-medium font-bold leading-medium text-balance',
+              titleClass,
+            )}
+          >
             {title}
           </h3>
           <p className="text-regular leading-regular text-pretty text-muted-foreground">
@@ -126,13 +171,18 @@ export function Card({
                 {tags.map((tag) => (
                   <li
                     key={tag}
-                    className="rounded bg-muted px-2.5 py-1 text-small font-bold leading-small text-card-foreground"
+                    className={cn(
+                      'rounded bg-muted px-2.5 py-1 text-small font-bold leading-small',
+                      tagClass,
+                    )}
                   >
                     {tag}
                   </li>
                 ))}
               </ul>
-              <hr className="h-px w-full border-0 bg-border" />
+              {isFlush ? null : (
+                <hr className="h-px w-full border-0 bg-border" />
+              )}
             </>
           ) : null}
 

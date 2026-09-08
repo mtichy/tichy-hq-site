@@ -102,6 +102,96 @@ export default function CardDemoPage() {
             href="/"
           />
         </div>
+
+        <h2 className="mt-12 text-large font-bold leading-large text-foreground">
+          Flush (no background)
+        </h2>
+        <p className="mt-4 max-w-[600px] text-regular leading-regular text-pretty text-muted-foreground">
+          Same content stack without face fill, elevation, or cyan underlay.
+          Toggle theme to check light and dark on the page chrome.
+        </p>
+
+        <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
+          <Card
+            variant="flush"
+            className="max-w-none"
+            title="How I built this site"
+            description="The short version: a real design system as the foundation, AI tools doing what they do well on execution, and a carbon-based life form reviewing and directing every step."
+            image={{
+              src: '/images/avatar-dark.png',
+              width: 576,
+              height: 576,
+              unoptimized: true,
+            }}
+            href="/builds"
+          />
+          <Card
+            variant="flush"
+            className="max-w-none"
+            title="Employee recognition platform I designed that became a McKinsey tradition"
+            description="How to improve morale? Make gratitude contagious with an annual week-long Thank-a-thon that generates tens of thousands of thank you messages and hundreds of thousands of page views across the globe."
+            image={{
+              src: '/images/og.png',
+              width: 1200,
+              height: 630,
+            }}
+            href="/resume"
+          />
+          <Card
+            variant="flush"
+            className="max-w-none"
+            title="Fetch: An Editorial Intelligence Dashboard"
+            description="An analytics tool centered on the content users are familiar with instead of just tons of charts."
+            image={{
+              src: '/images/avatar-333333.png',
+              width: 576,
+              height: 576,
+              unoptimized: true,
+            }}
+            tags={['analytics', 'interactive demo']}
+            href="/"
+          />
+          <Card
+            variant="flush"
+            className="max-w-none"
+            title="Dream log"
+            description="The short version: a real design system as the foundation, AI tools doing what they do well on execution, and a carbon-based life form reviewing and directing every step."
+            image={{
+              src: '/images/avatar-dark.png',
+              width: 576,
+              height: 576,
+              unoptimized: true,
+            }}
+            tags={['Personal', 'Writing']}
+            href="/builds"
+          />
+          <Card
+            variant="flush"
+            className="max-w-none"
+            title="Chess Scoresheet Digitizer friend"
+            description="How to improve morale? Make gratitude contagious with an annual week-long Thank-a-thon that generates tens of thousands of thank you messages and hundreds of thousands of page views across the globe."
+            image={{
+              src: '/images/og.png',
+              width: 1200,
+              height: 630,
+            }}
+            href="/resume"
+          />
+          <Card
+            variant="flush"
+            className="max-w-none"
+            title="Digital Commonplace Book"
+            description="The short version: a real design system as the foundation, AI tools doing what they do well on execution, and a carbon-based life form reviewing and directing every step."
+            image={{
+              src: '/images/avatar-333333.png',
+              width: 576,
+              height: 576,
+              unoptimized: true,
+            }}
+            tags={['Design Systems', 'React', 'Figma', 'Next.js']}
+            href="/"
+          />
+        </div>
       </main>
       <Footer />
     </div>

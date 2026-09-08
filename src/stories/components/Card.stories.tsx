@@ -39,7 +39,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Flagship card: cyan underlay slides 4px on hover/focus, elevation rest → raised, magenta ring on focus-visible. Use the toolbar for light/dark.',
+          'Flagship card: cyan underlay slides 4px on hover/focus, elevation rest → raised, magenta ring on focus-visible. Flush variant has no face, shadow, or underlay. Use the toolbar for light/dark.',
       },
     },
   },
@@ -287,4 +287,106 @@ export const Mosaic: Story = {
       />
     </div>
   ),
+}
+
+export const Flush: Story = {
+  args: {
+    variant: 'flush',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'No card face, shadow, or cyan underlay. Hover/focus fades a 60% black overlay on the image and underlines the CTA. Tags render without a divider.',
+      },
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div className="bg-background p-6">
+        <Frame>
+          <Story />
+        </Frame>
+      </div>
+    ),
+  ],
+}
+
+export const FlushMosaic: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Flush cards in a 3-column grid on the page background, matching the homepage v2 sketch placement.',
+      },
+    },
+  },
+  render: () => (
+    <div className="bg-background p-6">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
+        <Card
+          variant="flush"
+          className="max-w-none"
+          title="How I built this site"
+          description="The short version: a real design system as the foundation, AI tools doing what they do well on execution, and a carbon-based life form reviewing and directing every step."
+          image={{
+            src: '/images/avatar-dark.png',
+            width: 576,
+            height: 576,
+            unoptimized: true,
+          }}
+          href="/builds"
+        />
+        <Card
+          variant="flush"
+          className="max-w-none"
+          title="Employee recognition platform I designed that became a McKinsey tradition"
+          description="How to improve morale? Make gratitude contagious with an annual week-long Thank-a-thon that generates tens of thousands of thank you messages and hundreds of thousands of page views across the globe."
+          image={{
+            src: '/images/og.png',
+            width: 1200,
+            height: 630,
+          }}
+          href="/resume"
+        />
+        <Card
+          variant="flush"
+          className="max-w-none"
+          title="Fetch: An Editorial Intelligence Dashboard"
+          description="An analytics tool centered on the content users are familiar with instead of just tons of charts."
+          image={{
+            src: '/images/avatar-333333.png',
+            width: 576,
+            height: 576,
+            unoptimized: true,
+          }}
+          tags={['analytics', 'interactive demo']}
+          href="/"
+        />
+      </div>
+    </div>
+  ),
+}
+
+export const FlushDark: Story = {
+  args: {
+    variant: 'flush',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Forced dark tokens. Flush copy uses foreground / muted-foreground so it reads on the page.',
+      },
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div className="dark min-h-[28rem] bg-background p-6">
+        <Frame>
+          <Story />
+        </Frame>
+      </div>
+    ),
+  ],
 }
