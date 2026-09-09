@@ -8,7 +8,7 @@ import { pageMetadata } from '@/lib/site'
 export const metadata = pageMetadata({
   title: 'Designing a McKinsey tradition',
   description:
-    'How to keep spirits high? Make gratitude contagious with an annual week-long Thank-a-thon that generates tens of thousands of thank you messages and hundreds of thousands of page views across the globe.',
+    'How to keep spirits high? Make gratitude contagious with an annual week-long Thank-a-thon that generated 75,000+ thank you messages in its 2025 run, from a firm of 45,000 people.',
   path: '/builds/thank-a-thon',
   image: socialImageFromBuild('thank-a-thon'),
 })

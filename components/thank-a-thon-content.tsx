@@ -30,8 +30,8 @@ export function ThankAThonContent() {
         </h1>
         <p className="text-medium font-light leading-medium text-pretty text-foreground">
           How to keep spirits high? Make gratitude contagious with an annual
-          week-long Thank-a-thon that generates tens of thousands of thank you
-          messages and hundreds of thousands of page views across the globe.
+          week-long Thank-a-thon that generated 75,000+ thank you messages in
+          its 2025 run, from a firm of 45,000 people.
         </p>
       </header>
 
@@ -53,7 +53,7 @@ export function ThankAThonContent() {
           years afterward.
         </p>
         <p className="text-pretty">
-          McKinsey has since cited Thank-a-thon publicly as one of{' '}
+          McKinsey has since cited Thank-a-thon publicly as part of one of{' '}
           <Hyperlink
             href={BEST_EMPLOYERS_URL}
             target="_blank"
