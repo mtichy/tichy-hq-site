@@ -21,6 +21,7 @@ export type BuildProject = {
  * Portfolio samples shown on /builds. Adding a project: create
  * `app/builds/[slug]/page.tsx` (article) or `app/labs/[slug]/page.tsx`
  * (live experiment), then append an entry here. Use `href` for labs.
+ * `app/sitemap.ts` derives project URLs from this list.
  */
 export const buildProjects: readonly BuildProject[] = [
   {

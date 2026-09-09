@@ -1,18 +1,10 @@
 import type { MetadataRoute } from 'next'
+import { buildProjects, projectHref } from '@/lib/builds'
 import { siteUrl } from '@/lib/site'
 
-const routes = [
-  '',
-  '/resume',
-  '/builds',
-  '/builds/how-i-built-this-site',
-  '/builds/thank-a-thon',
-  '/builds/fetch',
-  '/labs/orbital-drawings',
-  '/labs/pixelator-effect',
-  '/labs/motion-studies',
-  '/labs/uncommonplace',
-] as const
+const standaloneRoutes = ['', '/resume', '/builds'] as const
+
+const routes = [...standaloneRoutes, ...buildProjects.map(projectHref)]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((path) => ({
