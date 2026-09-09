@@ -56,7 +56,7 @@ export const buildProjects: readonly BuildProject[] = [
     title: 'The admin panel is the product',
     description:
       'What I learned designing publishing and configuration surfaces that over 100 editors, designers, and producers worked in, and how sprawling systems can be brought back into line.',
-    tags: ['design systems'],
+    tags: ['zero-to-one', 'internal tooling'],
     ctaLabel: 'View project →',
     image: {
       src: '/images/builds-publishing-admin.png',
