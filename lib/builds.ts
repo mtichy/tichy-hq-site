@@ -52,6 +52,20 @@ export const buildProjects: readonly BuildProject[] = [
     },
   },
   {
+    slug: 'publishing-admin',
+    title: 'The admin panel is the product',
+    description:
+      'What I learned designing publishing and configuration surfaces that over 100 editors, designers, and producers worked in, and how sprawling systems can be brought back into line.',
+    tags: ['design systems'],
+    ctaLabel: 'View project →',
+    image: {
+      src: '/images/builds-publishing-admin.png',
+      width: 760,
+      height: 428,
+      unoptimized: true,
+    },
+  },
+  {
     slug: 'how-i-built-this-site',
     title: 'How I built this site',
     description:
