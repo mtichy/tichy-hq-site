@@ -36,6 +36,7 @@ export function ExpandableImage({
   useEffect(() => {
     if (!open) return
     const prev = document.body.style.overflow
+    const trigger = triggerRef.current
     document.body.style.overflow = 'hidden'
     closeRef.current?.focus()
     const onKey = (e: KeyboardEvent) => {
@@ -45,7 +46,7 @@ export function ExpandableImage({
     return () => {
       document.body.style.overflow = prev
       window.removeEventListener('keydown', onKey)
-      triggerRef.current?.focus()
+      trigger?.focus()
     }
   }, [open])
 
