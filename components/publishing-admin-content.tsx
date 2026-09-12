@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import { controlButtonClassName } from '@/components/hyperlink'
 import { PublishingAdmin } from '@/components/publishing-admin'
 
 /**
@@ -7,6 +9,19 @@ import { PublishingAdmin } from '@/components/publishing-admin'
 export function PublishingAdminContent() {
   return (
     <div className="flex w-full flex-col gap-16">
+      <div className="overflow-hidden rounded-md bg-muted">
+        <Image
+          src="/images/builds-publishing-admin-hero.png"
+          alt="Three views of the article-creation admin: hero details, media uploads, and authors and contributors"
+          width={1024}
+          height={537}
+          className="h-auto w-full"
+          sizes="(max-width: 808px) 100vw, 808px"
+          priority
+          unoptimized
+        />
+      </div>
+
       <header className="flex max-w-[65ch] flex-col gap-6">
         <h1 className="text-mega font-bold leading-mega text-balance text-foreground">
           The admin panel is the product
@@ -19,6 +34,11 @@ export function PublishingAdminContent() {
           publishing and configuration surfaces that over 100 editors,
           designers, and producers worked in, and how sprawling systems can be
           brought back into line.
+        </p>
+        <p>
+          <a href="#publishing-admin-demo" className={controlButtonClassName}>
+            Skip to the demo ↓
+          </a>
         </p>
       </header>
 
@@ -87,13 +107,20 @@ export function PublishingAdminContent() {
           </h2>
           <p className="text-pretty">
             Below is the article-creation panel, rebuilt from my original design
-            work and sanitized for this portfolio. You can click through the six
-            sections. The three decisions worth looking at are called out
-            underneath.
+            work and sanitized for this portfolio.{' '}
+            <strong className="font-bold">
+              You can click through the six sections.
+            </strong>{' '}
+            The three decisions worth looking at are called out underneath.
           </p>
         </div>
 
-        <PublishingAdmin />
+        <div
+          id="publishing-admin-demo"
+          className="scroll-mt-[calc(var(--site-nav-height)+1.5rem)]"
+        >
+          <PublishingAdmin />
+        </div>
 
         <div className="flex max-w-[65ch] flex-col gap-6">
           <p className="text-small leading-small text-muted-foreground">
