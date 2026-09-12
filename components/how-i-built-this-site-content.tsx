@@ -23,7 +23,7 @@ export function HowIBuiltThisSiteContent() {
           </span>{' '}
           Design System in Figma
         </h2>
-        <div className="flex flex-col gap-4 text-regular leading-regular text-foreground">
+        <div className="flex flex-col gap-6 text-regular leading-regular text-foreground">
           <p className="text-pretty">
             Before any prompting or prototyping, I built a foundational design
             system in Figma:
@@ -68,7 +68,7 @@ export function HowIBuiltThisSiteContent() {
           </span>{' '}
           Rapid prototyping in v0
         </h2>
-        <div className="flex flex-col gap-4 text-regular leading-regular text-foreground">
+        <div className="flex flex-col gap-6 text-regular leading-regular text-foreground">
           <p className="text-pretty">
             With the design system exported, I moved into v0 and fed it the{' '}
             <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.9em] text-foreground">
@@ -113,7 +113,7 @@ export function HowIBuiltThisSiteContent() {
           </span>{' '}
           Handoff to GitHub
         </h2>
-        <div className="flex flex-col gap-4 text-regular leading-regular text-foreground">
+        <div className="flex flex-col gap-6 text-regular leading-regular text-foreground">
           <p className="text-pretty">
             Before moving into Cursor the v0 project gets pushed to GitHub. Why:
           </p>
@@ -142,7 +142,7 @@ export function HowIBuiltThisSiteContent() {
           </span>{' '}
           Development in Cursor
         </h2>
-        <div className="flex flex-col gap-4 text-regular leading-regular text-foreground">
+        <div className="flex flex-col gap-6 text-regular leading-regular text-foreground">
           <p className="text-pretty">
             With the repo open in Cursor, the remaining work shifts from
             generation to refinement and judgment:
@@ -176,7 +176,7 @@ export function HowIBuiltThisSiteContent() {
           </span>{' '}
           Deployment with Vercel
         </h2>
-        <div className="flex flex-col gap-4 text-regular leading-regular text-foreground">
+        <div className="flex flex-col gap-6 text-regular leading-regular text-foreground">
           <p className="text-pretty">
             Lastly, the GitHub repo connects to Vercel for continuous
             integration and deployment:

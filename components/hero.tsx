@@ -3,7 +3,7 @@ import { tagline } from '@/lib/site'
 
 export function Hero() {
   return (
-    <section className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 pt-[69px] pb-16 lg:pb-[83px]">
+    <section className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-16 lg:pb-column">
       <div className="flex flex-col gap-16 lg:flex-row lg:items-start lg:gap-x-[calc(var(--spacing-column)+var(--spacing-gutter)*2)]">
         {/* Name + subtitle: columns 1–3 (288px) */}
         <div className="flex w-full max-w-[288px] shrink-0 flex-col gap-6">

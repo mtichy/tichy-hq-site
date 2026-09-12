@@ -4,7 +4,7 @@ import { email, githubUrl, linkedInUrl, siteName } from '@/lib/site'
 
 export function Footer() {
   return (
-    <footer className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-[81px]">
+    <footer className="mx-auto w-full max-w-[var(--breakpoint-content)] px-6 py-column">
       <div className="flex w-full max-w-[600px] flex-col gap-6">
         <h2 className="text-mega font-bold leading-mega text-foreground text-balance">
           Say Hi!
