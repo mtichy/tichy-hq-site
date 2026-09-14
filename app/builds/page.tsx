@@ -1,4 +1,4 @@
-import { BuildsGrid } from '@/components/builds-grid'
+import { BuildsMosaic } from '@/components/builds-mosaic'
 import { BuildsIntro } from '@/components/builds-intro'
 import { BuildsSidebar } from '@/components/builds-sidebar'
 import { Footer } from '@/components/footer'
@@ -23,7 +23,7 @@ export default function BuildsPage() {
         </div>
 
         <div className="mt-16">
-          <BuildsGrid />
+          <BuildsMosaic />
         </div>
       </main>
       <Footer />

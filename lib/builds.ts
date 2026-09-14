@@ -150,8 +150,21 @@ export function projectHref(project: BuildProject) {
   return project.href ?? buildHref(project.slug)
 }
 
-export function publishedBuildProjects() {
-  return buildProjects.filter((project) => project.published !== false)
+/** Labs set `href` to a /labs/... route; case studies use the default /builds path. */
+export function isLabBuild(project: BuildProject) {
+  return Boolean(project.href)
+}
+
+export type BuildsFilter = 'all' | 'projects' | 'labs'
+
+export function publishedBuildProjects(filter: BuildsFilter = 'all') {
+  const published = buildProjects.filter(
+    (project) => project.published !== false,
+  )
+  if (filter === 'labs') return published.filter(isLabBuild)
+  if (filter === 'projects')
+    return published.filter((project) => !isLabBuild(project))
+  return published
 }
 
 export function getBuildProject(slug: string): BuildProject {
