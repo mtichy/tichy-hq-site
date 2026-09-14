@@ -110,4 +110,41 @@ export const quotes: readonly Quote[] = [
     text: 'America has outgrown parties; henceforth it is too large, and they are too small.',
     author: 'Walt Whitman',
   },
+  {
+    id: 'russell-free-time',
+    text: 'The ability to intelligently fill your free time is the highest degree of personal culture.',
+    author: 'Bertrand Russell',
+  },
+  {
+    id: 'pope-organization',
+    text: 'Organization is heavens first law.',
+    author: 'Alexander Pope',
+  },
+  {
+    id: 'nietzsche-dancing-star',
+    text: 'One must still have chaos in oneself to give birth to a dancing star.',
+    author: 'Nietzsche',
+    tags: ['philosophy'],
+  },
+  {
+    id: 'mcluhan-boundaries',
+    text: 'Once you see the boundaries of your environment, they are no longer the boundaries of your environment.',
+    author: 'Marshall McLuhan',
+  },
+  {
+    id: 'wittgenstein-language-world',
+    text: 'The limits of my language are the limits of my world.',
+    author: 'Wittgenstein',
+    tags: ['philosophy'],
+  },
+  {
+    id: 'parr-curiosity',
+    text: 'The cure for boredom is curiosity. There is no cure for curiosity.',
+    author: 'Ellen Parr',
+  },
+  {
+    id: 'picard-no-mistakes',
+    text: 'It is possible to commit no mistakes and still lose. That is not a weakness. That is life.',
+    author: 'Captain Jean-Luc Picard',
+  },
 ]
