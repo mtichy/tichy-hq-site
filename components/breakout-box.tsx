@@ -8,7 +8,7 @@ export type BreakoutItem = {
 
 export type BreakoutBoxProps = {
   items: readonly BreakoutItem[]
-  /** Right-column facts. When omitted, the box is a single column. */
+  /** Right-column facts. Omit for a single-column box capped at 65ch. */
   highlights?: readonly BreakoutItem[]
   title?: string
   className?: string
@@ -37,6 +37,8 @@ function BreakoutFacts({
 
 /**
  * Static project highlight callout (raised Card face, no image or interaction).
+ * Two-column when `highlights` are passed (full article width). One-column
+ * when omitted (caps at 65ch, the body measure).
  */
 export function BreakoutBox({
   items,
@@ -53,6 +55,7 @@ export function BreakoutBox({
       className={cn(
         'w-full rounded-md bg-card p-6 text-card-foreground',
         'shadow-[var(--elevation-rest)]',
+        hasHighlights ? 'max-w-full' : 'max-w-[65ch]',
         className,
       )}
     >
@@ -69,7 +72,10 @@ export function BreakoutBox({
             hasHighlights && 'md:flex-row md:gap-0',
           )}
         >
-          <BreakoutFacts items={items} className="md:pr-8" />
+          <BreakoutFacts
+            items={items}
+            className={hasHighlights ? 'md:pr-8' : undefined}
+          />
           {highlights && highlights.length > 0 ? (
             <>
               <div

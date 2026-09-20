@@ -1,6 +1,8 @@
 import Image from 'next/image'
+import { BreakoutBox } from '@/components/breakout-box'
 import { controlButtonClassName } from '@/components/hyperlink'
 import { PublishingAdmin } from '@/components/publishing-admin'
+import { cn } from '@/lib/utils'
 
 /**
  * Article body for /builds/publishing-admin.
@@ -35,12 +37,70 @@ export function PublishingAdminContent() {
           designers, and producers worked in, and how sprawling systems can be
           brought back into line.
         </p>
-        <p>
-          <a href="#publishing-admin-demo" className={controlButtonClassName}>
-            Skip to the demo ↓
-          </a>
-        </p>
       </header>
+
+      <BreakoutBox
+        items={[
+          {
+            label: 'Role',
+            value:
+              'Lead designer for the publishing and configuration surfaces',
+          },
+          {
+            label: 'Team',
+            value:
+              'Global Internal Comms editors, designers and producers who worked in the platforms, Tech Ecosystem for execution',
+          },
+          {
+            label: 'Skills',
+            value:
+              'Information architecture, design systems, permissions modelling, Drupal, governance',
+          },
+        ]}
+        highlights={[
+          {
+            label: 'Adoption',
+            value: (
+              <>
+                <strong className="font-bold">
+                  100+ editors, designers and producers
+                </strong>{' '}
+                working in the platforms, across combined products in 60
+                countries
+              </>
+            ),
+          },
+          {
+            label: 'Governance',
+            value:
+              "A core team of about 10–20 contributing components and reviewing each other's work, from the beginning",
+          },
+          {
+            label: 'Consolidation',
+            value: (
+              <>
+                <strong className="font-bold">
+                  Sprawl and redundancy reversed
+                </strong>{' '}
+                by a design system, a dynamic library and regular checkpoints,
+                without adding another approval gate
+              </>
+            ),
+          },
+        ]}
+      />
+
+      <p className="max-w-[65ch]">
+        <a
+          href="#publishing-admin-demo"
+          className={cn(
+            controlButtonClassName,
+            'px-3 py-2 text-regular leading-regular',
+          )}
+        >
+          Skip to the demo ↓
+        </a>
+      </p>
 
       <section className="flex max-w-[65ch] flex-col gap-6 text-regular leading-regular text-foreground">
         <p className="text-pretty">

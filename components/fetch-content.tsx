@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import { BreakoutBox } from '@/components/breakout-box'
 import { ExpandableImage } from '@/components/expandable-image'
 import { controlButtonClassName, Hyperlink } from '@/components/hyperlink'
 import { DEMO_BASE } from '@/lib/fetch-demo/data'
+import { cn } from '@/lib/utils'
 
 /**
  * Case-study framing for /builds/fetch — thesis, role decision, and demo entry.
@@ -22,12 +24,38 @@ export function FetchContent() {
           typical &lsquo;wall of charts&rsquo; and puts writers and their
           content at the center, delivering answers in plain English.
         </p>
-        <p>
-          <Link href={DEMO_BASE} className={controlButtonClassName}>
-            Open the interactive demo →
-          </Link>
-        </p>
       </header>
+
+      <BreakoutBox
+        items={[
+          {
+            label: 'Role',
+            value:
+              'Conceived, designed and built it independently with AI-powered workflow',
+          },
+          {
+            label: 'Team',
+            value: 'Solo build; later adopted by an internal AI hackathon team',
+          },
+          {
+            label: 'Skills',
+            value:
+              'AI product design, data visualization, prototyping, front-end',
+          },
+        ]}
+      />
+
+      <p className="max-w-[65ch]">
+        <Link
+          href={DEMO_BASE}
+          className={cn(
+            controlButtonClassName,
+            'px-3 py-2 text-regular leading-regular',
+          )}
+        >
+          Open the interactive demo →
+        </Link>
+      </p>
 
       <section className="flex w-full flex-col gap-6 text-regular leading-regular text-foreground">
         <div className="flex max-w-[65ch] flex-col gap-6">

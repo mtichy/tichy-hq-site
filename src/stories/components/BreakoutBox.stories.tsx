@@ -50,6 +50,68 @@ const thankAThonHighlights = [
   },
 ]
 
+const fetchItems = [
+  {
+    label: 'Role',
+    value:
+      'Conceived, designed and built it independently with AI-powered workflow',
+  },
+  {
+    label: 'Team',
+    value: 'Solo build; later adopted by an internal AI hackathon team',
+  },
+  {
+    label: 'Skills',
+    value: 'AI product design, data visualization, prototyping, front-end',
+  },
+] as const
+
+const publishingAdminItems = [
+  {
+    label: 'Role',
+    value: 'Lead designer for the publishing and configuration surfaces',
+  },
+  {
+    label: 'Team',
+    value:
+      'Global Internal Comms editors, designers and producers who worked in the platforms, Tech Ecosystem for execution',
+  },
+  {
+    label: 'Skills',
+    value:
+      'Information architecture, design systems, permissions modelling, Drupal, governance',
+  },
+] as const
+
+const publishingAdminHighlights = [
+  {
+    label: 'Adoption',
+    value: (
+      <>
+        <strong className="font-bold">
+          100+ editors, designers and producers
+        </strong>{' '}
+        working in the platforms, across combined products in 60 countries
+      </>
+    ),
+  },
+  {
+    label: 'Governance',
+    value:
+      "A core team of about 10–20 contributing components and reviewing each other's work, from the beginning",
+  },
+  {
+    label: 'Consolidation',
+    value: (
+      <>
+        <strong className="font-bold">Sprawl and redundancy reversed</strong> by
+        a design system, a dynamic library and regular checkpoints, without
+        adding another approval gate
+      </>
+    ),
+  },
+]
+
 function Frame({
   children,
   className = 'max-w-[808px]',
@@ -68,7 +130,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Static project highlights: raised card face with an At a glance header, labeled facts on the left and right, split by a 1px divider (vertical from md, horizontal when stacked). Use the toolbar for light/dark.',
+          'Static At a glance callout. Pass `highlights` for two columns at full article width (808px). Omit `highlights` for a single column capped at 65ch. Divider is vertical from md and horizontal when stacked. Use the toolbar for light/dark.',
       },
     },
   },
@@ -81,19 +143,15 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const ThankAThon: Story = {
-  decorators: [
-    (Story) => (
-      <Frame>
-        <Story />
-      </Frame>
-    ),
-  ],
-}
-
-export const FactsOnly: Story = {
-  args: {
-    highlights: undefined,
+export const TwoColumn: Story = {
+  name: 'Two column (Thank-a-thon)',
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Role/Team/Skills plus highlights. Full width of the 808px article shell.',
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -104,25 +162,34 @@ export const FactsOnly: Story = {
   ],
 }
 
-export const LongCopy: Story = {
+export const SingleColumn: Story = {
+  name: 'Single column (Fetch)',
   args: {
-    items: [
-      {
-        label: 'Role',
-        value:
-          'Designer and product owner; also led the technical team across research, platform modernization, and the annual firmwide relaunch.',
+    items: fetchItems,
+    highlights: undefined,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'No `highlights`: one facts column, max-width 65ch (body measure), even inside the 808px article shell.',
       },
-      {
-        label: 'Team',
-        value:
-          'Global Internal Comms along with just under 150 technical and engineering colleagues from Tech Ecosystem, assembled each cycle to run the Wall of Gratitude and supporting notification loop.',
-      },
-      {
-        label: 'Skills',
-        value:
-          'Product design, design systems, front-end, analytics, program delivery, and stakeholder facilitation with senior firm leadership.',
-      },
-    ],
+    },
+  },
+  decorators: [
+    (Story) => (
+      <Frame>
+        <Story />
+      </Frame>
+    ),
+  ],
+}
+
+export const PublishingAdmin: Story = {
+  name: 'Two column (Publishing admin)',
+  args: {
+    items: publishingAdminItems,
+    highlights: publishingAdminHighlights,
   },
   decorators: [
     (Story) => (
@@ -138,7 +205,7 @@ export const Narrow: Story = {
     docs: {
       description: {
         story:
-          'Simulates a phone-width column so the two-column layout stacks.',
+          'Phone-width column: two-column layout stacks and the divider turns horizontal.',
       },
     },
   },
