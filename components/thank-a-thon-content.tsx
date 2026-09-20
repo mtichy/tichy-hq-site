@@ -31,8 +31,8 @@ export function ThankAThonContent() {
         </h1>
         <p className="text-medium font-light leading-medium text-pretty text-foreground">
           How to keep spirits high? Make gratitude contagious with an annual
-          week-long Thank-a-thon that generated 75,000+ thank you messages in
-          its 2025 run, from a firm of 45,000 people.
+          week-long Thank-a-thon that generates tens of thousands of thank you
+          messages across the globe.
         </p>
       </header>
 
@@ -45,7 +45,7 @@ export function ThankAThonContent() {
           {
             label: 'Team',
             value:
-              'McKinsey Reach & Engagement along with just under 150 technical and engineering colleagues from Tech Ecosystem',
+              'Global Internal Comms along with just under 150 technical and engineering colleagues from Tech Ecosystem',
           },
           {
             label: 'Skills',
@@ -54,10 +54,34 @@ export function ThankAThonContent() {
           },
         ]}
         highlights={[
-          'Publicly cited by McKinsey as one of five practices behind its 2025 Best Employers Award for well-being',
-          '75,000+ thank-you notes in the 2025 run from a firm of 45,000 people, record-high engagement with record-low support tickets',
-          '64,000 messages and 200,000+ pageviews in 2024',
-          'An annual Firm tradition since 2018',
+          {
+            label: 'Participation',
+            value: (
+              <>
+                <strong className="font-bold">75,000+ thank-you notes</strong>{' '}
+                in the 2025 run from a firm of{' '}
+                <strong className="font-bold">45,000 people</strong>
+              </>
+            ),
+          },
+          {
+            label: 'Reliability',
+            value: 'Record-high engagement with record-low support tickets',
+          },
+          {
+            label: 'Recognition',
+            value: (
+              <>
+                Publicly cited by McKinsey as one of five practices behind its{' '}
+                <strong className="font-bold">2025 Best Employers Award</strong>{' '}
+                for well-being
+              </>
+            ),
+          },
+          {
+            label: 'Longevity',
+            value: 'An annual firm tradition since 2018',
+          },
         ]}
       />
 
@@ -72,13 +96,6 @@ export function ThankAThonContent() {
           been an annual firm tradition ever since.
         </p>
         <p className="text-pretty">
-          The idea that made it stick wasn&apos;t the wall itself though, it was
-          the notification loop I designed around it, where being publicly
-          thanked triggered charming notifications that prompted colleagues to
-          pay it forward, driving a viral flood of new messages every cycle for
-          years afterward.
-        </p>
-        <p className="text-pretty">
           McKinsey has since cited Thank-a-thon publicly as part of one of{' '}
           <Hyperlink
             href={BEST_EMPLOYERS_URL}
@@ -90,6 +107,16 @@ export function ThankAThonContent() {
           </Hyperlink>{' '}
           for well-being, with a Wall of Gratitude that&apos;s grown to more
           than 65,000 notes in one event.
+        </p>
+        <h2 className="text-xlarge font-bold leading-xlarge text-balance text-foreground">
+          My role
+        </h2>
+        <p className="text-pretty">
+          The idea that made it stick wasn&apos;t the wall itself though, it was
+          the notification loop I designed around it, where being publicly
+          thanked triggered charming notifications that prompted colleagues to
+          pay it forward, driving a viral flood of new messages every cycle for
+          years afterward.
         </p>
         <p className="text-pretty">
           As UX &amp; Tech Lead for the initiative, I researched and built the

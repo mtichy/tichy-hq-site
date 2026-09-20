@@ -10,7 +10,7 @@ const thankAThonItems = [
   {
     label: 'Team',
     value:
-      'McKinsey Reach & Engagement along with just under 150 technical and engineering colleagues from Tech Ecosystem',
+      'Global Internal Comms along with just under 150 technical and engineering colleagues from Tech Ecosystem',
   },
   {
     label: 'Skills',
@@ -20,11 +20,35 @@ const thankAThonItems = [
 ] as const
 
 const thankAThonHighlights = [
-  'Publicly cited by McKinsey as one of five practices behind its 2025 Best Employers Award for well-being',
-  '75,000+ thank-you notes in the 2025 run from a firm of 45,000 people, record-high engagement with record-low support tickets',
-  '64,000 messages and 200,000+ pageviews in 2024',
-  'An annual Firm tradition since 2018',
-] as const
+  {
+    label: 'Participation',
+    value: (
+      <>
+        <strong className="font-bold">75,000+ thank-you notes</strong> in the
+        2025 run from a firm of{' '}
+        <strong className="font-bold">45,000 people</strong>
+      </>
+    ),
+  },
+  {
+    label: 'Reliability',
+    value: 'Record-high engagement with record-low support tickets',
+  },
+  {
+    label: 'Recognition',
+    value: (
+      <>
+        Publicly cited by McKinsey as one of five practices behind its{' '}
+        <strong className="font-bold">2025 Best Employers Award</strong> for
+        well-being
+      </>
+    ),
+  },
+  {
+    label: 'Longevity',
+    value: 'An annual firm tradition since 2018',
+  },
+]
 
 function Frame({
   children,
@@ -44,7 +68,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Static project highlights: raised card face with an At a glance header, facts on the left, and optional highlight copy on the right, split by a 1px divider (vertical from md, horizontal when stacked). Use the toolbar for light/dark.',
+          'Static project highlights: raised card face with an At a glance header, labeled facts on the left and right, split by a 1px divider (vertical from md, horizontal when stacked). Use the toolbar for light/dark.',
       },
     },
   },
@@ -91,7 +115,7 @@ export const LongCopy: Story = {
       {
         label: 'Team',
         value:
-          'McKinsey Reach & Engagement along with just under 150 technical and engineering colleagues from Tech Ecosystem, assembled each cycle to run the Wall of Gratitude and supporting notification loop.',
+          'Global Internal Comms along with just under 150 technical and engineering colleagues from Tech Ecosystem, assembled each cycle to run the Wall of Gratitude and supporting notification loop.',
       },
       {
         label: 'Skills',
