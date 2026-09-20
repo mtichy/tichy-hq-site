@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { BreakoutBox } from '@/components/breakout-box'
 import { Hyperlink } from '@/components/hyperlink'
 
 const BEST_EMPLOYERS_URL =
@@ -34,6 +35,31 @@ export function ThankAThonContent() {
           its 2025 run, from a firm of 45,000 people.
         </p>
       </header>
+
+      <BreakoutBox
+        items={[
+          {
+            label: 'Role',
+            value: 'Designer and product owner; also led the technical team',
+          },
+          {
+            label: 'Team',
+            value:
+              'McKinsey Reach & Engagement along with just under 150 technical and engineering colleagues from Tech Ecosystem',
+          },
+          {
+            label: 'Skills',
+            value:
+              'Product design, design systems, front-end, analytics, program delivery',
+          },
+        ]}
+        highlights={[
+          'Publicly cited by McKinsey as one of five practices behind its 2025 Best Employers Award for well-being',
+          '75,000+ thank-you notes in the 2025 run from a firm of 45,000 people, record-high engagement with record-low support tickets',
+          '64,000 messages and 200,000+ pageviews in 2024',
+          'An annual Firm tradition since 2018',
+        ]}
+      />
 
       <div className="flex max-w-[65ch] flex-col gap-6 text-regular leading-regular text-foreground">
         <p className="text-pretty">
