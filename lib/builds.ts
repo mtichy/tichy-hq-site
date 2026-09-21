@@ -46,6 +46,7 @@ export const buildProjects: readonly BuildProject[] = [
     tags: ['zero-to-one'],
     image: {
       src: '/images/builds-thank-a-thon.png',
+      srcDark: '/images/builds-thank-a-thon-dark.png',
       width: 760,
       height: 428,
       unoptimized: true,
@@ -175,11 +176,24 @@ export function getBuildProject(slug: string): BuildProject {
   return project
 }
 
+/** Featured case studies on the homepage Projects grid, in display order. */
+export const homepageProjectSlugs = [
+  'fetch',
+  'thank-a-thon',
+  'publishing-admin',
+  'how-i-built-this-site',
+] as const
+
+export function homepageProjects() {
+  return homepageProjectSlugs.map((slug) => getBuildProject(slug))
+}
+
 /** Card art as an Open Graph / Twitter image for shared project links. */
 export function socialImageFromBuild(slug: string) {
   const project = getBuildProject(slug)
+  const url = project.image.ogSrc ?? project.image.src
   return {
-    url: project.image.src,
+    url,
     width: project.image.width ?? 760,
     height: project.image.height ?? 428,
     alt: project.image.alt ?? project.title,

@@ -10,8 +10,8 @@ const fetchImage = {
 
 const siteImage = {
   src: '/images/builds-how-i-built-this-site.png',
-  width: 576,
-  height: 576,
+  width: 1024,
+  height: 537,
   unoptimized: true,
 } as const
 
@@ -317,51 +317,55 @@ export const FlushMosaic: Story = {
     docs: {
       description: {
         story:
-          'Flush cards in a 3-column grid on the page background, matching the homepage v2 sketch placement.',
+          'Flush cards in a 4-column grid on the page background, matching the homepage Projects section.',
       },
     },
   },
   render: () => (
     <div className="bg-background p-6">
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <Card
+          variant="flush"
+          className="max-w-none"
+          title="Fetch: people-first editorial intelligence"
+          description="A sanitized rebuild of an editorial analytics product: people and stories as the way in, plain-language answers, and one home route that defaults differently for authors and editors."
+          image={fetchImage}
+          href="/builds/fetch"
+        />
+        <Card
+          variant="flush"
+          className="max-w-none"
+          title="Designing a McKinsey tradition"
+          description="How to keep spirits high? Make gratitude contagious with an annual week-long Thank-a-thon that generates tens of thousands of thank you messages across the globe."
+          image={{
+            src: '/images/builds-thank-a-thon.png',
+            srcDark: '/images/builds-thank-a-thon-dark.png',
+            width: 760,
+            height: 428,
+            unoptimized: true,
+          }}
+          href="/builds/thank-a-thon"
+        />
+        <Card
+          variant="flush"
+          className="max-w-none"
+          title="The admin panel is the product"
+          description="What I learned designing publishing and configuration surfaces that over 100 editors, designers, and producers worked in, and how sprawling systems can be brought back into line."
+          image={{
+            src: '/images/builds-publishing-admin.png',
+            width: 760,
+            height: 428,
+            unoptimized: true,
+          }}
+          href="/builds/publishing-admin"
+        />
         <Card
           variant="flush"
           className="max-w-none"
           title="How I built this site"
           description="The short version: a real design system as the foundation, AI tools doing what they do well on execution, and a carbon-based life form reviewing and directing every step."
-          image={{
-            src: '/images/avatar-dark.png',
-            width: 576,
-            height: 576,
-            unoptimized: true,
-          }}
-          href="/builds"
-        />
-        <Card
-          variant="flush"
-          className="max-w-none"
-          title="Employee recognition platform I designed that became a McKinsey tradition"
-          description="How to improve morale? Make gratitude contagious with an annual week-long Thank-a-thon that generates tens of thousands of thank you messages and hundreds of thousands of page views across the globe."
-          image={{
-            src: '/images/og.png',
-            width: 1200,
-            height: 630,
-          }}
-          href="/resume"
-        />
-        <Card
-          variant="flush"
-          className="max-w-none"
-          title="Fetch: An Editorial Intelligence Dashboard"
-          description="An analytics tool centered on the content users are familiar with instead of just tons of charts."
-          image={{
-            src: '/images/avatar-333333.png',
-            width: 576,
-            height: 576,
-            unoptimized: true,
-          }}
-          tags={['analytics', 'interactive demo']}
-          href="/"
+          image={siteImage}
+          href="/builds/how-i-built-this-site"
         />
       </div>
     </div>

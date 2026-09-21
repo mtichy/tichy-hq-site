@@ -109,7 +109,7 @@ function Layout() {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           <FamilyCard
             name="Marketing"
-            shell="px-6, 1224 canvas. Hero py-16 / lg:pb-column. Journey pt-16 pb-40 / lg:pt-32. Footer py-column."
+            shell="px-6, 1224 canvas. Hero py-16 / lg:pb-column. Projects py-16 / lg:pb-32. Journey pt-16 pb-40 / lg:pt-32. Footer py-column."
             stack="gap-16 hero; space-y-6 journey; footer gap-6"
             routes="Home (/)"
           />

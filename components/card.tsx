@@ -8,6 +8,12 @@ import {
 export type CardImage = {
   src: string
   /**
+   * Optional dark-theme art. When set, `src` is light-only (`dark:hidden`)
+   * and this file shows in `.dark`. Use when the light asset would blend
+   * into the page or card face.
+   */
+  srcDark?: string
+  /**
    * Decorative by default when the card title already names the link.
    * Pass a meaningful alt only when the image itself conveys unique info.
    */
@@ -20,6 +26,11 @@ export type CardImage = {
   unoptimized?: boolean
   /** Mark as LCP candidate on a landing grid */
   priority?: boolean
+  /**
+   * Open Graph / Twitter image when `src` is the contrast-optimized
+   * light-page asset rather than the canonical share art.
+   */
+  ogSrc?: string
 }
 
 export type CardVariant = 'raised' | 'flush'
@@ -130,12 +141,27 @@ export function Card({
             height={image.height ?? 428}
             className={cn(
               'h-full w-full object-cover',
+              image.srcDark && 'absolute inset-0 dark:hidden',
               image.unoptimized && '[image-rendering:pixelated]',
             )}
             sizes="(max-width: 640px) 100vw, 380px"
             unoptimized={image.unoptimized}
             priority={image.priority}
           />
+          {image.srcDark ? (
+            <Image
+              src={image.srcDark}
+              alt=""
+              width={image.width ?? 760}
+              height={image.height ?? 428}
+              className={cn(
+                'absolute inset-0 hidden h-full w-full object-cover dark:block',
+                image.unoptimized && '[image-rendering:pixelated]',
+              )}
+              sizes="(max-width: 640px) 100vw, 380px"
+              unoptimized={image.unoptimized}
+            />
+          ) : null}
           {isFlush ? (
             <div
               aria-hidden
