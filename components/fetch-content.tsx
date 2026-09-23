@@ -35,7 +35,8 @@ export function FetchContent() {
           },
           {
             label: 'Team',
-            value: 'Solo build; later adopted by an internal AI hackathon team',
+            value:
+              'Solo build; later adopted by an internal AI hackathon team I led',
           },
           {
             label: 'Skills',
@@ -138,26 +139,30 @@ export function FetchContent() {
           product exists to remove.
         </p>
         <p className="text-pretty">
-          Search. The first nav had Home, Search, and Ask. Search and Ask were
-          answering the same question at different levels of specificity, so
-          Search came out and Ask took the whole job. Typing &ldquo;Dana&rdquo;
-          and typing &ldquo;how did Dana do last month&rdquo; now land in the
-          same input.
+          <strong className="font-bold">Search.</strong> The first nav had Home,
+          Search, and Ask. Search and Ask were answering the same question at
+          different levels of specificity, so Search came out and Ask took the
+          whole job. Typing &ldquo;Dana&rdquo; and typing &ldquo;how did Dana do
+          last month&rdquo; now land in the same input.
         </p>
         <p className="text-pretty">
-          The filter row under the author view. Planning put Author, Topic, and
-          Date range directly below an author&apos;s own stories. That is the
-          query builder again, only smaller, and it competes with the default
-          the page just personalized. It became a single &ldquo;Explore all
-          content&rdquo; link. The filters still exist, they are one step
-          further away, which is where an escape hatch belongs.
+          <strong className="font-bold">
+            The filter row under the author view.
+          </strong>{' '}
+          Planning put Author, Topic, and Date range directly below an
+          author&apos;s own stories. That is the query builder again, only
+          smaller, and it competes with the default the page just personalized.
+          It became a single &ldquo;Explore all content&rdquo; link. The filters
+          still exist, they are one step further away, which is where an escape
+          hatch belongs.
         </p>
         <p className="text-pretty">
-          A permanent Reset. The editor filters were drawn with a Reset control
-          always visible. With three dropdowns resting at &ldquo;All
-          topics,&rdquo; &ldquo;All authors,&rdquo; and &ldquo;All time,&rdquo;
-          there is usually nothing to reset. &ldquo;Clear filters&rdquo; now
-          appears only once a filter is set.
+          <strong className="font-bold">A permanent Reset.</strong> The editor
+          filters were drawn with a Reset control always visible. With three
+          dropdowns resting at &ldquo;All topics,&rdquo; &ldquo;All
+          authors,&rdquo; and &ldquo;All time,&rdquo; there is usually nothing
+          to reset. &ldquo;Clear filters&rdquo; now appears only once a filter
+          is set.
         </p>
       </section>
 
@@ -193,8 +198,14 @@ export function FetchContent() {
             </li>
           </ul>
           <p>
-            <Link href={DEMO_BASE} className={controlButtonClassName}>
-              Enter the demo →
+            <Link
+              href={DEMO_BASE}
+              className={cn(
+                controlButtonClassName,
+                'px-3 py-2 text-regular leading-regular',
+              )}
+            >
+              Open the interactive demo →
             </Link>
           </p>
         </div>

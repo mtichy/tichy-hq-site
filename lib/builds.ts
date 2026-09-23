@@ -33,9 +33,10 @@ export const buildProjects: readonly BuildProject[] = [
     ctaLabel: 'View project →',
     image: {
       src: '/images/builds-fetch.png',
-      width: 760,
-      height: 428,
-      unoptimized: true,
+      srcDark: '/images/builds-fetch-dark.png',
+      width: 1024,
+      height: 576,
+      quality: 90,
     },
   },
   {

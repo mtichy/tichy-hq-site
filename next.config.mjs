@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    // Next 16 only allows listed qualities; 95 was rejected and fell back to 75.
+    qualities: [75, 90, 95],
+  },
   async redirects() {
     const defaultStorybook =
       '/storybook?path=/story/foundations-colors--palette'

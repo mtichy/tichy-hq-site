@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useEffect, useId, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { controlButtonClassName } from '@/components/hyperlink'
 import { cn } from '@/lib/utils'
 
@@ -94,47 +95,50 @@ export function ExpandableImage({
         </figcaption>
       ) : null}
 
-      {open ? (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={titleId}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 p-3 sm:p-6"
-          onClick={() => setOpen(false)}
-        >
-          <p id={titleId} className="sr-only">
-            {alt}
-          </p>
-          <button
-            ref={closeRef}
-            type="button"
-            className={cn(
-              controlButtonClassName,
-              'absolute top-4 right-4 z-10',
-            )}
-            onClick={() => setOpen(false)}
-          >
-            Close
-          </button>
-          <div
-            className="max-h-[90vh] w-full max-w-[min(100%,96rem)] overflow-auto overscroll-contain"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/*
-              On small screens, render wider than the viewport so the diagram
-              stays readable and can be panned; desktop fits to height.
-            */}
-            <Image
-              src={src}
-              alt=""
-              width={width}
-              height={height}
-              className="mx-auto h-auto w-[min(200vw,80rem)] max-w-none object-contain sm:w-auto sm:max-h-[85vh]"
-              unoptimized
-            />
-          </div>
-        </div>
-      ) : null}
+      {open
+        ? createPortal(
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={titleId}
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-background/90 p-3 sm:p-6"
+              onClick={() => setOpen(false)}
+            >
+              <p id={titleId} className="sr-only">
+                {alt}
+              </p>
+              <button
+                ref={closeRef}
+                type="button"
+                className={cn(
+                  controlButtonClassName,
+                  'absolute top-4 right-4 z-10',
+                )}
+                onClick={() => setOpen(false)}
+              >
+                Close
+              </button>
+              <div
+                className="flex max-h-[90vh] w-full max-w-[min(100%,96rem)] items-center justify-center overflow-auto overscroll-contain"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/*
+                  Small screens: wider than the viewport so dense diagrams stay
+                  readable and can be panned. Desktop: fit the full image in view.
+                */}
+                <Image
+                  src={src}
+                  alt=""
+                  width={width}
+                  height={height}
+                  className="h-auto object-contain max-sm:w-[min(200vw,80rem)] max-sm:max-w-none sm:max-h-[85vh] sm:w-full"
+                  unoptimized
+                />
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
     </figure>
   )
 }

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { BreakoutBox } from '@/components/breakout-box'
 import { controlButtonClassName } from '@/components/hyperlink'
 import { PublishingAdmin } from '@/components/publishing-admin'
@@ -11,19 +10,6 @@ import { cn } from '@/lib/utils'
 export function PublishingAdminContent() {
   return (
     <div className="flex w-full flex-col gap-16">
-      <div className="overflow-hidden rounded-md bg-muted">
-        <Image
-          src="/images/builds-publishing-admin-hero.png"
-          alt="Three views of the article-creation admin: hero details, media uploads, and authors and contributors"
-          width={1024}
-          height={537}
-          className="h-auto w-full"
-          sizes="(max-width: 808px) 100vw, 808px"
-          priority
-          unoptimized
-        />
-      </div>
-
       <header className="flex max-w-[65ch] flex-col gap-6">
         <h1 className="text-mega font-bold leading-mega text-balance text-foreground">
           The admin panel is the product
@@ -44,7 +30,7 @@ export function PublishingAdminContent() {
           {
             label: 'Role',
             value:
-              'Lead designer for the publishing and configuration surfaces',
+              'Lead designer for the front end, publishing, and configuration surfaces',
           },
           {
             label: 'Team',

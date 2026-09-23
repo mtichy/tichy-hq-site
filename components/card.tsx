@@ -22,6 +22,13 @@ export type CardImage = {
   width?: number
   /** Intrinsic height for next/image; defaults to 428 */
   height?: number
+  /**
+   * How the art fills the frame. `cover` (default) crops to fill;
+   * `contain` letterboxes so nothing is clipped.
+   */
+  fit?: 'cover' | 'contain'
+  /** next/image quality 1–100. Default 90 so UI screenshots stay sharp. */
+  quality?: number
   /** Skip optimization for pixel art / already-sized assets */
   unoptimized?: boolean
   /** Mark as LCP candidate on a landing grid */
@@ -71,6 +78,11 @@ export function Card({
   const isFlush = variant === 'flush'
   const titleClass = isFlush ? 'text-foreground' : 'text-card-foreground'
   const tagClass = isFlush ? 'text-foreground' : 'text-card-foreground'
+  const fillWell = image.fit === 'cover' || image.fit === 'contain'
+  const imageFitClass =
+    image.fit === 'contain' ? 'object-contain' : 'object-cover'
+  const imageWidth = image.width ?? 760
+  const imageHeight = image.height ?? 428
 
   return (
     <article
@@ -127,24 +139,27 @@ export function Card({
               ),
         )}
       >
-        {/* Figma image frame 380×214 */}
+        {/* Default: image sets the well (no object-fit crop). Cover/contain still use a 16×9 well. */}
         <div
           className={cn(
-            'relative aspect-[380/214] w-full shrink-0 bg-muted',
-            isFlush && 'overflow-hidden rounded-md',
+            'relative w-full shrink-0 overflow-hidden bg-muted',
+            fillWell && 'aspect-video',
+            isFlush && 'rounded-md',
           )}
         >
           <Image
             src={image.src}
             alt={image.alt ?? ''}
-            width={image.width ?? 760}
-            height={image.height ?? 428}
+            {...(fillWell
+              ? { fill: true }
+              : { width: imageWidth, height: imageHeight })}
             className={cn(
-              'h-full w-full object-cover',
-              image.srcDark && 'absolute inset-0 dark:hidden',
+              fillWell ? imageFitClass : 'h-auto w-full',
+              image.srcDark && 'dark:hidden',
               image.unoptimized && '[image-rendering:pixelated]',
             )}
-            sizes="(max-width: 640px) 100vw, 380px"
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 392px"
+            quality={image.quality ?? 75}
             unoptimized={image.unoptimized}
             priority={image.priority}
           />
@@ -152,13 +167,16 @@ export function Card({
             <Image
               src={image.srcDark}
               alt=""
-              width={image.width ?? 760}
-              height={image.height ?? 428}
+              {...(fillWell
+                ? { fill: true }
+                : { width: imageWidth, height: imageHeight })}
               className={cn(
-                'absolute inset-0 hidden h-full w-full object-cover dark:block',
+                'hidden dark:block',
+                fillWell ? imageFitClass : 'h-auto w-full',
                 image.unoptimized && '[image-rendering:pixelated]',
               )}
-              sizes="(max-width: 640px) 100vw, 380px"
+              sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 392px"
+              quality={image.quality ?? 75}
               unoptimized={image.unoptimized}
             />
           ) : null}
